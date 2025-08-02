@@ -27,7 +27,7 @@ namespace app
 		m_CameraSwitchToggle(true),
 		m_MainCamera(nullptr),
 #ifdef USE_VIEWER_CAMERA
-		m_ViewCamera(std::make_shared<camera::CViewerCamera>()),
+		m_ViewCamera(std::make_shared<camera::CViewerCamera>(glm::vec3(0.0f, 27.0f, 76.0f), glm::vec3(0.0f, 25.0f, 90.0f), glm::vec3(0.0f, 1.0f, 0.0f))),
 #else
 		m_ViewCamera(std::make_shared<camera::CCamera>()),
 #endif // USE_VIEWER_CAMERA
@@ -41,7 +41,6 @@ namespace app
 		m_TimelineController(std::make_shared<timeline::CTimelineController>()),
 		m_PostProcess(std::make_shared<graphics::CPostProcess>("MainResultPass"))
 	{
-		m_ViewCamera->SetPos(glm::vec3(-7.0f, 1.0f, 0.0f));
 		m_MainCamera = m_ViewCamera;
 
 		m_DrawInfo->GetLightCamera()->SetPos(glm::vec3(-2.358f, 15.6f, -0.59f));
