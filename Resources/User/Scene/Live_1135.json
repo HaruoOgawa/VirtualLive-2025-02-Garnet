@@ -59,6 +59,13 @@
     },
     "objects": [
         {
+            "name": "simple_live_stage",
+            "filename": "Resources\\User\\Stage\\simple_live_stage\\stage.pmx",
+            "defaultmaterialframes": [
+                "basic_toon_mat"
+            ]
+        },
+        {
             "name": "ookamimio",
             "filename": "Resources/User\\Avatar\\ookamimio\\ookamimio_new2021_short.pmx",
             "defaultmaterialframes": [
