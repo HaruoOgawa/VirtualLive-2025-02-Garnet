@@ -27,7 +27,7 @@ namespace app
 		m_CameraSwitchToggle(true),
 		m_MainCamera(nullptr),
 #ifdef USE_VIEWER_CAMERA
-		m_ViewCamera(std::make_shared<camera::CViewerCamera>(glm::vec3(0.0f, 27.0f, 76.0f), glm::vec3(0.0f, 25.0f, 90.0f), glm::vec3(0.0f, 1.0f, 0.0f))),
+		m_ViewCamera(std::make_shared<camera::CViewerCamera>(glm::vec3(0.0f, 2.0f, 45.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f))),
 #else
 		m_ViewCamera(std::make_shared<camera::CCamera>()),
 #endif // USE_VIEWER_CAMERA
