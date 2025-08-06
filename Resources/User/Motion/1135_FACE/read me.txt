@@ -1,0 +1,18 @@
+〇０フレームから読み込んでください。公式音源に合わせていますので1735フレームから表情開始です。公式配布モーションはそこから読み込んでください。
+
+〇改変、編集、等問題ありませんがオリジナルの再配布は禁止です。
+
+〇クレジットを記載してください。
+
+〇このモーションを使用して発生したいかなる損害についても作者は一切の責任を負わないものとしますのでご了承ください。
+
+
+〇Please load from frame 0.The facial expressions start from frame 1735 as it is based on the official sound source. Please read the official distribution motion from there.
+
+〇Modifications, editing, etc. are permitted, but redistribution of the original is prohibited.
+
+〇Please include credits.
+
+〇Please note that the author bears no responsibility for any damages incurred from the use of this motion.
+
+Dekopon
