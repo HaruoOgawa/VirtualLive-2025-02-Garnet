@@ -168,7 +168,8 @@
                 "basic_toon_mat"
             ],
             "renderpasslist": [
-                "MainGeometryPass"
+                "MainGeometryPass",
+                "ShadowPass"
             ],
             "animation": {
                 "blendshapes": [
@@ -14654,7 +14655,8 @@
                 "basic_toon_mat"
             ],
             "renderpasslist": [
-                "MainGeometryPass"
+                "MainGeometryPass",
+                "ShadowPass"
             ],
             "animation": {
                 "blendshapes": [
@@ -18508,7 +18510,8 @@
                 "basic_toon_mat"
             ],
             "renderpasslist": [
-                "MainGeometryPass"
+                "MainGeometryPass",
+                "ShadowPass"
             ],
             "animation": {
                 "blendshapes": [

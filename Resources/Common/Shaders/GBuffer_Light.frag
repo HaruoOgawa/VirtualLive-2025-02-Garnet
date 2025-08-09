@@ -19,11 +19,11 @@ layout(binding = 1) uniform LightUniformBuffer{
 
 	float height; // ライトの有効範囲
 	float mipCount;
-	float fPad1;
-	float fPad2;
+	float ShadowMapX;
+	float ShadowMapY;
 
 	int useIBL;
-	int iPad0;
+	int useShadowMap;
 	int iPad1;
 	int iPad2;
 
@@ -42,6 +42,7 @@ layout(binding = 10) uniform sampler2D gCustomParam0Texture;
 layout(binding = 12) uniform sampler2D IBL_Diffuse_Texture;
 layout(binding = 14) uniform sampler2D IBL_Specular_Texture;
 layout(binding = 16) uniform sampler2D IBL_GGXLUT_Texture;
+layout(binding = 18) uniform sampler2D shadowmapTexture;
 #else
 layout(binding = 2) uniform texture2D gPositionTexture;
 layout(binding = 3) uniform sampler gPositionTextureSampler;
@@ -59,6 +60,8 @@ layout(binding = 14) uniform texture2D IBL_Specular_Texture;
 layout(binding = 15) uniform sampler IBL_Specular_TextureSampler;
 layout(binding = 16) uniform texture2D IBL_GGXLUT_Texture;
 layout(binding = 17) uniform sampler IBL_GGXLUT_TextureSampler;
+layout(binding = 18) uniform texture2D shadowmapTexture;
+layout(binding = 19) uniform sampler shadowmapTextureSampler;
 #endif
 
 struct GBufferResult
@@ -260,6 +263,110 @@ vec4 SRGBtoLINEAR(vec4 srgbIn)
 vec4 LINEARtoSRGB(vec4 srgbIn)
 {
 	return vec4(pow(srgbIn.xyz, vec3(1.0 / 2.2)), srgbIn.a);
+}
+
+float linstep(float min, float max, float v)
+{
+	return clamp((v - min) / (max - min), 0.0, 1.0);
+}
+
+float ReduceLightBleeding(float p_max, float Amount)
+{
+	return linstep(Amount, 1.0, p_max);
+}
+
+vec2 ComputePCF(vec2 uv)
+{
+	vec2 moments = vec2(0.0);
+
+	vec2 texelSize = vec2(1.0 / l_ubo.ShadowMapX, 1.0 / l_ubo.ShadowMapY);
+
+	/*for(float x = -1.0; x <= 1.0; x++)
+	{
+		for(float y = -1.0; y <= 1.0; y++)
+		{
+			#ifdef USE_OPENGL
+			moments += texture(shadowmapTexture, uv + vec2(x, y) * texelSize).rg;
+			#else
+			moments += texture(sampler2D(shadowmapTexture, shadowmapTextureSampler), uv + vec2(x, y) * texelSize).rg;
+			#endif
+		}
+	}*/
+
+	#ifdef USE_OPENGL
+	moments += texture(shadowmapTexture, uv + vec2(-1.0, -1.0) * texelSize).rg;
+	moments += texture(shadowmapTexture, uv + vec2(-1.0, 0.0) * texelSize).rg;
+	moments += texture(shadowmapTexture, uv + vec2(-1.0, 1.0) * texelSize).rg;
+	moments += texture(shadowmapTexture, uv + vec2(0.0, -1.0) * texelSize).rg;
+	moments += texture(shadowmapTexture, uv + vec2(0.0, 0.0) * texelSize).rg;
+	moments += texture(shadowmapTexture, uv + vec2(0.0, 1.0) * texelSize).rg;
+	moments += texture(shadowmapTexture, uv + vec2(1.0, -1.0) * texelSize).rg;
+	moments += texture(shadowmapTexture, uv + vec2(1.0, 0.0) * texelSize).rg;
+	moments += texture(shadowmapTexture, uv + vec2(1.0, 1.0) * texelSize).rg;
+	#else
+	moments += texture(sampler2D(shadowmapTexture, shadowmapTextureSampler), uv + vec2(-1.0, -1.0) * texelSize).rg;
+	moments += texture(sampler2D(shadowmapTexture, shadowmapTextureSampler), uv + vec2(-1.0, 0.0) * texelSize).rg;
+	moments += texture(sampler2D(shadowmapTexture, shadowmapTextureSampler), uv + vec2(-1.0, 1.0) * texelSize).rg;
+	moments += texture(sampler2D(shadowmapTexture, shadowmapTextureSampler), uv + vec2(0.0, -1.0) * texelSize).rg;
+	moments += texture(sampler2D(shadowmapTexture, shadowmapTextureSampler), uv + vec2(0.0, 0.0) * texelSize).rg;
+	moments += texture(sampler2D(shadowmapTexture, shadowmapTextureSampler), uv + vec2(0.0, 1.0) * texelSize).rg;
+	moments += texture(sampler2D(shadowmapTexture, shadowmapTextureSampler), uv + vec2(1.0, -1.0) * texelSize).rg;
+	moments += texture(sampler2D(shadowmapTexture, shadowmapTextureSampler), uv + vec2(1.0, 0.0) * texelSize).rg;
+	moments += texture(sampler2D(shadowmapTexture, shadowmapTextureSampler), uv + vec2(1.0, 1.0) * texelSize).rg;
+	#endif
+
+	moments /= 9.0;
+
+	#ifdef USE_OPENGL
+	//moments = texture(shadowmapTexture, uv).rg;
+	#else
+	//moments = texture(sampler2D(shadowmapTexture, shadowmapTextureSampler), uv ).rg;
+	#endif
+
+	return moments;
+}
+
+float CalcShadow(vec3 lsp, vec3 nomral, vec3 lightDir)
+{
+	vec2 moments = ComputePCF(lsp.xy);
+
+	#ifndef USE_OPENGL
+	// Vulkan・WebGPUではDepthBufferの値が-1.0 ~ 1.0になっているので0.0 ~ 1.0に補正する
+	moments = moments * 0.5 + 0.5;
+	#endif
+
+	// マッハバンド対策のShadow Bias
+	// ShadowBiasとは深度のオフセットのこと
+	// マッハバンドはShawMapの解像度により発生する。複数のフラグメントが光源から比較的離れている場合、深度マップから同じ値をサンプリングする可能性がある。
+	// 光の入射角がオクルーダーの法線に対して斜めなとき、上記の理由から例えば少し深度が大きい隣の表面の深度をサンプリングしてしまい、結果ShadowMapの元の深度より大ききなってしまうことで縞々になる(大きいということは影になる, 黒色)
+	// その対策でオクルーダーをほんの少しだけ手前にする。手前にすることでShadowmapよりも深度が小さくなるため影になりにくくなる
+	// https://drive.google.com/file/d/1tyDT7xQVSYzKnZXt6vvDwt-rlWEjVGDP/view?usp=sharing
+	// 床の法線とライト方向の成す角度が垂直になるほど、Biasを強くする
+	// https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping
+	float ShadowBias = max(0.0, 0.001 * (1.0 - dot(nomral, lightDir)) );
+
+	float distance = lsp.z - ShadowBias;
+
+	// ShadowMapの深度よりも手前なので普通に描画する
+	if(distance <= moments.x)
+	{
+		return 1.0;
+	}
+	
+	return 0.1;
+
+	/*// 後ろなので影にする
+	// バリアンスの計算
+	float variance = moments.y - (moments.x * moments.x);
+	variance = max(0.005, variance);
+
+	float d = distance - moments.x;
+	float p_max = variance / (variance + d * d);
+
+	// 本来影になるところに光がにじんでいるようなアーティファクトが出ることがあるのでその対策
+	//p_max = ReduceLightBleeding(0.1, p_max);
+
+	return p_max;*/
 }
 
 vec2 GetSphericalTexcoord(vec3 Dir)
@@ -481,6 +588,28 @@ vec3 ComputeLight(GBufferResult gResult, LightParam light)
 
 	// カラースペースをリニアにする
 	col = pow(col, vec3(1.0/2.2));
+
+	// Shadow
+	// LightSpaceScreenPos
+	if(l_ubo.useShadowMap != 0)
+	{
+		// https://qiita.com/Haru86_/items/d563ce1f65cf55e547a3
+		// 正規化デバイス座標(NDC)に変換する
+		vec3 lsp = v2f_ProjPos.xyz / v2f_ProjPos.w;
+		// スクリーンUVとデプスを取り出す
+		lsp = lsp * 0.5 + 0.5;
+		
+		float shadowCol = 1.0;
+
+		bool outSide = (lsp.x < 0.0 || lsp.y < 0.0 || lsp.z < 0.0) || (lsp.x > 1.0 || lsp.y > 1.0 || lsp.z > 1.0);
+
+		if(!outSide)
+		{
+			shadowCol = CalcShadow(lsp, n, l);
+		}
+
+		col.rgb *= shadowCol;
+	}
 
     return col;
 }

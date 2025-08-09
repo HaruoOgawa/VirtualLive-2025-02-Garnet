@@ -146,7 +146,7 @@
               }
             },
             {
-              "name": "fPad1",
+              "name": "ShadowMapX",
               "type": "float",
               "initValue": [ 1.0 ],
               "input": {
@@ -154,7 +154,7 @@
               }
             },
             {
-              "name": "fPad2",
+              "name": "ShadowMapY",
               "type": "float",
               "initValue": [ 1.0 ],
               "input": {
@@ -170,7 +170,7 @@
               }
             },
             {
-              "name": "iPad0",
+              "name": "useShadowMap",
               "type": "int",
               "initValue": [ 0 ],
               "input": {
@@ -290,6 +290,14 @@
           "textureIndex": -1,
           "type": "texture",
           "textureUsage": "ggx"
+        },
+        {
+          "name": "shadowmapTexture",
+          "viewBinding": 18,
+          "samplerBinding": 19,
+          "textureIndex": -1,
+          "type": "texture",
+          "textureUsage": "frame"
         }
       ]
     }
