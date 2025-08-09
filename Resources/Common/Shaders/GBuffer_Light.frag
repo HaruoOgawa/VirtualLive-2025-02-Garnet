@@ -18,9 +18,14 @@ layout(binding = 1) uniform LightUniformBuffer{
     float angle; // ライトの有効範囲
 
 	float height; // ライトの有効範囲
-	float fPad0;
+	float mipCount;
 	float fPad1;
 	float fPad2;
+
+	int useIBL;
+	int iPad0;
+	int iPad1;
+	int iPad2;
 
     vec4 dir;
     vec4 pos;
@@ -34,6 +39,9 @@ layout(binding = 4) uniform sampler2D gNormalTexture;
 layout(binding = 6) uniform sampler2D gAlbedoTexture;
 layout(binding = 8) uniform sampler2D gDepthTexture;
 layout(binding = 10) uniform sampler2D gCustomParam0Texture;
+layout(binding = 12) uniform sampler2D IBL_Diffuse_Texture;
+layout(binding = 14) uniform sampler2D IBL_Specular_Texture;
+layout(binding = 16) uniform sampler2D IBL_GGXLUT_Texture;
 #else
 layout(binding = 2) uniform texture2D gPositionTexture;
 layout(binding = 3) uniform sampler gPositionTextureSampler;
@@ -45,6 +53,12 @@ layout(binding = 8) uniform texture2D gDepthTexture;
 layout(binding = 9) uniform sampler gDepthTextureSampler;
 layout(binding = 10) uniform texture2D gCustomParam0Texture;
 layout(binding = 11) uniform sampler gCustomParam0TextureSampler;
+layout(binding = 12) uniform texture2D IBL_Diffuse_Texture;
+layout(binding = 13) uniform sampler IBL_Diffuse_TextureSampler;
+layout(binding = 14) uniform texture2D IBL_Specular_Texture;
+layout(binding = 15) uniform sampler IBL_Specular_TextureSampler;
+layout(binding = 16) uniform texture2D IBL_GGXLUT_Texture;
+layout(binding = 17) uniform sampler IBL_GGXLUT_TextureSampler;
 #endif
 
 struct GBufferResult
@@ -233,6 +247,33 @@ struct PBRParam
 	vec3 specularColor;
 };
 
+// Lenearは光学に則した色空間(現実の光の仕組み
+// sRGBはモニターに使われる色空間で人間の色の知覚に則している
+// LinearよりsRGBの方が明るい
+// https://www.willgibbons.com/linear-workflow/#:~:text=sRGB%20is%20a%20non%2Dlinear,curve%20applied%20to%20the%20brightness.
+// https://lettier.github.io/3d-game-shaders-for-beginners/gamma-correction.html
+vec4 SRGBtoLINEAR(vec4 srgbIn)
+{
+	return vec4(pow(srgbIn.xyz, vec3(2.2)), srgbIn.a);
+}
+
+vec4 LINEARtoSRGB(vec4 srgbIn)
+{
+	return vec4(pow(srgbIn.xyz, vec3(1.0 / 2.2)), srgbIn.a);
+}
+
+vec2 GetSphericalTexcoord(vec3 Dir)
+{
+	float pi = 3.1415;
+
+	float theta = acos(Dir.y);
+	float phi = atan(Dir.z, Dir.x);
+
+	vec2 st = vec2(phi / (2.0 * pi), theta / pi);
+
+	return st;
+}
+
 // マイクロファセット(微小面法線分布関数)(Microfacet Distribution). Distributionは分布に意味
 // 分布関数なので統計学的に求められた数式
 // マイクロファセットの面積を返す
@@ -297,6 +338,29 @@ vec3 CalcDiffuseBRDF(PBRParam param)
 
 	return param.diffuseColor * oneminus;
 	// return param.diffuseColor / PI;
+}
+
+// IBL
+vec3 ComputeIBL(PBRParam pbrParam, vec3 v, vec3 n) 
+{
+	float mipCount = l_ubo.mipCount;
+	float lod = mipCount * pbrParam.perceptualRoughness;
+
+	#ifdef USE_OPENGL
+	vec3 brdf = SRGBtoLINEAR(texture(IBL_GGXLUT_Texture, vec2(pbrParam.NdotV, 1.0 - pbrParam.perceptualRoughness))).rgb;
+	vec3 diffuseLight = SRGBtoLINEAR(texture(IBL_Diffuse_Texture, GetSphericalTexcoord(n))).rgb;
+	vec3 specularLight = SRGBtoLINEAR(textureLod(IBL_Specular_Texture, GetSphericalTexcoord(reflect(v, n)), lod)).rgb;
+	#else
+	vec3 brdf = SRGBtoLINEAR(texture(sampler2D(IBL_GGXLUT_Texture, IBL_GGXLUT_TextureSampler), vec2(pbrParam.NdotV, 1.0 - pbrParam.perceptualRoughness))).rgb;
+	vec3 diffuseLight = SRGBtoLINEAR(texture(sampler2D(IBL_Diffuse_Texture, IBL_Diffuse_TextureSampler), GetSphericalTexcoord(n))).rgb;
+	vec3 specularLight = SRGBtoLINEAR(textureLod(sampler2D(IBL_Specular_Texture, IBL_Specular_TextureSampler), GetSphericalTexcoord(reflect(v, n)), lod)).rgb;
+	#endif
+
+	// 
+	vec3 diffuse = diffuseLight * pbrParam.diffuseColor;
+	vec3 specular = specularLight * (pbrParam.specularColor * brdf.x + brdf.y);
+
+	return specular;
 }
 
 vec3 ComputeLight(GBufferResult gResult, LightParam light)
@@ -408,6 +472,12 @@ vec3 ComputeLight(GBufferResult gResult, LightParam light)
 	}
 
     col *= light.attenuation;
+
+	if(l_ubo.type == 1.0 && l_ubo.useIBL != 0)
+	{
+		// IBL
+		col.rgb += ComputeIBL(pbrParam, v, n);
+	}
 
 	// カラースペースをリニアにする
 	col = pow(col, vec3(1.0/2.2));
