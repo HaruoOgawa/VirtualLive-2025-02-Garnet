@@ -13,8 +13,20 @@ layout(location = 2) out vec4 gAlbedo;
 layout(location = 3) out vec4 gDepth;
 layout(location = 4) out vec4 gCustomParam0;
 
-layout(binding = 2) uniform FragUniformBuffer{
-	vec4 baseColorFactor;
+layout(binding = 0) uniform UniformBufferObject{
+    // Vertex
+	mat4 model;
+    mat4 view;
+    mat4 proj;
+    mat4 lightVPMat;
+
+    int   useSkinMeshAnimation;
+    int   pad0;
+    int   pad1;
+    int   pad2;
+
+    // Fragment
+    vec4 baseColorFactor;
 	
     float metallicFactor;
     float roughnessFactor;
@@ -25,7 +37,7 @@ layout(binding = 2) uniform FragUniformBuffer{
     int   useMetallicRoughnessTexture;
     int   useNormalTexture;
 	float   materialType;
-} f_ubo;
+} ubo;
 
 #ifdef USE_OPENGL
 layout(binding = 3) uniform sampler2D baseColorTexture;
@@ -43,7 +55,7 @@ layout(binding = 8) uniform sampler normalTextureSampler;
 vec4 GetBaseColor()
 {
 	vec4 baseColor;
-	if(f_ubo.useBaseColorTexture != 0)
+	if(ubo.useBaseColorTexture != 0)
 	{
 		#ifdef USE_OPENGL
 		baseColor = texture(baseColorTexture, f_Texcoord);
@@ -53,7 +65,7 @@ vec4 GetBaseColor()
 	}
 	else
 	{
-		baseColor = f_ubo.baseColorFactor;
+		baseColor = ubo.baseColorFactor;
 	}
 
 	return baseColor;
@@ -63,7 +75,7 @@ vec3 getNormal()
 {
 	vec3 nomral = vec3(0.0);
 
-	if(f_ubo.useNormalTexture != 0)
+	if(ubo.useNormalTexture != 0)
 	{
 		vec3 t = normalize(f_WorldTangent.xyz);
 		vec3 b = normalize(f_WorldBioTangent.xyz);
@@ -89,10 +101,10 @@ vec3 getNormal()
 
 vec2 GetMetallicRoughness()
 {
-	float perceptualRoughness = f_ubo.roughnessFactor;
-	float metallic = f_ubo.metallicFactor;
+	float perceptualRoughness = ubo.roughnessFactor;
+	float metallic = ubo.metallicFactor;
 
-	if(f_ubo.useMetallicRoughnessTexture != 0)
+	if(ubo.useMetallicRoughnessTexture != 0)
 	{
 		// G Channel: Roughness Map, B Channel: Metallic Map 
 		#ifdef USE_OPENGL
@@ -121,5 +133,5 @@ void main(){
 	gNormal = vec4(normal, 0.0);
 	gAlbedo = baseColor;
 	gDepth = vec4(depth);
-	gCustomParam0 = vec4(f_ubo.materialType, metallicRoughness.r, metallicRoughness.g, 0.0);
+	gCustomParam0 = vec4(ubo.materialType, metallicRoughness.r, metallicRoughness.g, 0.0);
 }

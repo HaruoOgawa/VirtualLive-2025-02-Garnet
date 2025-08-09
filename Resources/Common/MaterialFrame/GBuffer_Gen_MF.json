@@ -10,7 +10,7 @@
       "shaderType": "vertex",
       "uniformBlockList": [
         {
-          "name": "VertUniformBuffer",
+          "name": "UniformBufferObject",
           "binding": 0,
           "isWritable": false,
           "type": "ubo",
@@ -79,43 +79,8 @@
               "input": {
                 "hide": true
               }
-            }
-          ]
-        },
-        {
-          "name": "SkinMatrixBuffer",
-          "binding": 1,
-          "isWritable": false,
-          "type": "ubo",
-          "bufferUpdateType": "cpu",
-          "values": [
-            {
-              "name": "r_SkinMatrixBuffer",
-              "type": "mat4_array",
-              "useInitValue": false,
-              "arraySize": 1024,
-              "input": {
-                "hide": true
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "GBuffer_Gen_frag",
-      "shaderFile": "Resources\\Common\\Shaders\\GBuffer_Gen",
-      "autoShaderExtension": true,
-      "shadercode": "",
-      "shaderType": "fragment",
-      "uniformBlockList": [
-        {
-          "name": "FragUniformBuffer",
-          "binding": 2,
-          "isWritable": false,
-          "type": "ubo",
-          "bufferUpdateType": "cpu",
-          "values": [
+            },
+
             {
               "name": "baseColorFactor",
               "type": "vec4",
@@ -187,6 +152,33 @@
             }
           ]
         },
+        {
+          "name": "SkinMatrixBuffer",
+          "binding": 1,
+          "isWritable": false,
+          "type": "ubo",
+          "bufferUpdateType": "cpu",
+          "values": [
+            {
+              "name": "r_SkinMatrixBuffer",
+              "type": "mat4_array",
+              "useInitValue": false,
+              "arraySize": 1024,
+              "input": {
+                "hide": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "GBuffer_Gen_frag",
+      "shaderFile": "Resources\\Common\\Shaders\\GBuffer_Gen",
+      "autoShaderExtension": true,
+      "shadercode": "",
+      "shaderType": "fragment",
+      "uniformBlockList": [
         {
           "name": "baseColorTexture",
           "viewBinding": 3,

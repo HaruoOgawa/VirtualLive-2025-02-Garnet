@@ -7,7 +7,8 @@ layout(location = 3) in vec4 inTangent;
 layout(location = 4) in uvec4 inJoint0;
 layout(location = 5) in vec4 inWeights0;
 
-layout(binding = 0) uniform VertUniformBuffer{
+layout(binding = 0) uniform UniformBufferObject{
+    // Vertex
 	mat4 model;
     mat4 view;
     mat4 proj;
@@ -17,7 +18,20 @@ layout(binding = 0) uniform VertUniformBuffer{
     int   pad0;
     int   pad1;
     int   pad2;
-} v_ubo;
+
+    // Fragment
+    vec4 baseColorFactor;
+	
+    float metallicFactor;
+    float roughnessFactor;
+	float f_pad0;
+	float f_pad1;
+
+    int   useBaseColorTexture;
+    int   useMetallicRoughnessTexture;
+    int   useNormalTexture;
+	float   materialType;
+} ubo;
 
 layout(binding = 1) uniform SkinMatrixBuffer
 {
@@ -40,7 +54,7 @@ void main(){
     vec3 WorldBioTangent;
 
     // スキンメッシュアニメーション
-    if(v_ubo.useSkinMeshAnimation != 0)
+    if(ubo.useSkinMeshAnimation != 0)
     {
         mat4 SkinMat =
             inWeights0.x * r_SkinMatrixBuffer.SkinMat[inJoint0.x] +
@@ -58,13 +72,13 @@ void main(){
     else
     {
         // 通常の描画
-        WorldPos = v_ubo.model * vec4(inPosition, 1.0);
-        WorldNormal = normalize((v_ubo.model * vec4(inNormal, 0.0)).xyz);
-        WorldTangent = normalize((v_ubo.model * inTangent).xyz);
-        WorldBioTangent = normalize((v_ubo.model * vec4(BioTangent, 0.0)).xyz);
+        WorldPos = ubo.model * vec4(inPosition, 1.0);
+        WorldNormal = normalize((ubo.model * vec4(inNormal, 0.0)).xyz);
+        WorldTangent = normalize((ubo.model * inTangent).xyz);
+        WorldBioTangent = normalize((ubo.model * vec4(BioTangent, 0.0)).xyz);
     }
 
-    vec4 ProjPos = v_ubo.proj * v_ubo.view * WorldPos;
+    vec4 ProjPos = ubo.proj * ubo.view * WorldPos;
 
     gl_Position = ProjPos;
     f_WorldNormal = WorldNormal;

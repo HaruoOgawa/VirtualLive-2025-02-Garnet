@@ -21,81 +21,6 @@
             "filename": "Resources\\Common\\MaterialFrame\\SimpleTexture_MF.json"
         }
     ],
-    "valueregistries": [
-        {
-            "registryname": "DirectionalLight_4956_21033",
-            "values": [
-                {
-                    "name": "color",
-                    "type": "vec4",
-                    "initValue": [
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0
-                    ]
-                },
-                {
-                    "name": "dir",
-                    "type": "vec4",
-                    "initValue": [
-                        2.3580000400543213,
-                        -15.600000381469727,
-                        0.5899999737739563,
-                        0.0
-                    ]
-                },
-                {
-                    "name": "intensity",
-                    "type": "float",
-                    "initValue": [
-                        1.0
-                    ]
-                }
-            ]
-        },
-        {
-            "registryname": "PointLight_28903_31021",
-            "values": [
-                {
-                    "name": "color",
-                    "type": "vec4",
-                    "initValue": [
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0
-                    ]
-                },
-                {
-                    "name": "intensity",
-                    "type": "float",
-                    "initValue": [
-                        1.0
-                    ]
-                }
-            ]
-        },
-        {
-            "registryname": "BloomRegistry",
-            "values": [
-                {
-                    "name": "Intencity",
-                    "type": "float",
-                    "initValue": [
-                        1.5
-                    ]
-                },
-                {
-                    "name": "Threshold",
-                    "type": "float",
-                    "initValue": [
-                        1.0
-                    ]
-                }
-            ]
-        }
-    ],
     "scenetextureset": {
         "frametextures": null
     },
@@ -169,8 +94,7 @@
                     "meshindex": -1,
                     "components": [
                         {
-                            "type": "DirectionalLight",
-                            "valueregistry": "DirectionalLight_4956_21033"
+                            "type": "DirectionalLight"
                         }
                     ]
                 },
@@ -197,8 +121,7 @@
                     "meshindex": -1,
                     "components": [
                         {
-                            "type": "PointLight",
-                            "valueregistry": "PointLight_28903_31021"
+                            "type": "PointLight"
                         }
                     ]
                 }
