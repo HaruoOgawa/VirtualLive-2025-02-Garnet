@@ -138,7 +138,7 @@
               }
             },
             {
-              "name": "fPad0",
+              "name": "mipCount",
               "type": "float",
               "initValue": [ 1.0 ],
               "input": {
@@ -157,6 +157,38 @@
               "name": "fPad2",
               "type": "float",
               "initValue": [ 1.0 ],
+              "input": {
+                "hide": true
+              }
+            },
+            {
+              "name": "useIBL",
+              "type": "int",
+              "initValue": [ 0 ],
+              "input": {
+                "hide": true
+              }
+            },
+            {
+              "name": "iPad0",
+              "type": "int",
+              "initValue": [ 0 ],
+              "input": {
+                "hide": true
+              }
+            },
+            {
+              "name": "iPad1",
+              "type": "int",
+              "initValue": [ 0 ],
+              "input": {
+                "hide": true
+              }
+            },
+            {
+              "name": "iPad2",
+              "type": "int",
+              "initValue": [ 0 ],
               "input": {
                 "hide": true
               }
@@ -234,6 +266,30 @@
           "textureIndex": -1,
           "type": "texture",
           "textureUsage": "frame"
+        },
+        {
+          "name": "IBL_Diffuse_Texture",
+          "viewBinding": 12,
+          "samplerBinding": 13,
+          "textureIndex": -1,
+          "type": "texture",
+          "textureUsage": "diffuse"
+        },
+        {
+          "name": "IBL_Specular_Texture",
+          "viewBinding": 14,
+          "samplerBinding": 15,
+          "textureIndex": -1,
+          "type": "texture",
+          "textureUsage": "specular"
+        },
+        {
+          "name": "IBL_GGXLUT_Texture",
+          "viewBinding": 16,
+          "samplerBinding": 17,
+          "textureIndex": -1,
+          "type": "texture",
+          "textureUsage": "ggx"
         }
       ]
     }
