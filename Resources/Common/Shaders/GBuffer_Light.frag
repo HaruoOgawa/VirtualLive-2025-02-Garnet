@@ -7,7 +7,7 @@ layout(location = 2) in vec4 v2f_WorldPos;
 layout(location = 0) out vec4 outColor;
 
 layout(binding = 1) uniform LightUniformBuffer{
-	mat4 mPad0;
+	mat4 lightVPMat;
 	mat4 mPad1;
 	mat4 mPad2;
 	mat4 mPad3;
@@ -595,7 +595,8 @@ vec3 ComputeLight(GBufferResult gResult, LightParam light)
 	{
 		// https://qiita.com/Haru86_/items/d563ce1f65cf55e547a3
 		// 正規化デバイス座標(NDC)に変換する
-		vec3 lsp = v2f_ProjPos.xyz / v2f_ProjPos.w;
+		vec4 lSpaceProjPos = l_ubo.lightVPMat * vec4(gResult.worldPos.xyz, 1.0);
+		vec3 lsp = lSpaceProjPos.xyz / lSpaceProjPos.w;
 		// スクリーンUVとデプスを取り出す
 		lsp = lsp * 0.5 + 0.5;
 		
