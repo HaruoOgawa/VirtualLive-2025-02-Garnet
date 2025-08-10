@@ -100,7 +100,7 @@
           "bufferUpdateType": "cpu",
           "values": [
             {
-              "name": "mPad0",
+              "name": "lightVPMat",
               "type": "mat4",
               "initValue": [ 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 ],
               "input": {
