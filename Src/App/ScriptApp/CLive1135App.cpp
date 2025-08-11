@@ -451,6 +451,13 @@ namespace app
 			}
 		}
 
+		const auto& Sound = m_SceneController->GetSound();
+		const auto& SoundClip = std::get<0>(Sound);
+		if (SoundClip)
+		{
+			SoundClip->PlayOneShot();
+		}
+
 		return true;
 	}
 
