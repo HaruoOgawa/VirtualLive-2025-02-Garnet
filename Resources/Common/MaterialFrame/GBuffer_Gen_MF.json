@@ -1,6 +1,12 @@
 {
   "name": "GBuffer_Gen",
   "outputcolorcount": 5,
+  "stencil":{
+    "enabled" : true,
+    "value" : 0,
+    "comp" : "always",
+    "pass" : "replace"
+  },
   "shaderList": [
     {
       "name": "GBuffer_Gen_vert",
@@ -57,7 +63,7 @@
               }
             },
             {
-              "name": "pad0",
+              "name": "useSpatialCulling",
               "type": "int",
               "initValue": [ 0 ],
               "input": {
@@ -87,6 +93,14 @@
               "initValue": [ 1.0, 1.0, 1.0, 1.0 ],
               "input": {
                 "type": "color"
+              }
+            },
+            {
+              "name": "spatialCullPos",
+              "type": "vec4",
+              "initValue": [ 0.0, 0.0, 0.0, 0.0 ],
+              "input": {
+                "hide": true
               }
             },
             {
@@ -124,7 +138,6 @@
               "type": "int",
               "initValue": [ 0 ],
               "input": {
-                "hide": true
               }
             },
             {
@@ -132,7 +145,6 @@
               "type": "int",
               "initValue": [ 0 ],
               "input": {
-                "hide": true
               }
             },
             {
@@ -140,7 +152,6 @@
               "type": "int",
               "initValue": [ 0 ],
               "input": {
-                "hide": true
               }
             },
             {

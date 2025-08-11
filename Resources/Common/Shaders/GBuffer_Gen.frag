@@ -21,12 +21,13 @@ layout(binding = 0) uniform UniformBufferObject{
     mat4 lightVPMat;
 
     int   useSkinMeshAnimation;
-    int   pad0;
+    int   useSpatialCulling;
     int   pad1;
     int   pad2;
 
     // Fragment
     vec4 baseColorFactor;
+	vec4 spatialCullPos;
 	
     float metallicFactor;
     float roughnessFactor;
@@ -121,6 +122,14 @@ vec2 GetMetallicRoughness()
 }
 
 void main(){
+	if(ubo.useSpatialCulling == 1)
+	{
+		if(f_WorldPos.y < ubo.spatialCullPos.y)
+		{
+			discard;
+		}
+	}
+
 	vec4 baseColor = GetBaseColor();
 	vec3 normal = getNormal();
 	// float depth = gl_FragCoord.z;

@@ -38,6 +38,12 @@ namespace app
 
 		bool m_CameraSwitchToggle;
 
+		// •½–Ê”½ŽË(Planer Reflection)
+		std::shared_ptr<camera::CCamera>		 m_PRCamera;
+		std::shared_ptr<projection::CProjection> m_PRProjection;
+		glm::mat4								 m_PRPlaneWorldMatrix;
+		glm::vec3								 m_PRPlanePos;
+
 	public:
 		CLive1135App();
 		virtual ~CLive1135App() = default;
