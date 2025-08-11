@@ -39,7 +39,11 @@ namespace app
 #endif // USE_GUIENGINE
 		m_FileModifier(std::make_shared<CFileModifier>()),
 		m_TimelineController(std::make_shared<timeline::CTimelineController>()),
-		m_PostProcess(std::make_shared<graphics::CPostProcess>("MainResultPass"))
+		m_PostProcess(std::make_shared<graphics::CPostProcess>("MainResultPass")),
+		m_PRCamera(std::make_shared<camera::CCamera>()),
+		m_PRProjection(std::make_shared<projection::CProjection>()),
+		m_PRPlaneWorldMatrix(glm::mat4(1.0f)),
+		m_PRPlanePos(glm::vec3(0.0f))
 	{
 		m_MainCamera = m_ViewCamera;
 
@@ -74,20 +78,24 @@ namespace app
 		{
 			graphics::SRenderPassState State = graphics::SRenderPassState(5);
 			State.InitColorList[3] = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+			State.Stencil = true;
 			if (!pGraphicsAPI->CreateRenderPass("GBufferGenPass", api::ERenderPassFormat::COLOR_FLOAT_RENDERPASS, -1, -1, State)) return false;
 		}
 
 		{
 			graphics::SRenderPassState State = graphics::SRenderPassState(1);
+			State.Stencil = true;
 
 			// GBufferパスの深度をフォアグラウンドパスにコピーするので深度は初期化しない
 			State.ClearDepth = false;
+			State.ClearStencil = false;
 
 			if (!pGraphicsAPI->CreateRenderPass("GBufferLightPass", api::ERenderPassFormat::COLOR_FLOAT_RENDERPASS, -1, -1, State)) return false;
 		}
 
 		{
 			graphics::SRenderPassState State = graphics::SRenderPassState(1);
+			State.Stencil = true;
 
 			// GBufferパスの深度をフォアグラウンドパスにコピーするので深度は初期化しない
 			State.ClearColor = false;
@@ -97,8 +105,14 @@ namespace app
 			if (!pGraphicsAPI->CreateRenderPass("MainGeometryPass", api::ERenderPassFormat::COLOR_FLOAT_RENDERPASS, -1, -1, State)) return false;
 		}
 
-		if (!pGraphicsAPI->CreateRenderPass("MainResultPass", api::ERenderPassFormat::COLOR_FLOAT_RENDERPASS, -1, -1)) return false;
+		{
+			graphics::SRenderPassState State = graphics::SRenderPassState(1);
+			State.Stencil = true;
 
+			if (!pGraphicsAPI->CreateRenderPass("MainResultPass", api::ERenderPassFormat::COLOR_FLOAT_RENDERPASS, -1, -1, State)) return false;
+		}
+
+		// ShadomMap
 		{
 			graphics::SRenderPassState PassState{};
 			PassState.ColorBuffer = true; // Shadowなのでいらないけど互換性でいるにしておく(Vulkan, WebGPUでFragmentShaderなしパターンにまだ対応していない)
@@ -109,6 +123,35 @@ namespace app
 			if (!pGraphicsAPI->CreateRenderPass("ShadowPass", api::ERenderPassFormat::COLOR_FLOAT_RENDERPASS, -1, -1, PassState)) return false;
 		}
 
+		// 平面反射(PlanerReflection)用フレームバッファ
+		{
+			{
+				graphics::SRenderPassState State = graphics::SRenderPassState(5);
+				State.InitColorList[3] = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+				if (!pGraphicsAPI->CreateRenderPass("PlanerReflection_GBufferGenPass", api::ERenderPassFormat::COLOR_FLOAT_RENDERPASS, -1, -1, State)) return false;
+			}
+
+			{
+				graphics::SRenderPassState State = graphics::SRenderPassState(1);
+
+				// GBufferパスの深度をフォアグラウンドパスにコピーするので深度は初期化しない
+				State.ClearDepth = false;
+
+				if (!pGraphicsAPI->CreateRenderPass("PlanerReflection_GBufferLightPass", api::ERenderPassFormat::COLOR_FLOAT_RENDERPASS, -1, -1, State)) return false;
+			}
+
+			{
+				graphics::SRenderPassState State = graphics::SRenderPassState(1);
+
+				// GBufferパスの深度をフォアグラウンドパスにコピーするので深度は初期化しない
+				State.ClearColor = false;
+				State.ClearDepth = false;
+				State.ClearStencil = false;
+
+				if (!pGraphicsAPI->CreateRenderPass("PlanerReflection_GeometryPass", api::ERenderPassFormat::COLOR_FLOAT_RENDERPASS, -1, -1, State)) return false;
+			}
+		}
+
 		// ポストプロセス
 		m_PostProcess->SetUseFXAA(true);
 		m_PostProcess->SetUseBloom(true);
@@ -117,11 +160,18 @@ namespace app
 		m_MainFrameRenderer = std::make_shared<graphics::CFrameRenderer>(pGraphicsAPI, "", pGraphicsAPI->FindOffScreenRenderPass("MainResultPass")->GetFrameTextureList());
 		if (!m_MainFrameRenderer->Create(pLoadWorker, "Resources\\Common\\MaterialFrame\\FrameTexture_MF.json")) return false;
 
-		//
+		// ShadowPass Texture
 		const auto& ShadowPass = pGraphicsAPI->FindOffScreenRenderPass("ShadowPass");
 		if (ShadowPass)
 		{
 			m_SceneController->AddFrameTexture(ShadowPass->GetDepthTexture());
+		}
+		
+		// PlanerReflection_GeometryPass Texture
+		const auto& PlanerReflection_GeometryPass = pGraphicsAPI->FindOffScreenRenderPass("PlanerReflection_GeometryPass");
+		if (PlanerReflection_GeometryPass)
+		{
+			m_SceneController->AddFrameTexture(PlanerReflection_GeometryPass->GetFrameTexture());
 		}
 
 		return true;
@@ -135,6 +185,7 @@ namespace app
 	bool CLive1135App::Resize(int Width, int Height)
 	{
 		m_Projection->SetScreenResolution(Width, Height);
+		m_PRProjection->SetScreenResolution(Width, Height);
 
 		m_DrawInfo->GetLightProjection()->SetScreenResolution(Width, Height);
 
@@ -143,6 +194,40 @@ namespace app
 
 	bool CLive1135App::Update(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker, const std::shared_ptr<input::CInputState>& InputState)
 	{
+		// 平面反射用カメラの位置を決定する
+		// メインカメラと反射面がなすViewDirを面対象にした方向
+		{
+			glm::vec3 forwardWorldSpace = m_MainCamera->GetViewDir();
+			glm::vec3 upWorldSpace = m_MainCamera->GetUpVector();
+			glm::vec3 posWorldSpace = m_MainCamera->GetPos();
+			glm::vec3 centerWorldSpace = m_MainCamera->GetCenter();
+
+			// ワールド座標系から反射面座標系に変換
+			glm::mat4 PlaneWorldMatrix = m_PRPlaneWorldMatrix;
+
+			glm::vec3 forwardPlaneSpace = glm::inverse(PlaneWorldMatrix) * glm::vec4(forwardWorldSpace.x, forwardWorldSpace.y, forwardWorldSpace.z, 0.0f);
+			glm::vec3 upPlaneSpace = glm::inverse(PlaneWorldMatrix) * glm::vec4(upWorldSpace.x, upWorldSpace.y, upWorldSpace.z, 0.0f);
+			glm::vec3 posPlaneSpace = glm::inverse(PlaneWorldMatrix) * glm::vec4(posWorldSpace.x, posWorldSpace.y, posWorldSpace.z, 1.0f);
+			glm::vec3 centerPlaneSpace = glm::inverse(PlaneWorldMatrix) * glm::vec4(centerWorldSpace.x, centerWorldSpace.y, centerWorldSpace.z, 1.0f);
+
+			// 面対称な位置に変換
+			forwardPlaneSpace.y *= -1.0f;
+			upPlaneSpace.y *= -1.0f;
+			posPlaneSpace.y *= -1.0f;
+			centerPlaneSpace.y *= -1.0f;
+
+			// 反射面座標系からワールド座標系に戻す
+			forwardWorldSpace = PlaneWorldMatrix * glm::vec4(forwardPlaneSpace.x, forwardPlaneSpace.y, forwardPlaneSpace.z, 0.0f);
+			upWorldSpace = PlaneWorldMatrix * glm::vec4(upPlaneSpace.x, upPlaneSpace.y, upPlaneSpace.z, 0.0f);
+			posWorldSpace = PlaneWorldMatrix * glm::vec4(posPlaneSpace.x, posPlaneSpace.y, posPlaneSpace.z, 1.0f);
+			centerWorldSpace = PlaneWorldMatrix * glm::vec4(centerPlaneSpace.x, centerPlaneSpace.y, centerPlaneSpace.z, 1.0f);
+
+			// 反射カメラに反射ベクトルを反映する
+			m_PRCamera->SetPos(posWorldSpace);
+			m_PRCamera->SetUpVector(upWorldSpace);
+			m_PRCamera->SetCenter(centerWorldSpace);
+		}
+
 		if (!m_FileModifier->Update(pLoadWorker)) return false;
 
 		if (pLoadWorker->IsLoaded())
@@ -197,6 +282,41 @@ namespace app
 			// CameraとProjectionにはライト用の値を使用するように注意する
 			if (!m_SceneController->Draw(pGraphicsAPI, m_DrawInfo->GetLightCamera(), m_DrawInfo->GetLightProjection(), m_DrawInfo)) return false;
 			if (!pGraphicsAPI->EndRender()) return false;
+		}
+
+		// PlanerReflection
+		{
+			m_DrawInfo->SetSpatialCulling(true);
+			m_DrawInfo->SetSpatialCullPos(glm::vec4(m_PRPlanePos.x, m_PRPlanePos.y, m_PRPlanePos.z, 1.0f));
+
+			// PlanerReflection_GBufferGenPass
+			{
+				if (!pGraphicsAPI->BeginRender("PlanerReflection_GBufferGenPass")) return false;
+				if (!m_SceneController->Draw(pGraphicsAPI, m_PRCamera, m_PRProjection, m_DrawInfo)) return false;
+				if (!pGraphicsAPI->EndRender()) return false;
+			}
+
+			// PlanerReflection_GBufferLightPass
+			{
+				// フォアグラウンドパス(GBufferLightPass)にデファードパスの深度をコピーする
+				if (!pGraphicsAPI->CopyDepthBuffer("PlanerReflection_GBufferGenPass", "PlanerReflection_GBufferLightPass")) return false;
+
+				if (!pGraphicsAPI->BeginRender("PlanerReflection_GBufferLightPass")) return false;
+				if (!m_SceneController->Draw(pGraphicsAPI, m_PRCamera, m_PRProjection, m_DrawInfo)) return false;
+				if (!pGraphicsAPI->EndRender()) return false;
+			}
+
+			// PlanerReflection_GeometryPass
+			{
+				// フォアグラウンドパス(PlanerReflection_GeometryPass)にGBufferLightPassのカラー・深度をコピーする
+				if (!pGraphicsAPI->CopyRenderPass("PlanerReflection_GBufferLightPass", "PlanerReflection_GeometryPass", true, true)) return false;
+
+				if (!pGraphicsAPI->BeginRender("PlanerReflection_GeometryPass")) return false;
+				if (!m_SceneController->Draw(pGraphicsAPI, m_PRCamera, m_PRProjection, m_DrawInfo)) return false;
+				if (!pGraphicsAPI->EndRender()) return false;
+			}
+
+			m_DrawInfo->SetSpatialCulling(false);
 		}
 
 		// GBufferGenPass
@@ -294,6 +414,15 @@ namespace app
 	bool CLive1135App::OnLoaded(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker, const std::shared_ptr<gui::IGUIEngine>& GUIEngine)
 	{
 		if (!m_SceneController->Create(pGraphicsAPI, pPhysicsEngine)) return false;
+
+		// 平面反射の座標を指定
+		{
+			// 今回はたまたま原点位置と平面の高さが一致しているのでわざわざノードから取得・計算するみたいなことはしない
+			m_PRPlanePos = glm::vec3(0.0f, 0.0f, 0.0f);
+			m_PRPlaneWorldMatrix = glm::translate(glm::mat4(1.0f), m_PRPlanePos);
+
+			//m_PRProjection->EnabledObliqueMat(true, glm::vec4(m_PRPlanePos.x, m_PRPlanePos.y, m_PRPlanePos.z, 1.0f));
+		}
 
 		m_PostProcess->GetBloomFilter()->OnLoaded(m_SceneController);
 

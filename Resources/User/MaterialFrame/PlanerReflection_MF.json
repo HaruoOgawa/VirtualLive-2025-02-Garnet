@@ -1,0 +1,38 @@
+{
+    "name": "PlanerReflection_Mat",
+    "zwrite" : false,
+    "depthfunc" : "always",
+    "stencil":{
+      "enabled" : true,
+      "value" : 1,
+      "comp" : "equal"
+    },
+    "blendtype" : "transparent",
+    "shaderList": [
+      {
+        "name": "renderboard",
+        "shaderFile": "Resources\\Common\\Shaders\\renderboard",
+        "autoShaderExtension": true,
+        "shadercode": "",
+        "shaderType": "vertex",
+        "uniformBlockList": []
+        },
+      {
+        "name": "PlanerReflection_frag",
+        "shaderFile": "Resources\\User\\Shaders\\PlanerReflection",
+        "autoShaderExtension": true,
+        "shadercode": "",
+        "shaderType": "fragment",
+        "uniformBlockList": [
+          {
+            "name": "frameTexture",
+            "viewBinding": 0,
+            "samplerBinding": 1,
+            "textureIndex": -1,
+            "type": "texture",
+            "textureUsage": "frame"
+          }
+        ]
+      }
+    ]
+  }

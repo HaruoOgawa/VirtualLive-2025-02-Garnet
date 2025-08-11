@@ -5,6 +5,14 @@
             "filename": "Resources\\Common\\MaterialFrame\\GBuffer_Gen_MF.json"
         },
         {
+            "name": "GBuffer_Gen_Stencil",
+            "filename": "Resources\\User\\MaterialFrame\\GBuffer_Gen_MF_Stencil.json"
+        },
+        {
+            "name": "PlanerReflection_Mat",
+            "filename": "Resources\\User\\MaterialFrame\\PlanerReflection_MF.json"
+        },
+        {
             "name": "basic_toon_mat",
             "filename": "Resources\\Common\\MaterialFrame\\basic_toon_mf.json"
         },
@@ -19,6 +27,143 @@
         {
             "name": "simple_texture_mat",
             "filename": "Resources\\Common\\MaterialFrame\\SimpleTexture_MF.json"
+        }
+    ],
+    "valueregistries": [
+        {
+            "registryname": "DirectionalLight_5521_3068",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "dir",
+                    "type": "vec4",
+                    "initValue": [
+                        0.0,
+                        -1.0,
+                        -1.0,
+                        0.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "DirectionalLight_7473_18109",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "PlanerReflection_GBufferGenPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "PlanerReflection_GBufferLightPass"
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "dir",
+                    "type": "vec4",
+                    "initValue": [
+                        0.0,
+                        -1.0,
+                        -1.0,
+                        0.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "PointLight_27684_3876",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "BloomRegistry",
+            "values": [
+                {
+                    "name": "Intencity",
+                    "type": "float",
+                    "initValue": [
+                        1.5
+                    ]
+                },
+                {
+                    "name": "Threshold",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                }
+            ]
         }
     ],
     "scenetextureset": {
@@ -51,7 +196,9 @@
             "filename": "",
             "renderpasslist": [
                 "GBufferLightPass",
-                "MainGeometryPass"
+                "MainGeometryPass",
+                "PlanerReflection_GBufferLightPass",
+                "PlanerReflection_GeometryPass"
             ],
             "transform": {
                 "pos": [
@@ -99,7 +246,12 @@
                     "meshindex": -1,
                     "components": [
                         {
-                            "type": "DirectionalLight"
+                            "type": "DirectionalLight",
+                            "valueregistry": "DirectionalLight_5521_3068"
+                        },
+                        {
+                            "type": "DirectionalLight",
+                            "valueregistry": "DirectionalLight_7473_18109"
                         }
                     ]
                 },
@@ -126,7 +278,8 @@
                     "meshindex": -1,
                     "components": [
                         {
-                            "type": "PointLight"
+                            "type": "PointLight",
+                            "valueregistry": "PointLight_27684_3876"
                         }
                     ]
                 }
@@ -139,7 +292,8 @@
                 "GBuffer_Gen"
             ],
             "renderpasslist": [
-                "GBufferGenPass"
+                "GBufferGenPass",
+                "PlanerReflection_GBufferGenPass"
             ],
             "transform": {
                 "pos": [
@@ -158,7 +312,748 @@
                     10.0
                 ]
             },
-            "enable": true
+            "enable": true,
+            "materials": [
+                {
+                    "meshindex": 0,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 1,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 2,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 2,
+                    "primitiveindex": 1,
+                    "materialframe": "GBuffer_Gen_Stencil",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.10000000149011612
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 2,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 3,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 4,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 4,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 5,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 6,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 7,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 8,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 6,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 9,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 8,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 10,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 10,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 11,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 12,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 13,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 14,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 15,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 16,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 17,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 12,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 18,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 12,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 19,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 13,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 20,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 14,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 21,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.3813260495662689,
+                                1.0,
+                                0.5209956765174866,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 22,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.3813260495662689,
+                                1.0,
+                                0.5209956765174866,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 23,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.3813260495662689,
+                                1.0,
+                                0.5209956765174866,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 24,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.3813260495662689,
+                                1.0,
+                                0.5209956765174866,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 25,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.3813260495662689,
+                                1.0,
+                                0.5209956765174866,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 26,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                1.0,
+                                0.8765604496002197,
+                                0.6412071585655212,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 27,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                1.0,
+                                0.8765604496002197,
+                                0.6412071585655212,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                }
+            ]
         },
         {
             "name": "ookamimio",
@@ -169,6 +1064,7 @@
             ],
             "renderpasslist": [
                 "MainGeometryPass",
+                "PlanerReflection_GeometryPass",
                 "ShadowPass"
             ],
             "animation": {
@@ -180,6 +1076,216 @@
                         "motionname": "FaceMotion"
                     }
                 ],
+                "humanbonelist": [
+                    {
+                        "bonename": "Hips",
+                        "nodename": "BoneNode_3"
+                    },
+                    {
+                        "bonename": "LeftUpperLeg",
+                        "nodename": "BoneNode_5"
+                    },
+                    {
+                        "bonename": "RightUpperLeg",
+                        "nodename": "BoneNode_9"
+                    },
+                    {
+                        "bonename": "LeftLowerLeg",
+                        "nodename": "BoneNode_6"
+                    },
+                    {
+                        "bonename": "RightLowerLeg",
+                        "nodename": "BoneNode_10"
+                    },
+                    {
+                        "bonename": "LeftFoot",
+                        "nodename": "BoneNode_7"
+                    },
+                    {
+                        "bonename": "RightFoot",
+                        "nodename": "BoneNode_11"
+                    },
+                    {
+                        "bonename": "Spine",
+                        "nodename": "BoneNode_13"
+                    },
+                    {
+                        "bonename": "Chest",
+                        "nodename": "BoneNode_14"
+                    },
+                    {
+                        "bonename": "Neck",
+                        "nodename": "BoneNode_15"
+                    },
+                    {
+                        "bonename": "Head",
+                        "nodename": "BoneNode_16"
+                    },
+                    {
+                        "bonename": "LeftShoulder",
+                        "nodename": "BoneNode_32"
+                    },
+                    {
+                        "bonename": "RightShoulder",
+                        "nodename": "BoneNode_66"
+                    },
+                    {
+                        "bonename": "LeftUpperArm",
+                        "nodename": "BoneNode_35"
+                    },
+                    {
+                        "bonename": "RightUpperArm",
+                        "nodename": "BoneNode_69"
+                    },
+                    {
+                        "bonename": "LeftLowerArm",
+                        "nodename": "BoneNode_37"
+                    },
+                    {
+                        "bonename": "RightLowerArm",
+                        "nodename": "BoneNode_71"
+                    },
+                    {
+                        "bonename": "LeftHand",
+                        "nodename": "BoneNode_39"
+                    },
+                    {
+                        "bonename": "RightHand",
+                        "nodename": "BoneNode_73"
+                    },
+                    {
+                        "bonename": "LeftToes",
+                        "nodename": "BoneNode_8"
+                    },
+                    {
+                        "bonename": "RightToes",
+                        "nodename": "BoneNode_12"
+                    },
+                    {
+                        "bonename": "LeftEye",
+                        "nodename": "BoneNode_18"
+                    },
+                    {
+                        "bonename": "RightEye",
+                        "nodename": "BoneNode_19"
+                    },
+                    {
+                        "bonename": "LeftThumbProximal",
+                        "nodename": "BoneNode_41"
+                    },
+                    {
+                        "bonename": "LeftThumbIntermediate",
+                        "nodename": "BoneNode_42"
+                    },
+                    {
+                        "bonename": "LeftThumbDistal",
+                        "nodename": "BoneNode_43"
+                    },
+                    {
+                        "bonename": "LeftIndexProximal",
+                        "nodename": "BoneNode_45"
+                    },
+                    {
+                        "bonename": "LeftIndexIntermediate",
+                        "nodename": "BoneNode_46"
+                    },
+                    {
+                        "bonename": "LeftIndexDistal",
+                        "nodename": "BoneNode_47"
+                    },
+                    {
+                        "bonename": "LeftMiddleProximal",
+                        "nodename": "BoneNode_49"
+                    },
+                    {
+                        "bonename": "LeftMiddleIntermediate",
+                        "nodename": "BoneNode_50"
+                    },
+                    {
+                        "bonename": "LeftMiddleDistal",
+                        "nodename": "BoneNode_51"
+                    },
+                    {
+                        "bonename": "LeftRingProximal",
+                        "nodename": "BoneNode_53"
+                    },
+                    {
+                        "bonename": "LeftRingIntermediate",
+                        "nodename": "BoneNode_54"
+                    },
+                    {
+                        "bonename": "LeftRingDistal",
+                        "nodename": "BoneNode_55"
+                    },
+                    {
+                        "bonename": "LeftLittleProximal",
+                        "nodename": "BoneNode_57"
+                    },
+                    {
+                        "bonename": "LeftLittleIntermediate",
+                        "nodename": "BoneNode_58"
+                    },
+                    {
+                        "bonename": "LeftLittleDistal",
+                        "nodename": "BoneNode_59"
+                    },
+                    {
+                        "bonename": "RightThumbIntermediate",
+                        "nodename": "BoneNode_76"
+                    },
+                    {
+                        "bonename": "RightThumbDistal",
+                        "nodename": "BoneNode_77"
+                    },
+                    {
+                        "bonename": "RightIndexProximal",
+                        "nodename": "BoneNode_79"
+                    },
+                    {
+                        "bonename": "RightIndexIntermediate",
+                        "nodename": "BoneNode_80"
+                    },
+                    {
+                        "bonename": "RightIndexDistal",
+                        "nodename": "BoneNode_81"
+                    },
+                    {
+                        "bonename": "RightMiddleProximal",
+                        "nodename": "BoneNode_83"
+                    },
+                    {
+                        "bonename": "RightMiddleIntermediate",
+                        "nodename": "BoneNode_84"
+                    },
+                    {
+                        "bonename": "RightMiddleDistal",
+                        "nodename": "BoneNode_85"
+                    },
+                    {
+                        "bonename": "RightRingProximal",
+                        "nodename": "BoneNode_87"
+                    },
+                    {
+                        "bonename": "RightRingIntermediate",
+                        "nodename": "BoneNode_88"
+                    },
+                    {
+                        "bonename": "RightRingDistal",
+                        "nodename": "BoneNode_89"
+                    },
+                    {
+                        "bonename": "RightLittleProximal",
+                        "nodename": "BoneNode_91"
+                    },
+                    {
+                        "bonename": "RightLittleIntermediate",
+                        "nodename": "BoneNode_92"
+                    },
+                    {
+                        "bonename": "RightLittleDistal",
+                        "nodename": "BoneNode_93"
+                    }
+                ],
                 "humanoidclips": [
                     {
                         "ik": true,
@@ -189,8 +1295,6 @@
                         "motionname": "DanceMotion"
                     }
                 ],
-                "playblendshapes": [
-                ],
                 "playmotion": "Dance",
                 "playmotionindex": -1
             },
@@ -198,7 +1302,7 @@
                 "pos": [
                     -5.0,
                     0.0,
-                    1.0
+                    0.0
                 ],
                 "rotate": [
                     -180.0,
@@ -14656,6 +15760,7 @@
             ],
             "renderpasslist": [
                 "MainGeometryPass",
+                "PlanerReflection_GeometryPass",
                 "ShadowPass"
             ],
             "animation": {
@@ -14667,6 +15772,216 @@
                         "motionname": "FaceMotion"
                     }
                 ],
+                "humanbonelist": [
+                    {
+                        "bonename": "Hips",
+                        "nodename": "BoneNode_3"
+                    },
+                    {
+                        "bonename": "LeftUpperLeg",
+                        "nodename": "BoneNode_5"
+                    },
+                    {
+                        "bonename": "RightUpperLeg",
+                        "nodename": "BoneNode_9"
+                    },
+                    {
+                        "bonename": "LeftLowerLeg",
+                        "nodename": "BoneNode_6"
+                    },
+                    {
+                        "bonename": "RightLowerLeg",
+                        "nodename": "BoneNode_10"
+                    },
+                    {
+                        "bonename": "LeftFoot",
+                        "nodename": "BoneNode_7"
+                    },
+                    {
+                        "bonename": "RightFoot",
+                        "nodename": "BoneNode_11"
+                    },
+                    {
+                        "bonename": "Spine",
+                        "nodename": "BoneNode_13"
+                    },
+                    {
+                        "bonename": "Chest",
+                        "nodename": "BoneNode_14"
+                    },
+                    {
+                        "bonename": "Neck",
+                        "nodename": "BoneNode_15"
+                    },
+                    {
+                        "bonename": "Head",
+                        "nodename": "BoneNode_16"
+                    },
+                    {
+                        "bonename": "LeftShoulder",
+                        "nodename": "BoneNode_47"
+                    },
+                    {
+                        "bonename": "RightShoulder",
+                        "nodename": "BoneNode_81"
+                    },
+                    {
+                        "bonename": "LeftUpperArm",
+                        "nodename": "BoneNode_50"
+                    },
+                    {
+                        "bonename": "RightUpperArm",
+                        "nodename": "BoneNode_84"
+                    },
+                    {
+                        "bonename": "LeftLowerArm",
+                        "nodename": "BoneNode_52"
+                    },
+                    {
+                        "bonename": "RightLowerArm",
+                        "nodename": "BoneNode_86"
+                    },
+                    {
+                        "bonename": "LeftHand",
+                        "nodename": "BoneNode_54"
+                    },
+                    {
+                        "bonename": "RightHand",
+                        "nodename": "BoneNode_88"
+                    },
+                    {
+                        "bonename": "LeftToes",
+                        "nodename": "BoneNode_8"
+                    },
+                    {
+                        "bonename": "RightToes",
+                        "nodename": "BoneNode_12"
+                    },
+                    {
+                        "bonename": "LeftEye",
+                        "nodename": "BoneNode_18"
+                    },
+                    {
+                        "bonename": "RightEye",
+                        "nodename": "BoneNode_19"
+                    },
+                    {
+                        "bonename": "LeftThumbProximal",
+                        "nodename": "BoneNode_56"
+                    },
+                    {
+                        "bonename": "LeftThumbIntermediate",
+                        "nodename": "BoneNode_57"
+                    },
+                    {
+                        "bonename": "LeftThumbDistal",
+                        "nodename": "BoneNode_58"
+                    },
+                    {
+                        "bonename": "LeftIndexProximal",
+                        "nodename": "BoneNode_60"
+                    },
+                    {
+                        "bonename": "LeftIndexIntermediate",
+                        "nodename": "BoneNode_61"
+                    },
+                    {
+                        "bonename": "LeftIndexDistal",
+                        "nodename": "BoneNode_62"
+                    },
+                    {
+                        "bonename": "LeftMiddleProximal",
+                        "nodename": "BoneNode_64"
+                    },
+                    {
+                        "bonename": "LeftMiddleIntermediate",
+                        "nodename": "BoneNode_65"
+                    },
+                    {
+                        "bonename": "LeftMiddleDistal",
+                        "nodename": "BoneNode_66"
+                    },
+                    {
+                        "bonename": "LeftRingProximal",
+                        "nodename": "BoneNode_68"
+                    },
+                    {
+                        "bonename": "LeftRingIntermediate",
+                        "nodename": "BoneNode_69"
+                    },
+                    {
+                        "bonename": "LeftRingDistal",
+                        "nodename": "BoneNode_70"
+                    },
+                    {
+                        "bonename": "LeftLittleProximal",
+                        "nodename": "BoneNode_72"
+                    },
+                    {
+                        "bonename": "LeftLittleIntermediate",
+                        "nodename": "BoneNode_73"
+                    },
+                    {
+                        "bonename": "LeftLittleDistal",
+                        "nodename": "BoneNode_74"
+                    },
+                    {
+                        "bonename": "RightThumbIntermediate",
+                        "nodename": "BoneNode_91"
+                    },
+                    {
+                        "bonename": "RightThumbDistal",
+                        "nodename": "BoneNode_92"
+                    },
+                    {
+                        "bonename": "RightIndexProximal",
+                        "nodename": "BoneNode_94"
+                    },
+                    {
+                        "bonename": "RightIndexIntermediate",
+                        "nodename": "BoneNode_95"
+                    },
+                    {
+                        "bonename": "RightIndexDistal",
+                        "nodename": "BoneNode_96"
+                    },
+                    {
+                        "bonename": "RightMiddleProximal",
+                        "nodename": "BoneNode_98"
+                    },
+                    {
+                        "bonename": "RightMiddleIntermediate",
+                        "nodename": "BoneNode_99"
+                    },
+                    {
+                        "bonename": "RightMiddleDistal",
+                        "nodename": "BoneNode_100"
+                    },
+                    {
+                        "bonename": "RightRingProximal",
+                        "nodename": "BoneNode_102"
+                    },
+                    {
+                        "bonename": "RightRingIntermediate",
+                        "nodename": "BoneNode_103"
+                    },
+                    {
+                        "bonename": "RightRingDistal",
+                        "nodename": "BoneNode_104"
+                    },
+                    {
+                        "bonename": "RightLittleProximal",
+                        "nodename": "BoneNode_106"
+                    },
+                    {
+                        "bonename": "RightLittleIntermediate",
+                        "nodename": "BoneNode_107"
+                    },
+                    {
+                        "bonename": "RightLittleDistal",
+                        "nodename": "BoneNode_108"
+                    }
+                ],
                 "humanoidclips": [
                     {
                         "ik": true,
@@ -14675,8 +15990,6 @@
                         "loop": true,
                         "motionname": "DanceMotion"
                     }
-                ],
-                "playblendshapes": [
                 ],
                 "playmotion": "Dance",
                 "playmotionindex": -1
@@ -18511,6 +19824,7 @@
             ],
             "renderpasslist": [
                 "MainGeometryPass",
+                "PlanerReflection_GeometryPass",
                 "ShadowPass"
             ],
             "animation": {
@@ -18522,6 +19836,212 @@
                         "motionname": "FaceMotion"
                     }
                 ],
+                "humanbonelist": [
+                    {
+                        "bonename": "LeftUpperLeg",
+                        "nodename": "BoneNode_100"
+                    },
+                    {
+                        "bonename": "RightUpperLeg",
+                        "nodename": "BoneNode_94"
+                    },
+                    {
+                        "bonename": "LeftLowerLeg",
+                        "nodename": "BoneNode_101"
+                    },
+                    {
+                        "bonename": "RightLowerLeg",
+                        "nodename": "BoneNode_95"
+                    },
+                    {
+                        "bonename": "LeftFoot",
+                        "nodename": "BoneNode_103"
+                    },
+                    {
+                        "bonename": "RightFoot",
+                        "nodename": "BoneNode_97"
+                    },
+                    {
+                        "bonename": "Spine",
+                        "nodename": "BoneNode_5"
+                    },
+                    {
+                        "bonename": "Chest",
+                        "nodename": "BoneNode_6"
+                    },
+                    {
+                        "bonename": "Neck",
+                        "nodename": "BoneNode_7"
+                    },
+                    {
+                        "bonename": "Head",
+                        "nodename": "BoneNode_8"
+                    },
+                    {
+                        "bonename": "LeftShoulder",
+                        "nodename": "BoneNode_15"
+                    },
+                    {
+                        "bonename": "RightShoulder",
+                        "nodename": "BoneNode_46"
+                    },
+                    {
+                        "bonename": "LeftUpperArm",
+                        "nodename": "BoneNode_16"
+                    },
+                    {
+                        "bonename": "RightUpperArm",
+                        "nodename": "BoneNode_47"
+                    },
+                    {
+                        "bonename": "LeftLowerArm",
+                        "nodename": "BoneNode_18"
+                    },
+                    {
+                        "bonename": "RightLowerArm",
+                        "nodename": "BoneNode_49"
+                    },
+                    {
+                        "bonename": "LeftHand",
+                        "nodename": "BoneNode_20"
+                    },
+                    {
+                        "bonename": "RightHand",
+                        "nodename": "BoneNode_51"
+                    },
+                    {
+                        "bonename": "LeftToes",
+                        "nodename": "BoneNode_105"
+                    },
+                    {
+                        "bonename": "RightToes",
+                        "nodename": "BoneNode_99"
+                    },
+                    {
+                        "bonename": "LeftEye",
+                        "nodename": "BoneNode_191"
+                    },
+                    {
+                        "bonename": "RightEye",
+                        "nodename": "BoneNode_193"
+                    },
+                    {
+                        "bonename": "LeftThumbProximal",
+                        "nodename": "BoneNode_22"
+                    },
+                    {
+                        "bonename": "LeftThumbIntermediate",
+                        "nodename": "BoneNode_23"
+                    },
+                    {
+                        "bonename": "LeftThumbDistal",
+                        "nodename": "BoneNode_24"
+                    },
+                    {
+                        "bonename": "LeftIndexProximal",
+                        "nodename": "BoneNode_25"
+                    },
+                    {
+                        "bonename": "LeftIndexIntermediate",
+                        "nodename": "BoneNode_26"
+                    },
+                    {
+                        "bonename": "LeftIndexDistal",
+                        "nodename": "BoneNode_27"
+                    },
+                    {
+                        "bonename": "LeftMiddleProximal",
+                        "nodename": "BoneNode_28"
+                    },
+                    {
+                        "bonename": "LeftMiddleIntermediate",
+                        "nodename": "BoneNode_29"
+                    },
+                    {
+                        "bonename": "LeftMiddleDistal",
+                        "nodename": "BoneNode_30"
+                    },
+                    {
+                        "bonename": "LeftRingProximal",
+                        "nodename": "BoneNode_31"
+                    },
+                    {
+                        "bonename": "LeftRingIntermediate",
+                        "nodename": "BoneNode_32"
+                    },
+                    {
+                        "bonename": "LeftRingDistal",
+                        "nodename": "BoneNode_33"
+                    },
+                    {
+                        "bonename": "LeftLittleProximal",
+                        "nodename": "BoneNode_34"
+                    },
+                    {
+                        "bonename": "LeftLittleIntermediate",
+                        "nodename": "BoneNode_35"
+                    },
+                    {
+                        "bonename": "LeftLittleDistal",
+                        "nodename": "BoneNode_36"
+                    },
+                    {
+                        "bonename": "RightThumbIntermediate",
+                        "nodename": "BoneNode_54"
+                    },
+                    {
+                        "bonename": "RightThumbDistal",
+                        "nodename": "BoneNode_55"
+                    },
+                    {
+                        "bonename": "RightIndexProximal",
+                        "nodename": "BoneNode_56"
+                    },
+                    {
+                        "bonename": "RightIndexIntermediate",
+                        "nodename": "BoneNode_57"
+                    },
+                    {
+                        "bonename": "RightIndexDistal",
+                        "nodename": "BoneNode_58"
+                    },
+                    {
+                        "bonename": "RightMiddleProximal",
+                        "nodename": "BoneNode_59"
+                    },
+                    {
+                        "bonename": "RightMiddleIntermediate",
+                        "nodename": "BoneNode_60"
+                    },
+                    {
+                        "bonename": "RightMiddleDistal",
+                        "nodename": "BoneNode_61"
+                    },
+                    {
+                        "bonename": "RightRingProximal",
+                        "nodename": "BoneNode_62"
+                    },
+                    {
+                        "bonename": "RightRingIntermediate",
+                        "nodename": "BoneNode_63"
+                    },
+                    {
+                        "bonename": "RightRingDistal",
+                        "nodename": "BoneNode_64"
+                    },
+                    {
+                        "bonename": "RightLittleProximal",
+                        "nodename": "BoneNode_65"
+                    },
+                    {
+                        "bonename": "RightLittleIntermediate",
+                        "nodename": "BoneNode_66"
+                    },
+                    {
+                        "bonename": "RightLittleDistal",
+                        "nodename": "BoneNode_67"
+                    }
+                ],
                 "humanoidclips": [
                     {
                         "ik": true,
@@ -18530,8 +20050,6 @@
                         "loop": true,
                         "motionname": "DanceMotion"
                     }
-                ],
-                "playblendshapes": [
                 ],
                 "playmotion": "Dance",
                 "playmotionindex": -1
@@ -28373,6 +29891,82 @@
                         0.0,
                         0.0,
                         100.0
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "PlanerReflection",
+            "filename": "",
+            "renderpasslist": [
+                "MainGeometryPass"
+            ],
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "enable": true,
+            "rootnodes": [
+                0
+            ],
+            "nodes": [
+                {
+                    "name": "FloorMesh",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": 0
+                }
+            ],
+            "meshs": [
+                {
+                    "primitives": [
+                        {
+                            "type": "board"
+                        }
+                    ]
+                }
+            ],
+            "materials": [
+                {
+                    "meshindex": 0,
+                    "primitiveindex": 0,
+                    "materialframe": "PlanerReflection_Mat",
+                    "cull": "none",
+                    "textures": [
+                        {
+                            "texturebuffername": "frameTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        }
                     ]
                 }
             ]
