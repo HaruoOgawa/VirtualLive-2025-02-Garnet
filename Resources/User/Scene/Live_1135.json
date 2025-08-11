@@ -190,6 +190,13 @@
     "physics": {
         "enabled": true
     },
+    "sound": {
+        "bgm": {
+            "filename": "Resources\\User\\Sound\\1135.wav",
+            "autoplay": false,
+            "loop": false
+        }
+    },
     "objects": [
         {
             "name": "LightList",
