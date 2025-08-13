@@ -1,6 +1,6 @@
 {
   "name": "GBuffer_Gen",
-  "outputcolorcount": 5,
+  "outputcolorcount": 6,
   "stencil":{
     "enabled" : true,
     "value" : 0,
@@ -104,6 +104,13 @@
               }
             },
             {
+              "name": "emissiveFactor",
+              "type": "vec4",
+              "initValue": [ 0.0, 0.0, 0.0, 0.0 ],
+              "input": {
+              }
+            },
+            {
               "name": "metallicFactor",
               "type": "float",
               "initValue": [ 0.0 ],
@@ -118,19 +125,17 @@
               }
             },
             {
-              "name": "f_pad0",
+              "name": "emissiveStrength",
               "type": "float",
               "initValue": [ 0.0 ],
               "input": {
-                "hide": true
               }
             },
             {
-              "name": "f_pad1",
+              "name": "materialType",
               "type": "float",
-              "initValue": [ 0.0 ],
+              "initValue": [ 1 ],
               "input": {
-                "hide": true
               }
             },
             {
@@ -155,9 +160,9 @@
               }
             },
             {
-              "name": "materialType",
-              "type": "float",
-              "initValue": [ 1 ],
+              "name": "useEmissiveTexture",
+              "type": "int",
+              "initValue": [ 0 ],
               "input": {
               }
             }
@@ -210,6 +215,14 @@
           "name": "normalTexture",
           "viewBinding": 7,
           "samplerBinding": 8,
+          "textureIndex": -1,
+          "type": "texture",
+          "textureUsage": "2d"
+        },
+        {
+          "name": "emissiveTexture",
+          "viewBinding": 9,
+          "samplerBinding": 10,
           "textureIndex": -1,
           "type": "texture",
           "textureUsage": "2d"
