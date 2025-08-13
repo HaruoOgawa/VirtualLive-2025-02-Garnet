@@ -71,12 +71,13 @@ namespace app
 	{
 		//pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\Sample.json", m_SceneController));
 		pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\Live_1135.json", m_SceneController));
+		//pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\ModelViewer.json", m_SceneController));
 
 		// オフスクリーンレンダリング
 		// GBufferを組み込んだレンダリングパイプラインではフレームバッファコピー周りがややこしく非効率なことになるのでMSAAは使わない
 		// 代わりにFXAAのポストプロセスでアンチエイリアシングを行う
 		{
-			graphics::SRenderPassState State = graphics::SRenderPassState(5);
+			graphics::SRenderPassState State = graphics::SRenderPassState(6);
 			State.InitColorList[3] = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 			State.Stencil = true;
 			if (!pGraphicsAPI->CreateRenderPass("GBufferGenPass", api::ERenderPassFormat::COLOR_FLOAT_RENDERPASS, -1, -1, State)) return false;
@@ -126,7 +127,7 @@ namespace app
 		// 平面反射(PlanerReflection)用フレームバッファ
 		{
 			{
-				graphics::SRenderPassState State = graphics::SRenderPassState(5);
+				graphics::SRenderPassState State = graphics::SRenderPassState(6);
 				State.InitColorList[3] = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 				if (!pGraphicsAPI->CreateRenderPass("PlanerReflection_GBufferGenPass", api::ERenderPassFormat::COLOR_FLOAT_RENDERPASS, -1, -1, State)) return false;
 			}

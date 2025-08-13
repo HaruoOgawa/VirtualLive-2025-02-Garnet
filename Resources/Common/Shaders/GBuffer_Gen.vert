@@ -21,17 +21,18 @@ layout(binding = 0) uniform UniformBufferObject{
 
     // Fragment
     vec4 baseColorFactor;
-    vec4 spatialCullPos;
+	vec4 spatialCullPos;
+	vec4 emissiveFactor;
 	
     float metallicFactor;
     float roughnessFactor;
-	float f_pad0;
-	float f_pad1;
+	float emissiveStrength;
+	float materialType;
 
     int   useBaseColorTexture;
     int   useMetallicRoughnessTexture;
     int   useNormalTexture;
-	float   materialType;
+    int   useEmissiveTexture;
 } ubo;
 
 layout(binding = 1) uniform SkinMatrixBuffer

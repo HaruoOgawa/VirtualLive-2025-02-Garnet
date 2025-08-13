@@ -39,10 +39,11 @@ layout(binding = 4) uniform sampler2D gNormalTexture;
 layout(binding = 6) uniform sampler2D gAlbedoTexture;
 layout(binding = 8) uniform sampler2D gDepthTexture;
 layout(binding = 10) uniform sampler2D gCustomParam0Texture;
-layout(binding = 12) uniform sampler2D IBL_Diffuse_Texture;
-layout(binding = 14) uniform sampler2D IBL_Specular_Texture;
-layout(binding = 16) uniform sampler2D IBL_GGXLUT_Texture;
-layout(binding = 18) uniform sampler2D shadowmapTexture;
+layout(binding = 12) uniform sampler2D gEmissionTexture;
+layout(binding = 14) uniform sampler2D IBL_Diffuse_Texture;
+layout(binding = 16) uniform sampler2D IBL_Specular_Texture;
+layout(binding = 18) uniform sampler2D IBL_GGXLUT_Texture;
+layout(binding = 20) uniform sampler2D shadowmapTexture;
 #else
 layout(binding = 2) uniform texture2D gPositionTexture;
 layout(binding = 3) uniform sampler gPositionTextureSampler;
@@ -54,14 +55,16 @@ layout(binding = 8) uniform texture2D gDepthTexture;
 layout(binding = 9) uniform sampler gDepthTextureSampler;
 layout(binding = 10) uniform texture2D gCustomParam0Texture;
 layout(binding = 11) uniform sampler gCustomParam0TextureSampler;
-layout(binding = 12) uniform texture2D IBL_Diffuse_Texture;
-layout(binding = 13) uniform sampler IBL_Diffuse_TextureSampler;
-layout(binding = 14) uniform texture2D IBL_Specular_Texture;
-layout(binding = 15) uniform sampler IBL_Specular_TextureSampler;
-layout(binding = 16) uniform texture2D IBL_GGXLUT_Texture;
-layout(binding = 17) uniform sampler IBL_GGXLUT_TextureSampler;
-layout(binding = 18) uniform texture2D shadowmapTexture;
-layout(binding = 19) uniform sampler shadowmapTextureSampler;
+layout(binding = 12) uniform texture2D gEmissionTexture;
+layout(binding = 13) uniform sampler gEmissionTextureSampler;
+layout(binding = 14) uniform texture2D IBL_Diffuse_Texture;
+layout(binding = 15) uniform sampler IBL_Diffuse_TextureSampler;
+layout(binding = 16) uniform texture2D IBL_Specular_Texture;
+layout(binding = 17) uniform sampler IBL_Specular_TextureSampler;
+layout(binding = 18) uniform texture2D IBL_GGXLUT_Texture;
+layout(binding = 19) uniform sampler IBL_GGXLUT_TextureSampler;
+layout(binding = 20) uniform texture2D shadowmapTexture;
+layout(binding = 21) uniform sampler shadowmapTextureSampler;
 #endif
 
 struct GBufferResult
@@ -72,6 +75,7 @@ struct GBufferResult
     float depth;
     float materialType;
     vec2 metallicRoughness;
+	vec3 emissive;
 };
 
 struct LightParam
@@ -137,6 +141,17 @@ vec4 GetCustomParam0(vec2 ScreenUV)
     return CustomParam0;
 }
 
+vec4 GetEmission(vec2 ScreenUV)
+{
+#ifdef USE_OPENGL
+    vec4 Emission = texture(gEmissionTexture, ScreenUV);
+#else
+    vec4 Emission = texture(sampler2D(gEmissionTexture, gEmissionTextureSampler), ScreenUV);
+#endif
+
+    return Emission;
+}
+
 GBufferResult GetGBuffer(vec2 ScreenUV)
 {
     GBufferResult gResult;
@@ -149,6 +164,8 @@ GBufferResult GetGBuffer(vec2 ScreenUV)
     vec4 CustomParam0 = GetCustomParam0(ScreenUV);
     gResult.materialType = CustomParam0.r;
     gResult.metallicRoughness = CustomParam0.gb;
+
+	gResult.emissive = GetEmission(ScreenUV).rgb;
 
     return gResult;
 }
@@ -611,6 +628,8 @@ vec3 ComputeLight(GBufferResult gResult, LightParam light)
 
 		col.rgb *= shadowCol;
 	}
+
+	col.rgb += gResult.emissive;
 
     return col;
 }
