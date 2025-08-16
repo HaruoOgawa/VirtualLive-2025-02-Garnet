@@ -1,0 +1,1796 @@
+{
+    "materialframes": [
+        {
+            "name": "GBuffer_Gen",
+            "filename": "Resources\\Common\\MaterialFrame\\GBuffer_Gen_MF.json"
+        },
+        {
+            "name": "GBuffer_Gen_Stencil",
+            "filename": "Resources\\User\\MaterialFrame\\GBuffer_Gen_MF_Stencil.json"
+        },
+        {
+            "name": "PlanerReflection_Mat",
+            "filename": "Resources\\User\\MaterialFrame\\PlanerReflection_MF.json"
+        },
+        {
+            "name": "basic_toon_mat",
+            "filename": "Resources\\Common\\MaterialFrame\\basic_toon_mf.json"
+        },
+        {
+            "name": "basic_toon_outline_mat",
+            "filename": "Resources\\Common\\MaterialFrame\\basic_toon_outline_mf.json"
+        },
+        {
+            "name": "pbr_mat",
+            "filename": "Resources\\Common\\MaterialFrame\\PBR_MF.json"
+        },
+        {
+            "name": "simple_texture_mat",
+            "filename": "Resources\\Common\\MaterialFrame\\SimpleTexture_MF.json"
+        }
+    ],
+    "valueregistries": [
+        {
+            "registryname": "DirectionalLight_5521_3068",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "dir",
+                    "type": "vec4",
+                    "initValue": [
+                        0.0,
+                        -1.0,
+                        -1.0,
+                        0.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "DirectionalLight_7473_18109",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "PlanerReflection_GBufferGenPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "PlanerReflection_GBufferLightPass"
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "dir",
+                    "type": "vec4",
+                    "initValue": [
+                        0.0,
+                        -1.0,
+                        -1.0,
+                        0.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "PointLight_27684_3876",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "BloomRegistry",
+            "values": [
+                {
+                    "name": "Intencity",
+                    "type": "float",
+                    "initValue": [
+                        1.5
+                    ]
+                },
+                {
+                    "name": "Threshold",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "scenetextureset": {
+        "frametextures": null,
+        "ibl": {
+            "diffuse": "Resources/User/IBL/output_iem.hdr",
+            "specular": "Resources/User/IBL/output_pmrem.hdr",
+            "ggx": "Resources/User/IBL/ggx_lut.jpg"
+        }
+    },
+    "animations": [
+        {
+            "filename": "Resources\\User\\Motion\\TwoPose\\Left.vmd",
+            "name": "PoseLeft"
+        },
+        {
+            "filename": "Resources\\User\\Motion\\TwoPose\\Right.vmd",
+            "name": "PoseRight"
+        }
+    ],
+    "timeline": {
+        "filename": "Resources\\User\\Scene\\MioMikoSuba_Photo.tl"
+    },
+    "physics": {
+        "enabled": false
+    },
+    "objects": [
+        {
+            "name": "LightList",
+            "filename": "",
+            "renderpasslist": [
+                "GBufferLightPass",
+                "MainGeometryPass",
+                "PlanerReflection_GBufferLightPass",
+                "PlanerReflection_GeometryPass"
+            ],
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    5.0,
+                    1.0
+                ]
+            },
+            "enable": true,
+            "rootnodes": [
+                0,
+                1
+            ],
+            "nodes": [
+                {
+                    "name": "DirectionalLight",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "DirectionalLight",
+                            "valueregistry": "DirectionalLight_5521_3068"
+                        },
+                        {
+                            "type": "DirectionalLight",
+                            "valueregistry": "DirectionalLight_7473_18109"
+                        }
+                    ]
+                },
+                {
+                    "name": "PointLight",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            1.5,
+                            0.0
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            10.0,
+                            10.0,
+                            10.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "PointLight",
+                            "valueregistry": "PointLight_27684_3876"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "IndoorLiveStage",
+            "filename": "Resources\\User\\Stage\\IndoorLiveStage\\glb\\LiveStage_Edit.glb",
+            "defaultmaterialframes": [
+                "GBuffer_Gen"
+            ],
+            "renderpasslist": [
+                "GBufferGenPass",
+                "PlanerReflection_GBufferGenPass"
+            ],
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    10.0,
+                    10.0,
+                    10.0
+                ]
+            },
+            "enable": true,
+            "materials": [
+                {
+                    "meshindex": 0,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 1,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 2,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 2,
+                    "primitiveindex": 1,
+                    "materialframe": "GBuffer_Gen_Stencil",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.10000000149011612
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 2,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 3,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 4,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 3,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 5,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 6,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 7,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 8,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 4,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 9,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 5,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 10,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 6,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 11,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 12,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 13,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 14,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 15,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 16,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 17,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                1.0,
+                                0.8626750707626343,
+                                0.8544825315475464,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.4866434335708618
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 18,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                1.0,
+                                0.8626750707626343,
+                                0.8544825315475464,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.4866434335708618
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 19,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                1.0,
+                                0.8626750707626343,
+                                0.8544825315475464,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.4866434335708618
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 20,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                1.0,
+                                0.8626750707626343,
+                                0.8544825315475464,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.4866434335708618
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 21,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                1.0,
+                                0.8626750707626343,
+                                0.8544825315475464,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.4866434335708618
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 22,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                1.0,
+                                0.8626750707626343,
+                                0.8544825315475464,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.9821914434432983
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 23,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                1.0,
+                                0.8626750707626343,
+                                0.8544825315475464,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.9821914434432983
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ookamimio",
+            "filename": "Resources/User\\Avatar\\ookamimio\\ookamimio_new2021_long.pmx",
+            "defaultmaterialframes": [
+                "basic_toon_outline_mat",
+                "basic_toon_mat"
+            ],
+            "renderpasslist": [
+                "MainGeometryPass",
+                "PlanerReflection_GeometryPass",
+                "ShadowPass"
+            ],
+            "animation": {
+                "humanoidclips": [
+                    {
+                        "ik": true,
+                        "index": 0,
+                        "key": "Dance",
+                        "loop": true,
+                        "motionname": "PoseLeft"
+                    }
+                ],
+                "playmotion": "Dance",
+                "playmotionindex": -1
+            },
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotate": [
+                    180.0,
+                    -5.008956122765085e-06,
+                    180.0
+                ],
+                "scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ]
+            },
+            "enable": true
+        },
+        {
+            "name": "fubuki",
+            "filename": "Resources\\User\\Avatar\\Fubuki\\Fubuki.pmx",
+            "defaultmaterialframes": [
+                "basic_toon_outline_mat",
+                "basic_toon_mat"
+            ],
+            "renderpasslist": [
+                "MainGeometryPass",
+                "PlanerReflection_GeometryPass",
+                "ShadowPass"
+            ],
+            "animation": {
+                "humanoidclips": [
+                    {
+                        "ik": true,
+                        "index": 0,
+                        "key": "Dance",
+                        "loop": true,
+                        "motionname": "PoseRight"
+                    }
+                ],
+                "playmotion": "Dance",
+                "playmotionindex": -1
+            },
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotate": [
+                    180.0,
+                    -5.008956122765085e-06,
+                    180.0
+                ],
+                "scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ]
+            },
+            "enable": true
+        },
+        {
+            "name": "PlanerReflection",
+            "filename": "",
+            "renderpasslist": [
+                "MainGeometryPass"
+            ],
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "enable": true,
+            "rootnodes": [
+                0
+            ],
+            "nodes": [
+                {
+                    "name": "FloorMesh",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": 0
+                }
+            ],
+            "meshs": [
+                {
+                    "primitives": [
+                        {
+                            "type": "board"
+                        }
+                    ]
+                }
+            ],
+            "materials": [
+                {
+                    "meshindex": 0,
+                    "primitiveindex": 0,
+                    "materialframe": "PlanerReflection_Mat",
+                    "cull": "none",
+                    "textures": [
+                        {
+                            "texturebuffername": "frameTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
