@@ -69,6 +69,9 @@
     <ClCompile Include="Src\App\ScriptApp\CLive1135App.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Component\CVATGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\App\ScriptApp\CScriptApp.h">
@@ -123,6 +126,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Src\App\ScriptApp\CLive1135App.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Component\CVATGenerator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

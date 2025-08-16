@@ -19,6 +19,7 @@
 
 #include "../../GUIApp/GUI/CGraphicsEditingWindow.h"
 #include "../../GUIApp/Model/CFileModifier.h"
+#include "../../Component/CVATGenerator.h"
 
 namespace app
 {
@@ -27,7 +28,7 @@ namespace app
 		m_CameraSwitchToggle(true),
 		m_MainCamera(nullptr),
 #ifdef USE_VIEWER_CAMERA
-		m_ViewCamera(std::make_shared<camera::CViewerCamera>(glm::vec3(0.0f, 2.0f, 45.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f))),
+		m_ViewCamera(std::make_shared<camera::CViewerCamera>(glm::vec3(0.0f, 2.0f, -5.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f))),
 #else
 		m_ViewCamera(std::make_shared<camera::CCamera>()),
 #endif // USE_VIEWER_CAMERA
@@ -49,7 +50,7 @@ namespace app
 
 		auto LightCamera = std::make_shared<camera::CCamera>();
 		LightCamera->SetCenter(glm::vec3(0.0f, 0.0f, 0.0f));
-		LightCamera->SetPos(glm::vec3(0.0f, 1.0f, 1.0f) * 20.0f);
+		LightCamera->SetPos(glm::vec3(0.0f, 1.0f, -1.0f) * 5.0f);
 		m_DrawInfo->SetLightCamera(LightCamera);
 
 		m_DrawInfo->GetLightProjection()->SetNear(2.0f);
@@ -69,8 +70,8 @@ namespace app
 
 	bool CLive1135App::Initialize(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker)
 	{
-		pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\MioMikoSuba_Photo.json", m_SceneController));
-		//pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\Live_1135.json", m_SceneController));
+		//pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\MioMikoSuba_Photo.json", m_SceneController));
+		pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\Live_1135.json", m_SceneController));
 		//pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\ModelViewer.json", m_SceneController));
 
 		// オフスクリーンレンダリング
@@ -400,6 +401,17 @@ namespace app
 	std::shared_ptr<graphics::CDrawInfo> CLive1135App::GetDrawInfo() const
 	{
 		return m_DrawInfo;
+	}
+
+	// コンポーネント作成
+	std::shared_ptr<scriptable::CComponent> CLive1135App::CreateComponent(const std::string& ComponentType, const std::string& ValueRegistry)
+	{
+		if (ComponentType == "VATGenerator")
+		{
+			return std::make_shared<component::CVATGenerator>(ComponentType, ValueRegistry);
+		}
+
+		return nullptr;
 	}
 
 	// 起動準備完了

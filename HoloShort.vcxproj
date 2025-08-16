@@ -482,6 +482,7 @@
   <ItemGroup>
     <ClCompile Include="Src\App\ScriptApp\CLive1135App.cpp" />
     <ClCompile Include="Src\App\ScriptApp\CScriptApp.cpp" />
+    <ClCompile Include="Src\Component\CVATGenerator.cpp" />
     <ClCompile Include="Src\GUIApp\GUI\C3DView.cpp" />
     <ClCompile Include="Src\GUIApp\GUI\CGraphicsEditingWindow.cpp" />
     <ClCompile Include="Src\GUIApp\GUI\CGUIAnimationTab.cpp" />
@@ -502,6 +503,7 @@
   <ItemGroup>
     <ClInclude Include="Src\App\ScriptApp\CLive1135App.h" />
     <ClInclude Include="Src\App\ScriptApp\CScriptApp.h" />
+    <ClInclude Include="Src\Component\CVATGenerator.h" />
     <ClInclude Include="Src\GUIApp\GUI\C3DView.h" />
     <ClInclude Include="Src\GUIApp\GUI\CGraphicsEditingWindow.h" />
     <ClInclude Include="Src\GUIApp\GUI\CGUIAnimationTab.h" />
