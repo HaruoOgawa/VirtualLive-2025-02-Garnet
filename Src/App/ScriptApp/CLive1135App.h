@@ -9,7 +9,13 @@ namespace graphics {
 namespace gui { class CGraphicsEditingWindow; }
 namespace timeline { class CTimelineController; }
 namespace scene { class CSceneController; }
-namespace camera { class CTraceCamera; }
+namespace camera { class CLookUpTraceCamera; }
+
+namespace network {
+	class CUDPSocket;
+	class CDMXDataHandler;
+	class CNDIReceiver;
+}
 
 namespace app
 {
@@ -21,7 +27,12 @@ namespace app
 
 		std::shared_ptr<camera::CCamera> m_MainCamera;
 		std::shared_ptr<camera::CCamera> m_ViewCamera;
-		std::shared_ptr<camera::CTraceCamera> m_TraceCamera;
+
+		std::shared_ptr<camera::CLookUpTraceCamera> m_CurrentLookUpCamera;
+		std::shared_ptr<camera::CLookUpTraceCamera> m_LookUpCameraA;
+		std::shared_ptr<camera::CLookUpTraceCamera> m_LookUpCameraB;
+		bool m_LookUpSwitchToggle;
+
 		std::shared_ptr<projection::CProjection> m_Projection;
 		std::shared_ptr<graphics::CDrawInfo> m_DrawInfo;
 
@@ -43,6 +54,13 @@ namespace app
 		std::shared_ptr<projection::CProjection> m_PRProjection;
 		glm::mat4								 m_PRPlaneWorldMatrix;
 		glm::vec3								 m_PRPlanePos;
+
+#ifdef USE_NETWORK
+		std::shared_ptr<network::CUDPSocket> m_UDPSocket;
+		std::shared_ptr<network::CDMXDataHandler> m_DMXHandler;
+
+		std::shared_ptr<network::CNDIReceiver> m_NDIReceiver;
+#endif
 
 	public:
 		CLive1135App();
@@ -80,5 +98,14 @@ namespace app
 		// Getter
 		virtual std::vector<std::shared_ptr<object::C3DObject>> GetObjectList() const override;
 		virtual std::shared_ptr<scene::CSceneController> GetSceneController() const override;
+
+		// DMXデータ受信イベント
+		virtual void OnReceiveArtNetDMX(unsigned short Net, unsigned short SubNet, unsigned short Universe, const std::vector<unsigned char>& DataBuffer) override;
+
+		// NDIデータ受信イベント
+		virtual void OnReceiveNDIImage(const std::vector<unsigned char>& pixelData, int Width, int Height, api::ERenderPassFormat RenderPassFormat) override;
+
+		// カスタムイベント発火
+		virtual void OnRaisedEvent(const std::string& Type, const std::string& Params) override;
 	};
 }
