@@ -5,7 +5,7 @@
 #include <Graphics/PostProcess/CPostProcess.h>
 
 #include <Camera/CCamera.h>
-#include <Camera/CTraceCamera.h>
+#include <Camera/CLookUpTraceCamera.h>
 #ifdef USE_VIEWER_CAMERA
 #include <Camera/CViewerCamera.h>
 #endif // USE_VIEWER_CAMERA
@@ -20,6 +20,13 @@
 #include "../../GUIApp/GUI/CGraphicsEditingWindow.h"
 #include "../../GUIApp/Model/CFileModifier.h"
 #include "../../Component/CVATGenerator.h"
+#include "../../Component/CCameraSwitcherComponent.h"
+
+#ifdef USE_NETWORK
+#include <Network/CUDPSocket.h>
+#include <Network/DMX/CDMXDataHandler.h>
+#include <Network/CNDIReceiver.h>
+#endif
 
 namespace app
 {
@@ -32,12 +39,20 @@ namespace app
 #else
 		m_ViewCamera(std::make_shared<camera::CCamera>()),
 #endif // USE_VIEWER_CAMERA
-		m_TraceCamera(std::make_shared<camera::CTraceCamera>()),
+		m_CurrentLookUpCamera(nullptr),
+		m_LookUpCameraA(std::make_shared<camera::CLookUpTraceCamera>()),
+		m_LookUpCameraB(std::make_shared<camera::CLookUpTraceCamera>()),
+		m_LookUpSwitchToggle(true),
 		m_Projection(std::make_shared<projection::CProjection>()),
 		m_DrawInfo(std::make_shared<graphics::CDrawInfo>()),
 #ifdef USE_GUIENGINE
 		m_GraphicsEditingWindow(std::make_shared<gui::CGraphicsEditingWindow>()),
 #endif // USE_GUIENGINE
+#ifdef USE_NETWORK
+		m_UDPSocket(std::make_shared<network::CUDPSocket>("192.168.0.252", 6454)),
+		m_DMXHandler(std::make_shared<network::CDMXDataHandler>()),
+		m_NDIReceiver(std::make_shared<network::CNDIReceiver>()),
+#endif // USE_NETWORK
 		m_FileModifier(std::make_shared<CFileModifier>()),
 		m_TimelineController(std::make_shared<timeline::CTimelineController>()),
 		m_PostProcess(std::make_shared<graphics::CPostProcess>("MainResultPass")),
@@ -47,11 +62,12 @@ namespace app
 		m_PRPlanePos(glm::vec3(0.0f))
 	{
 		m_MainCamera = m_ViewCamera;
+		m_CurrentLookUpCamera = m_LookUpCameraA;
 
 		auto LightCamera = std::make_shared<camera::CCamera>();
 		LightCamera->SetCenter(glm::vec3(0.0f, 0.0f, 0.0f));
-		//LightCamera->SetPos(glm::vec3(0.0f, 1.0f, -1.0f) * 5.0f); // Live
-		LightCamera->SetPos(glm::vec3(0.0f, 1.0f, 1.0f) * 20.0f); // Photo
+		LightCamera->SetPos(glm::vec3(0.0f, 1.0f, -1.0f) * 5.0f); // Live
+		//LightCamera->SetPos(glm::vec3(0.0f, 1.0f, 1.0f) * 20.0f); // Photo
 		m_DrawInfo->SetLightCamera(LightCamera);
 
 		m_DrawInfo->GetLightProjection()->SetNear(2.0f);
@@ -71,9 +87,49 @@ namespace app
 
 	bool CLive1135App::Initialize(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker)
 	{
-		//pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\Live_1135.json", m_SceneController));
+		pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\Live_1135.json", m_SceneController));
 		//pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\MioMikoSuba_Photo.json", m_SceneController));
-		pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\FubuMio.json", m_SceneController));
+		//pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\FubuMio.json", m_SceneController));
+
+#ifdef USE_NETWORK
+		if (!m_UDPSocket->Initialize()) return false;
+
+		// DMX準備
+		{
+			// ライト
+			network::SDMXFixture Fixture{};
+			Fixture.DeviceName = "DefaultSpotLight";
+			Fixture.ChannelNameList = { "R", "G", "B", "Dimmer", "Pan", "Tilt", "Angle", "Height" };
+
+			m_DMXHandler->RegistDeviceFixture(1, 0, 0, Fixture);
+		}
+
+		{
+			// CameraSwitcher
+			network::SDMXFixture Fixture{};
+			Fixture.DeviceName = "CameraSwitcher";
+			Fixture.ChannelNameList = {
+				"ID",
+
+				// CameraA
+				"CameraA_PosX_Byte_0", "CameraA_PosX_Byte_1", "CameraA_PosX_Byte_2", "CameraA_PosX_Byte_3",
+				"CameraA_PosY_Byte_0", "CameraA_PosY_Byte_1", "CameraA_PosY_Byte_2", "CameraA_PosY_Byte_3",
+				"CameraA_PosZ_Byte_0", "CameraA_PosZ_Byte_1", "CameraA_PosZ_Byte_2", "CameraA_PosZ_Byte_3",
+				"CameraA_ZAngle_Byte_0", "CameraA_ZAngle_Byte_1", "CameraA_ZAngle_Byte_2", "CameraA_ZAngle_Byte_3",
+
+				// CameraB
+				"CameraB_PosX_Byte_0", "CameraB_PosX_Byte_1", "CameraB_PosX_Byte_2", "CameraB_PosX_Byte_3",
+				"CameraB_PosY_Byte_0", "CameraB_PosY_Byte_1", "CameraB_PosY_Byte_2", "CameraB_PosY_Byte_3",
+				"CameraB_PosZ_Byte_0", "CameraB_PosZ_Byte_1", "CameraB_PosZ_Byte_2", "CameraB_PosZ_Byte_3",
+				"CameraB_ZAngle_Byte_0", "CameraB_ZAngle_Byte_1", "CameraB_ZAngle_Byte_2", "CameraB_ZAngle_Byte_3",
+			};
+
+			m_DMXHandler->RegistDeviceFixture(2, 0, 0, Fixture);
+		}
+
+		// NDIレシーバー初期化
+		if (!m_NDIReceiver->Initialize()) return false;
+#endif
 
 		// オフスクリーンレンダリング
 		// GBufferを組み込んだレンダリングパイプラインではフレームバッファコピー周りがややこしく非効率なことになるのでMSAAは使わない
@@ -252,7 +308,7 @@ namespace app
 			}
 			else
 			{
-				m_MainCamera = m_TraceCamera;
+				m_MainCamera = m_CurrentLookUpCamera;
 			}
 		}
 
@@ -411,6 +467,14 @@ namespace app
 		{
 			return std::make_shared<component::CVATGenerator>(ComponentType, ValueRegistry);
 		}
+		else if (ComponentType == "CameraSwitcher")
+		{
+			return std::make_shared<scriptable::CCameraSwitcherComponent>(ComponentType, ValueRegistry, shared_from_this(),
+				std::vector<std::shared_ptr<camera::CLookUpTraceCamera>>({
+					m_LookUpCameraA,
+					m_LookUpCameraB,
+				}));
+		}
 
 		return nullptr;
 	}
@@ -451,19 +515,40 @@ namespace app
 		}
 #endif
 
-		// カメラ
+		/*// DMXに照明灯体を渡す
 		{
-			const auto& Object = m_SceneController->FindObjectByName("CameraObject");
+			const auto& Object = m_SceneController->FindObjectByName("LightList");
 			if (Object)
 			{
-				const auto& Node = Object->FindNodeByName("CameraNode");
-
-				if (Node)
+				for (int i = 0; i < 6; i++)
 				{
-					m_TraceCamera->SetTargetNode(Node);
+					std::string Name = "SpotLight_" + std::to_string(i);
+					const auto& SpotLight = Object->FindNodeByName(Name);
+
+					for (const auto& Component : SpotLight->GetComponentList())
+					{
+						if (Component->GetComponentName() != "SpotLight") continue;
+
+						m_DMXHandler->AddDevice("DefaultSpotLight", Component);
+					}
 				}
 			}
 		}
+
+		// DMXにカメラスイッチャーを渡す
+		{
+			const auto& Object = m_SceneController->FindObjectByName("CameraSwitcher");
+			if (Object)
+			{
+				const auto& ComponentList = Object->GetComponentList();
+				if (!ComponentList.empty())
+				{
+					const auto& Component = ComponentList[0];
+
+					m_DMXHandler->AddDevice("CameraSwitcher", Component);
+				}
+			}
+		}*/
 
 		const auto& Sound = m_SceneController->GetSound();
 		const auto& SoundClip = std::get<0>(Sound);
@@ -508,5 +593,51 @@ namespace app
 	std::shared_ptr<scene::CSceneController> CLive1135App::GetSceneController() const
 	{
 		return m_SceneController;
+	}
+
+	// DMXデータ受信イベント
+	void CLive1135App::OnReceiveArtNetDMX(unsigned short Net, unsigned short SubNet, unsigned short Universe, const std::vector<unsigned char>& DataBuffer)
+	{
+#ifdef USE_NETWORK
+
+		if (!m_DMXHandler) return;
+
+		m_DMXHandler->DispatchDMXData(Net, SubNet, Universe, DataBuffer);
+#endif // USE_NETWORK
+	}
+
+	// NDIデータ受信イベント
+	void CLive1135App::OnReceiveNDIImage(const std::vector<unsigned char>& pixelData, int Width, int Height, api::ERenderPassFormat RenderPassFormat)
+	{
+		if (!m_SceneController->IsLoaded()) return;
+
+		const auto& NDIObj = m_SceneController->FindObjectByName("NDIObj");
+		if (NDIObj)
+		{
+			const auto& TextureList = NDIObj->GetTextureSet()->Get2DTextureList();
+
+			if (!TextureList.empty())
+			{
+				TextureList[0]->ReplacePixelData(pixelData, Width, Height, RenderPassFormat);
+			}
+		}
+	}
+
+	// カスタムイベント発火
+	void CLive1135App::OnRaisedEvent(const std::string& Type, const std::string& Params)
+	{
+		if (Type == "CameraSwitch")
+		{
+			m_LookUpSwitchToggle = !m_LookUpSwitchToggle;
+
+			if (m_LookUpSwitchToggle)
+			{
+				m_CurrentLookUpCamera = m_LookUpCameraA;
+			}
+			else
+			{
+				m_CurrentLookUpCamera = m_LookUpCameraB;
+			}
+		}
 	}
 }
