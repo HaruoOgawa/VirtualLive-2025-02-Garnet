@@ -253,6 +253,31 @@ namespace app
 
 	bool CLive1135App::Update(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker, const std::shared_ptr<input::CInputState>& InputState)
 	{
+		if (!m_FileModifier->Update(pLoadWorker)) return false;
+
+		if (pLoadWorker->IsLoaded())
+		{
+			if (!m_TimelineController->Update(m_DrawInfo->GetDeltaSecondsTime(), InputState)) return false;
+		}
+
+		if (!m_SceneController->Update(pGraphicsAPI, pPhysicsEngine, pLoadWorker, m_MainCamera, m_Projection, m_DrawInfo, InputState, m_TimelineController)) return false;
+
+		m_MainCamera->Update(m_DrawInfo->GetDeltaSecondsTime(), InputState);
+
+		if (InputState->IsKeyUp(input::EKeyType::KEY_TYPE_SPACE))
+		{
+			m_CameraSwitchToggle = !m_CameraSwitchToggle;
+
+			if (m_CameraSwitchToggle)
+			{
+				m_MainCamera = m_ViewCamera;
+			}
+			else
+			{
+				m_MainCamera = m_CurrentLookUpCamera;
+			}
+		}
+
 		// 平面反射用カメラの位置を決定する
 		// メインカメラと反射面がなすViewDirを面対象にした方向
 		{
@@ -285,31 +310,6 @@ namespace app
 			m_PRCamera->SetPos(posWorldSpace);
 			m_PRCamera->SetUpVector(upWorldSpace);
 			m_PRCamera->SetCenter(centerWorldSpace);
-		}
-
-		if (!m_FileModifier->Update(pLoadWorker)) return false;
-
-		if (pLoadWorker->IsLoaded())
-		{
-			if (!m_TimelineController->Update(m_DrawInfo->GetDeltaSecondsTime(), InputState)) return false;
-		}
-
-		if (!m_SceneController->Update(pGraphicsAPI, pPhysicsEngine, pLoadWorker, m_MainCamera, m_Projection, m_DrawInfo, InputState, m_TimelineController)) return false;
-
-		m_MainCamera->Update(m_DrawInfo->GetDeltaSecondsTime(), InputState);
-
-		if (InputState->IsKeyUp(input::EKeyType::KEY_TYPE_SPACE))
-		{
-			m_CameraSwitchToggle = !m_CameraSwitchToggle;
-
-			if (m_CameraSwitchToggle)
-			{
-				m_MainCamera = m_ViewCamera;
-			}
-			else
-			{
-				m_MainCamera = m_CurrentLookUpCamera;
-			}
 		}
 
 		if (!m_PostProcess->Update(pGraphicsAPI, pPhysicsEngine, pLoadWorker, m_MainCamera, m_Projection, m_DrawInfo, InputState)) return false;
