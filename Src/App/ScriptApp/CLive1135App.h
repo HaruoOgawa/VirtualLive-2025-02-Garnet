@@ -61,6 +61,7 @@ namespace app
 
 		std::shared_ptr<network::CNDIReceiver> m_NDIReceiver;
 #endif
+		int m_NDITexIndex = -1;
 
 	public:
 		CLive1135App();

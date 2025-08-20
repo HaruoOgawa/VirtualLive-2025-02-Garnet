@@ -53,6 +53,7 @@ namespace app
 		m_DMXHandler(std::make_shared<network::CDMXDataHandler>()),
 		m_NDIReceiver(std::make_shared<network::CNDIReceiver>()),
 #endif // USE_NETWORK
+		m_NDITexIndex(-1),
 		m_FileModifier(std::make_shared<CFileModifier>()),
 		m_TimelineController(std::make_shared<timeline::CTimelineController>()),
 		m_PostProcess(std::make_shared<graphics::CPostProcess>("MainResultPass")),
@@ -501,6 +502,55 @@ namespace app
 	{
 		if (!m_SceneController->Create(pGraphicsAPI, pPhysicsEngine)) return false;
 
+		// NDI用の空テクスチャを作成
+		{
+			auto EmptyTexture = pGraphicsAPI->CreateTexture(false);
+
+			int pixelByteSize = 1920 * 1080 * 4;
+			std::vector<unsigned char> emptyPixel;
+			emptyPixel.resize(pixelByteSize, 0);
+
+			EmptyTexture->Create(emptyPixel, 1920, 1080, 4, api::ERenderPassFormat::COLOR_BGRA);
+
+			const auto& IndoorLiveStage = m_SceneController->FindObjectByName("IndoorLiveStage");
+			if (IndoorLiveStage)
+			{
+				m_NDITexIndex = static_cast<int>(IndoorLiveStage->GetTextureSet()->Get2DTextureList().size());
+
+				IndoorLiveStage->GetTextureSet()->Add2DTexture(EmptyTexture);
+
+				std::vector<std::string> AssignTexNodeList = {
+					"C01_Screen_Back",
+					"C02_Screen_Front01",
+					"C03_Screen_Front02",
+					"C04_Screen_Celling_01",
+				};
+
+				for(const auto& NodeName : AssignTexNodeList)
+				{
+					const auto& Node = IndoorLiveStage->FindNodeByName(NodeName);
+					if (Node)
+					{
+						int MeshIndex = Node->GetMeshIndex();
+						if (MeshIndex == -1) continue;
+
+						const auto& Mesh = IndoorLiveStage->GetMeshList()[MeshIndex];
+						if (!Mesh) continue;
+
+						for (const auto& Primitive : Mesh->GetPrimitiveList())
+						{
+							for (const auto& Renderer : Primitive->GetRendererList())
+							{
+								std::get<1>(Renderer)->SetUniformValue("useBaseColorTexture", &glm::ivec1(1)[0], sizeof(int));
+								std::get<1>(Renderer)->ReplaceTextureIndex("baseColorTexture", m_NDITexIndex);
+								std::get<1>(Renderer)->CreateRefTextureList(IndoorLiveStage->GetTextureSet());
+							}
+						}
+					}
+				}
+			}
+		}
+
 		// 平面反射の座標を指定
 		{
 			// 今回はたまたま原点位置と平面の高さが一致しているのでわざわざノードから取得・計算するみたいなことはしない
@@ -619,14 +669,14 @@ namespace app
 	{
 		if (!m_SceneController->IsLoaded()) return;
 
-		const auto& NDIObj = m_SceneController->FindObjectByName("NDIObj");
-		if (NDIObj)
+		const auto& IndoorLiveStage = m_SceneController->FindObjectByName("IndoorLiveStage");
+		if (IndoorLiveStage)
 		{
-			const auto& TextureList = NDIObj->GetTextureSet()->Get2DTextureList();
+			const auto& TextureList = IndoorLiveStage->GetTextureSet()->Get2DTextureList();
 
-			if (!TextureList.empty())
+			if (!TextureList.empty() && m_NDITexIndex >= 0)
 			{
-				TextureList[0]->ReplacePixelData(pixelData, Width, Height, RenderPassFormat);
+				TextureList[m_NDITexIndex]->ReplacePixelData(pixelData, Width, Height, RenderPassFormat);
 			}
 		}
 	}
