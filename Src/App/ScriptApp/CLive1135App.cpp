@@ -255,6 +255,14 @@ namespace app
 	{
 		if (!m_FileModifier->Update(pLoadWorker)) return false;
 
+#ifdef USE_NETWORK
+		if (pLoadWorker->IsLoaded())
+		{
+			if (!m_UDPSocket->Update(this)) return false;
+			if (!m_NDIReceiver->Update(this)) return false;
+		}
+#endif
+
 		if (pLoadWorker->IsLoaded())
 		{
 			if (!m_TimelineController->Update(m_DrawInfo->GetDeltaSecondsTime(), InputState)) return false;
