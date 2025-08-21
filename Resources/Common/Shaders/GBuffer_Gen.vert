@@ -33,6 +33,8 @@ layout(binding = 0) uniform UniformBufferObject{
     int   useMetallicRoughnessTexture;
     int   useNormalTexture;
     int   useEmissiveTexture;
+
+    vec4 baseColorTexture_ST;
 } ubo;
 
 layout(binding = 1) uniform SkinMatrixBuffer

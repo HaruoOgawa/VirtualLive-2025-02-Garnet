@@ -40,6 +40,8 @@ layout(binding = 0) uniform UniformBufferObject{
     int   useMetallicRoughnessTexture;
     int   useNormalTexture;
     int   useEmissiveTexture;
+
+	vec4 baseColorTexture_ST;
 } ubo;
 
 #ifdef USE_OPENGL
@@ -78,10 +80,12 @@ vec4 GetBaseColor()
 	vec4 baseColor;
 	if(ubo.useBaseColorTexture != 0)
 	{
+		vec2 st = f_Texcoord * ubo.baseColorTexture_ST.xy + ubo.baseColorTexture_ST.zw;
+
 		#ifdef USE_OPENGL
-		baseColor = texture(baseColorTexture, f_Texcoord);
+		baseColor = texture(baseColorTexture, st);
 		#else
-		baseColor = texture(sampler2D(baseColorTexture, baseColorTextureSampler), f_Texcoord);
+		baseColor = texture(sampler2D(baseColorTexture, baseColorTextureSampler), st);
 		#endif
 	}
 	else
@@ -89,7 +93,7 @@ vec4 GetBaseColor()
 		baseColor = ubo.baseColorFactor;
 	}
 
-	return baseColor;
+	return SRGBtoLINEAR(baseColor);
 }
 
 vec3 getNormal()

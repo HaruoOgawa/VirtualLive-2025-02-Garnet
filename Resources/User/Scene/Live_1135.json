@@ -309,9 +309,9 @@
                     0.0
                 ],
                 "rotate": [
-                    180.0,
+                    -180.0,
                     -5.008956122765085e-06,
-                    180.0
+                    -180.0
                 ],
                 "scale": [
                     2.0,
@@ -523,9 +523,12 @@
                     "cull": "back",
                     "uniformvalues": [
                         {
-                            "name": "emissiveStrength",
-                            "type": "float",
+                            "name": "baseColorFactor",
+                            "type": "vec4",
                             "value": [
+                                0.0,
+                                0.0,
+                                0.0,
                                 1.0
                             ]
                         },
@@ -636,6 +639,20 @@
                             "value": [
                                 0.5
                             ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 17,
+                            "texturename": ""
                         }
                     ]
                 },
@@ -841,6 +858,16 @@
                     "cull": "back",
                     "uniformvalues": [
                         {
+                            "name": "baseColorTexture_ST",
+                            "type": "vec4",
+                            "value": [
+                                0.5,
+                                1.0,
+                                0.25,
+                                0.0
+                            ]
+                        },
+                        {
                             "name": "emissiveStrength",
                             "type": "float",
                             "value": [
@@ -853,6 +880,20 @@
                             "value": [
                                 0.5
                             ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 17,
+                            "texturename": ""
                         }
                     ]
                 },
@@ -875,6 +916,20 @@
                             "value": [
                                 0.5
                             ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 17,
+                            "texturename": ""
                         }
                     ]
                 },
@@ -897,6 +952,20 @@
                             "value": [
                                 0.5
                             ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 17,
+                            "texturename": ""
                         }
                     ]
                 },
@@ -1180,9 +1249,9 @@
                             "name": "emissiveFactor",
                             "type": "vec4",
                             "value": [
+                                0.8468679785728455,
+                                0.6583752036094666,
                                 1.0,
-                                0.8626750707626343,
-                                0.8544825315475464,
                                 0.0
                             ]
                         },
@@ -1190,7 +1259,7 @@
                             "name": "emissiveStrength",
                             "type": "float",
                             "value": [
-                                1.4866434335708618
+                                2.5
                             ]
                         },
                         {
@@ -1222,9 +1291,9 @@
                             "name": "emissiveFactor",
                             "type": "vec4",
                             "value": [
+                                0.8468679785728455,
+                                0.6583752036094666,
                                 1.0,
-                                0.8626750707626343,
-                                0.8544825315475464,
                                 0.0
                             ]
                         },
@@ -1232,7 +1301,7 @@
                             "name": "emissiveStrength",
                             "type": "float",
                             "value": [
-                                1.4866434335708618
+                                2.5
                             ]
                         },
                         {
@@ -1264,9 +1333,9 @@
                             "name": "emissiveFactor",
                             "type": "vec4",
                             "value": [
+                                0.8468679785728455,
+                                0.6583752036094666,
                                 1.0,
-                                0.8626750707626343,
-                                0.8544825315475464,
                                 0.0
                             ]
                         },
@@ -1274,7 +1343,7 @@
                             "name": "emissiveStrength",
                             "type": "float",
                             "value": [
-                                1.4866434335708618
+                                2.5
                             ]
                         },
                         {
@@ -1306,9 +1375,9 @@
                             "name": "emissiveFactor",
                             "type": "vec4",
                             "value": [
+                                0.8468679785728455,
+                                0.6583752036094666,
                                 1.0,
-                                0.8626750707626343,
-                                0.8544825315475464,
                                 0.0
                             ]
                         },
@@ -1316,7 +1385,7 @@
                             "name": "emissiveStrength",
                             "type": "float",
                             "value": [
-                                1.4866434335708618
+                                2.5
                             ]
                         },
                         {
@@ -1348,9 +1417,9 @@
                             "name": "emissiveFactor",
                             "type": "vec4",
                             "value": [
+                                0.8468679785728455,
+                                0.6583752036094666,
                                 1.0,
-                                0.8626750707626343,
-                                0.8544825315475464,
                                 0.0
                             ]
                         },
@@ -1358,7 +1427,7 @@
                             "name": "emissiveStrength",
                             "type": "float",
                             "value": [
-                                1.4866434335708618
+                                2.5
                             ]
                         },
                         {
@@ -1390,9 +1459,9 @@
                             "name": "emissiveFactor",
                             "type": "vec4",
                             "value": [
+                                0.8468679785728455,
+                                0.6583752036094666,
                                 1.0,
-                                0.8626750707626343,
-                                0.8544825315475464,
                                 0.0
                             ]
                         },
@@ -1400,7 +1469,7 @@
                             "name": "emissiveStrength",
                             "type": "float",
                             "value": [
-                                1.9821914434432983
+                                2.5
                             ]
                         },
                         {
@@ -1562,9 +1631,9 @@
                             "name": "emissiveFactor",
                             "type": "vec4",
                             "value": [
+                                0.8468679785728455,
+                                0.6583752036094666,
                                 1.0,
-                                0.8626750707626343,
-                                0.8544825315475464,
                                 0.0
                             ]
                         },
@@ -1572,7 +1641,7 @@
                             "name": "emissiveStrength",
                             "type": "float",
                             "value": [
-                                1.9821914434432983
+                                2.5
                             ]
                         },
                         {
@@ -1734,9 +1803,9 @@
                             "name": "emissiveFactor",
                             "type": "vec4",
                             "value": [
+                                0.8468679785728455,
+                                0.6583752036094666,
                                 1.0,
-                                0.8626750707626343,
-                                0.8544825315475464,
                                 0.0
                             ]
                         },
@@ -1744,7 +1813,7 @@
                             "name": "emissiveStrength",
                             "type": "float",
                             "value": [
-                                1.9821914434432983
+                                2.5
                             ]
                         },
                         {
@@ -1906,9 +1975,9 @@
                             "name": "emissiveFactor",
                             "type": "vec4",
                             "value": [
+                                0.8468679785728455,
+                                0.6583752036094666,
                                 1.0,
-                                0.8626750707626343,
-                                0.8544825315475464,
                                 0.0
                             ]
                         },
@@ -1916,7 +1985,7 @@
                             "name": "emissiveStrength",
                             "type": "float",
                             "value": [
-                                1.9821914434432983
+                                2.5
                             ]
                         },
                         {
@@ -2078,9 +2147,9 @@
                             "name": "emissiveFactor",
                             "type": "vec4",
                             "value": [
+                                0.8468679785728455,
+                                0.6583752036094666,
                                 1.0,
-                                0.8626750707626343,
-                                0.8544825315475464,
                                 0.0
                             ]
                         },
@@ -2088,7 +2157,7 @@
                             "name": "emissiveStrength",
                             "type": "float",
                             "value": [
-                                1.9821914434432983
+                                2.5
                             ]
                         },
                         {
@@ -2250,9 +2319,9 @@
                             "name": "emissiveFactor",
                             "type": "vec4",
                             "value": [
+                                0.8468679785728455,
+                                0.6583752036094666,
                                 1.0,
-                                0.8626750707626343,
-                                0.8544825315475464,
                                 0.0
                             ]
                         },
@@ -2260,7 +2329,7 @@
                             "name": "emissiveStrength",
                             "type": "float",
                             "value": [
-                                1.9821914434432983
+                                2.5
                             ]
                         },
                         {
@@ -2422,9 +2491,9 @@
                             "name": "emissiveFactor",
                             "type": "vec4",
                             "value": [
+                                0.8468679785728455,
+                                0.6583752036094666,
                                 1.0,
-                                0.8626750707626343,
-                                0.8544825315475464,
                                 0.0
                             ]
                         },
@@ -2432,7 +2501,7 @@
                             "name": "emissiveStrength",
                             "type": "float",
                             "value": [
-                                1.9821914434432983
+                                2.5
                             ]
                         },
                         {
@@ -2594,9 +2663,9 @@
                             "name": "emissiveFactor",
                             "type": "vec4",
                             "value": [
+                                0.8468679785728455,
+                                0.6583752036094666,
                                 1.0,
-                                0.8626750707626343,
-                                0.8544825315475464,
                                 0.0
                             ]
                         },
@@ -2604,7 +2673,7 @@
                             "name": "emissiveStrength",
                             "type": "float",
                             "value": [
-                                1.9821914434432983
+                                2.5
                             ]
                         },
                         {
@@ -31652,6 +31721,13 @@
                             ]
                         },
                         {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
                             "name": "roughnessFactor",
                             "type": "float",
                             "value": [
@@ -31701,11 +31777,6 @@
                         },
                         {
                             "texturebuffername": "IBL_GGXLUT_Texture",
-                            "textureindex": 0,
-                            "texturename": ""
-                        },
-                        {
-                            "texturebuffername": "cubeMap2DTexture",
                             "textureindex": 0,
                             "texturename": ""
                         }
@@ -31820,9 +31891,9 @@
                             "name": "baseColorFactor",
                             "type": "vec4",
                             "value": [
-                                0.9068484306335449,
-                                0.8341667652130127,
-                                0.8978789448738098,
+                                1.0,
+                                0.11764705181121826,
+                                0.8858439326286316,
                                 1.0
                             ]
                         },
@@ -31830,17 +31901,17 @@
                             "name": "emissiveFactor",
                             "type": "vec4",
                             "value": [
+                                0.6190000176429749,
+                                0.335999995470047,
                                 1.0,
-                                0.0,
-                                0.08065139502286911,
-                                0.0
+                                1.0
                             ]
                         },
                         {
                             "name": "emissiveStrength",
                             "type": "float",
                             "value": [
-                                5.000000476837158
+                                10.0
                             ]
                         },
                         {
