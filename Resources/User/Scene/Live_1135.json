@@ -523,6 +523,23 @@
                     "cull": "back",
                     "uniformvalues": [
                         {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
                             "name": "roughnessFactor",
                             "type": "float",
                             "value": [

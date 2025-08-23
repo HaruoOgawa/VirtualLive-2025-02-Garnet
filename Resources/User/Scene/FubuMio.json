@@ -516,6 +516,23 @@
                     "cull": "back",
                     "uniformvalues": [
                         {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
                             "name": "roughnessFactor",
                             "type": "float",
                             "value": [
@@ -1867,9 +1884,9 @@
                     0.0
                 ],
                 "rotate": [
-                    -180.0,
+                    180.0,
                     -5.008956122765085e-06,
-                    -180.0
+                    180.0
                 ],
                 "scale": [
                     0.5,
@@ -4988,9 +5005,9 @@
                     0.0
                 ],
                 "rotate": [
-                    -180.0,
+                    180.0,
                     -5.008956122765085e-06,
-                    -180.0
+                    180.0
                 ],
                 "scale": [
                     0.5,
