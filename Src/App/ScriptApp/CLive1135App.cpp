@@ -16,6 +16,7 @@
 #include <Interface/IGUIEngine.h>
 #include <Timeline/CTimelineController.h>
 #include <Scene/CSceneController.h>
+#include <Scriptable/CComponentResolver.h>
 
 #include "../../GUIApp/GUI/CGraphicsEditingWindow.h"
 #include "../../GUIApp/Model/CFileModifier.h"
@@ -615,6 +616,143 @@ namespace app
 		if (SoundClip)
 		{
 			SoundClip->PlayOneShot();
+		}
+
+		return true;
+	}
+
+	// オブジェクト個別のロード完了イベント
+	bool CLive1135App::OnObjectLoaded(const std::shared_ptr<object::C3DObject>& Object, api::IGraphicsAPI* pGraphicsAPI, resource::CLoadWorker* pLoadWorker)
+	{
+		std::map<std::string, int> BaseNameCountMap;
+		BaseNameCountMap.emplace("Lift_MovingLight_Base.", 8);
+		BaseNameCountMap.emplace("Ceiling_MovingLight_Base.", 12);
+		BaseNameCountMap.emplace("StageLeft_MovingLight_Base.", 5);
+		BaseNameCountMap.emplace("StageRight_MovingLight_Base.", 5);
+
+		// スポットライトノードとコンポーネントをまとめて自動生成
+		if (Object->GetObjectName() == "LightList_NotWorking") // 動作させないので_NotWorkingを付与しておく
+		{
+			int NodeNum = static_cast<int>(Object->GetNodeList().size());
+
+			for (const auto& pair : BaseNameCountMap)
+			{
+				const auto& BaseName = pair.first;
+				int Count = pair.second;
+
+				for (int i = 0; i < Count; i++)
+				{
+					// 数値を"003"のようなゼロ埋め3桁文字列に変換する
+					char buf[4];
+					snprintf(buf, sizeof(buf), "%03d", i);
+
+					std::string NodeName = BaseName;
+					NodeName += buf;
+
+					// ノード生成
+					std::shared_ptr<object::CNode> Node = std::make_shared<object::CNode>(-1, NodeNum);
+					Node->SetName(NodeName);
+					Object->AddNode(Node);
+
+					// コンポーネント追加
+					auto Component = scriptable::CComponentResolver::Resolve(this, "SpotLight", "");
+					Component->Initialize(pGraphicsAPI, pLoadWorker);
+
+					// 描画パスを指定
+					std::string DefferdPassName = "GBufferGenPass";
+					std::string LightingPassName = "GBufferLightPass";
+					std::string ForegroundPassName = "MainGeometryPass";
+
+					Component->GetValueRegistry()->SetValue("DefferdPassName", graphics::EUniformValueType::VALUE_TYPE_STRING, DefferdPassName.c_str(), sizeof(char) * DefferdPassName.size());
+					Component->GetValueRegistry()->SetValue("LightingPassName", graphics::EUniformValueType::VALUE_TYPE_STRING, LightingPassName.c_str(), sizeof(char) * LightingPassName.size());
+					Component->GetValueRegistry()->SetValue("ForegroundPassName", graphics::EUniformValueType::VALUE_TYPE_STRING, ForegroundPassName.c_str(), sizeof(char) * ForegroundPassName.size());
+
+					Node->AddComponent(Component);
+
+					NodeNum++;
+				}
+			}
+		}
+		else if (Object->GetObjectName() == "IndoorLiveStage")
+		{
+			std::map<std::string, std::shared_ptr<object::CNode>> EmitterList;
+
+			for (const auto& pair : BaseNameCountMap)
+			{
+				const auto& BaseName = pair.first;
+				int Count = pair.second;
+
+				for (int i = 0; i < Count; i++)
+				{
+					// 数値を"003"のようなゼロ埋め3桁文字列に変換する
+					char buf[4];
+					snprintf(buf, sizeof(buf), "%03d", i);
+
+					std::string NodeName = BaseName;
+					NodeName += buf;
+
+					const auto& Node = Object->FindNodeByName(NodeName);
+					if (!Node) continue;
+
+					int ChildNodeInd_2nd = Node->GetChildrenNodeIndexList()[0];
+					const auto& ChildNode_2nd = Object->FindNodeByIndex(ChildNodeInd_2nd);
+					if (!ChildNode_2nd) continue;
+
+					ChildNode_2nd->SetRot(glm::quat(1.0f, 0.0f, 0.0f, 0.0f));
+
+					int ChildNodeInd_3rd = ChildNode_2nd->GetChildrenNodeIndexList()[0];
+					const auto& ChildNode_3rd = Object->FindNodeByIndex(ChildNodeInd_3rd);
+					if (!ChildNode_3rd) continue;
+
+					EmitterList.emplace(NodeName, ChildNode_3rd);
+				}
+
+				Object->CalcWorldMatrix();
+
+				// Emitterのワールド座標を各スポットライトに指定する
+				if(true)
+				{
+					const auto& LightList = m_SceneController->FindObjectByName("LightList");
+					if (LightList)
+					{
+						for (const auto& pair : BaseNameCountMap)
+						{
+							const auto& BaseName = pair.first;
+							int Count = pair.second;
+
+							for (int i = 0; i < Count; i++)
+							{
+								// 数値を"003"のようなゼロ埋め3桁文字列に変換する
+								char buf[4];
+								snprintf(buf, sizeof(buf), "%03d", i);
+
+								std::string NodeName = BaseName;
+								NodeName += buf;
+
+								const auto& SpotLight = LightList->FindNodeByName(NodeName);
+								if (!SpotLight) continue;
+
+								const auto& it = EmitterList.find(NodeName);
+								if (it == EmitterList.end()) continue;
+								const auto& Emitter = it->second;
+
+								//
+								const auto& Scale = Object->GetScale();
+								const auto& Rotate = Object->GetRot();
+								auto WorldPos = Emitter->GetWorldPos();
+
+								WorldPos *= Scale;
+
+								glm::vec4 RotPos = glm::vec4(WorldPos, 1.0f);
+								RotPos = glm::mat4_cast(Rotate) * RotPos;
+								WorldPos = glm::vec3(RotPos.x, RotPos.y, RotPos.z);
+
+								SpotLight->SetPos(WorldPos);
+							}
+						}
+					}
+				}
+			}
 		}
 
 		return true;
