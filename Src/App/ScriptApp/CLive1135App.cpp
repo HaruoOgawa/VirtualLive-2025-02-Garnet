@@ -694,6 +694,8 @@ namespace app
 					const auto& Node = Object->FindNodeByName(NodeName);
 					if (!Node) continue;
 
+					if (!Node->GetComponentList().empty()) continue; // すでにコンポーネントが付与されている場合はスキップ
+
 					int ChildNodeInd_2nd = Node->GetChildrenNodeIndexList()[0];
 					const auto& ChildNode_2nd = Object->FindNodeByIndex(ChildNodeInd_2nd);
 					if (!ChildNode_2nd) continue;
@@ -705,6 +707,23 @@ namespace app
 					if (!ChildNode_3rd) continue;
 
 					EmitterList.emplace(NodeName, ChildNode_3rd);
+
+					// コンポーネント追加
+					auto Component = scriptable::CComponentResolver::Resolve(this, "SpotLightDMXController", "");
+					Component->Initialize(pGraphicsAPI, pLoadWorker);
+
+					Component->GetValueRegistry()->SetValue("PanNodeName", graphics::EUniformValueType::VALUE_TYPE_STRING, Node->GetName().c_str(), sizeof(char) * Node->GetName().size());
+					Component->GetValueRegistry()->SetValue("TiltNodeName", graphics::EUniformValueType::VALUE_TYPE_STRING, ChildNode_2nd->GetName().c_str(), sizeof(char) * ChildNode_2nd->GetName().size());
+					Component->GetValueRegistry()->SetValue("SpotLightFollowTarget", graphics::EUniformValueType::VALUE_TYPE_STRING, ChildNode_3rd->GetName().c_str(), sizeof(char) * ChildNode_3rd->GetName().size());
+				
+					//
+					std::string SpotLightObjName = "LightList";
+					Component->GetValueRegistry()->SetValue("SpotLightObjName", graphics::EUniformValueType::VALUE_TYPE_STRING, SpotLightObjName.c_str(), sizeof(char) * SpotLightObjName.size());
+					// スポットライトノードはBaseNameと同じ名前にしている(1つ上のOnObjectLoadedの処理)
+					Component->GetValueRegistry()->SetValue("SpotLightNodeName", graphics::EUniformValueType::VALUE_TYPE_STRING, NodeName.c_str(), sizeof(char) * NodeName.size());
+
+					// コンポーネントをアタッチ
+					Node->AddComponent(Component);
 				}
 
 				Object->CalcWorldMatrix();
