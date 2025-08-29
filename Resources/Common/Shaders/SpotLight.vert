@@ -50,8 +50,14 @@ void main()
     // Y方向の拡大率
     float YExpandRate = height / 1.0;
 
+    // ライトのエミッタのサイズにスポットライトの初めの形を合わせる
+    float realRadius = 0.35;
+    float XZScale = mix(realRadius, XZExpandRate, HeightRate);
+
+    float YScale = YExpandRate;
+
     // ライトの変形
-    vec3 DeformedScale = vec3(XZExpandRate * HeightRate, YExpandRate, XZExpandRate * HeightRate);
+    vec3 DeformedScale = vec3(XZScale, YScale, XZScale);
 
     pos *= mat4(
         DeformedScale.x, 0.0, 0.0, 0.0,
