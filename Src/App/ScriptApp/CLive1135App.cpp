@@ -664,9 +664,21 @@ namespace app
 		const auto& SoundClip = std::get<0>(Sound);
 		if (SoundClip)
 		{
-			SoundClip->SetPlayPos(52.0f);
+			SoundClip->SetPlayPos(48.5f);
 			SoundClip->PlayOneShot();
 		}
+
+		const auto& ookamimio = m_SceneController->FindObjectByName("ookamimio");
+		if (ookamimio) ookamimio->GetAnimationController()->ChangeMotion("Dance");
+		
+		const auto& oozorasubaru = m_SceneController->FindObjectByName("oozorasubaru");
+		if (oozorasubaru) oozorasubaru->GetAnimationController()->ChangeMotion("Dance");
+
+		const auto& sakuramiko = m_SceneController->FindObjectByName("sakuramiko");
+		if (sakuramiko) sakuramiko->GetAnimationController()->ChangeMotion("Dance");
+
+		const auto& fubuki = m_SceneController->FindObjectByName("fubuki");
+		if (fubuki) fubuki->GetAnimationController()->ChangeMotion("Dance");
 
 		return true;
 	}
