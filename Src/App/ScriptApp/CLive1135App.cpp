@@ -664,6 +664,7 @@ namespace app
 		const auto& SoundClip = std::get<0>(Sound);
 		if (SoundClip)
 		{
+			SoundClip->SetPlayPos(52.0f);
 			SoundClip->PlayOneShot();
 		}
 

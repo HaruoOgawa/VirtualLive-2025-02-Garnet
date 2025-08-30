@@ -4811,6 +4811,13 @@
     "physics": {
         "enabled": true
     },
+    "sound": {
+        "bgm": {
+            "filename": "Resources\\User\\Sound\\DottaBatta.wav",
+            "autoplay": false,
+            "loop": false
+        }
+    },
     "objects": [
         {
             "name": "CameraSwitcher",
