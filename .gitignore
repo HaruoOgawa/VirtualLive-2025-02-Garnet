@@ -24,6 +24,9 @@ imgui.ini
 *.userosscache
 *.sln.docstates
 
+Resources/User/DMXSender/DMXSender.*.toe
+Resources/User/DMXSender/Backup/
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

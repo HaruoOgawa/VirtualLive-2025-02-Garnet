@@ -119,38 +119,6 @@
             ]
         },
         {
-            "registryname": "PointLight_27684_3876",
-            "values": [
-                {
-                    "name": "DefferdPassName",
-                    "type": "string",
-                    "initValue": "GBufferGenPass"
-                },
-                {
-                    "name": "LightingPassName",
-                    "type": "string",
-                    "initValue": "GBufferLightPass"
-                },
-                {
-                    "name": "color",
-                    "type": "vec4",
-                    "initValue": [
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0
-                    ]
-                },
-                {
-                    "name": "intensity",
-                    "type": "float",
-                    "initValue": [
-                        1.0
-                    ]
-                }
-            ]
-        },
-        {
             "registryname": "SpotLight_11507_19060",
             "values": [
                 {
@@ -700,8 +668,8 @@
                     "type": "vec4",
                     "initValue": [
                         1.0,
-                        0.0,
-                        0.0,
+                        1.0,
+                        1.0,
                         1.0
                     ]
                 },
@@ -1472,7 +1440,7 @@
                     "name": "angle",
                     "type": "float",
                     "initValue": [
-                        45.0
+                        10.0
                     ]
                 },
                 {
@@ -1489,7 +1457,7 @@
                     "name": "height",
                     "type": "float",
                     "initValue": [
-                        1.0
+                        15.0
                     ]
                 },
                 {
@@ -1503,7 +1471,7 @@
                     "name": "pan",
                     "type": "float",
                     "initValue": [
-                        0.0
+                        -45.0
                     ]
                 },
                 {
@@ -2101,7 +2069,7 @@
             ]
         },
         {
-            "registryname": "SpotLightDMXController_31463_12535",
+            "registryname": "SpotLightDMXController_26106_13378",
             "values": [
                 {
                     "name": "PanNodeName",
@@ -2131,7 +2099,7 @@
             ]
         },
         {
-            "registryname": "SpotLightDMXController_12869_8544",
+            "registryname": "SpotLightDMXController_2349_30144",
             "values": [
                 {
                     "name": "PanNodeName",
@@ -2157,6 +2125,928 @@
                     "name": "TiltNodeName",
                     "type": "string",
                     "initValue": "MovingLight_Light.001"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_5951_29192",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.002"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.002"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_1290_32353",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.003"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.003"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_1616_5343",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.004"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.004"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_31330_5255",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.005"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.005"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.005"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.005"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_16956_16294",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.006"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.006"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.006"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.006"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_760_22717",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.007"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.007"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.007"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.007"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_12075_11843",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.008"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.009"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_16798_32021",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.026"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.026"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_13259_14149",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.027"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.027"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_19765_9409",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.028"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.028"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_8886_26871",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.041"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.041"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_11270_24280",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.005"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.042"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.005"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.042"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_23063_22057",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.006"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.043"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.006"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.043"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_23988_17469",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.007"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.044"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.007"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.044"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_1999_19334",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.008"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.045"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.008"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.045"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_14669_22687",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.009"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.046"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.009"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.046"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_18025_18621",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.010"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.047"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.010"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.047"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_4568_27827",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.011"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.048"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.011"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.048"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_16624_12741",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.009"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.008"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_28973_4784",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.010"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.010"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_3747_14918",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.011"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.011"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_22038_28398",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.012"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.012"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_17978_26320",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.013"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.013"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_13082_23655",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.017"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.017"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_3139_1696",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.018"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.018"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_9755_11345",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.019"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.019"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_8160_26154",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.020"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.020"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_11730_18926",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.021"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.021"
+                }
+            ]
+        },
+        {
+            "registryname": "VATGenerator_7805_16784"
+        },
+        {
+            "registryname": "BloomRegistry",
+            "values": [
+                {
+                    "name": "Intencity",
+                    "type": "float",
+                    "initValue": [
+                        1.5
+                    ]
+                },
+                {
+                    "name": "Threshold",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_10408_15060",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.019"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.019"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_11399_15147",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.008"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.009"
                 }
             ]
         },
@@ -2191,22 +3081,22 @@
             ]
         },
         {
-            "registryname": "SpotLightDMXController_2465_25782",
+            "registryname": "SpotLightDMXController_12869_8544",
             "values": [
                 {
                     "name": "PanNodeName",
                     "type": "string",
-                    "initValue": "Lift_MovingLight_Base.003"
+                    "initValue": "Lift_MovingLight_Base.001"
                 },
                 {
                     "name": "SpotLightFollowTarget",
                     "type": "string",
-                    "initValue": "MovingLight_Light_Emit.003"
+                    "initValue": "MovingLight_Light_Emit.001"
                 },
                 {
                     "name": "SpotLightNodeName",
                     "type": "string",
-                    "initValue": "Lift_MovingLight_Base.003"
+                    "initValue": "Lift_MovingLight_Base.001"
                 },
                 {
                     "name": "SpotLightObjName",
@@ -2216,7 +3106,7 @@
                 {
                     "name": "TiltNodeName",
                     "type": "string",
-                    "initValue": "MovingLight_Light.003"
+                    "initValue": "MovingLight_Light.001"
                 }
             ]
         },
@@ -2247,6 +3137,1356 @@
                     "name": "TiltNodeName",
                     "type": "string",
                     "initValue": "MovingLight_Light.004"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_133_11976",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.041"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.041"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_13558_25026",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.011"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.011"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_13795_5221",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.010"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.047"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.010"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.047"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_14311_25331",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.010"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.047"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.010"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.047"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_14447_1421",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.007"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.007"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.007"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.007"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_15160_27550",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.001"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.001"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_15701_1716",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.009"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.046"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.009"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.046"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_15888_6012",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.020"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.020"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_166_7030",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.026"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.026"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_17400_2332",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.006"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.006"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.006"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.006"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_17699_29507",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.028"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.028"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_17731_197",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.007"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.044"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.007"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.044"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_1792_3788",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.002"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.002"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_19168_11997",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.011"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.048"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.011"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.048"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_21234_6401",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.008"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.045"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.008"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.045"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_21698_31651",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.026"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.026"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_23483_28937",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.006"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.043"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.006"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.043"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_2357_817",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.011"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.011"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_24215_3470",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.010"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.010"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_24348_17574",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.009"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.008"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_24455_13849",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.009"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.008"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_2465_25782",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.003"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.003"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_25305_17149",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.020"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.020"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_25672_23013",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.019"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.019"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_25966_30708",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_26224_9935",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.004"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.004"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_2686_15191",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.003"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.003"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_27836_4839",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.006"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.043"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.006"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.043"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_2838_17753",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.005"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.042"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.005"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.042"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_28544_27659",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.018"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.018"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_28658_7725",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.007"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.044"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.007"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.044"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_28926_2744",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.009"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.046"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.009"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.046"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_29319_14893",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.012"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.012"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_30225_13254",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.021"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.021"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_30476_16362",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.013"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.013"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_30847_25531",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.028"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.028"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_30988_7376",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.013"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.013"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_31220_17264",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.005"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.005"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.005"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.005"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_31355_23028",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.018"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.018"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_31463_12535",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_31627_21569",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.041"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.041"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_3176_21897",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.007"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.007"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.007"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.007"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_4303_22444",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.008"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.009"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_5436_22783",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.021"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.021"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_5448_22542",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.012"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.012"
                 }
             ]
         },
@@ -2311,22 +4551,22 @@
             ]
         },
         {
-            "registryname": "SpotLightDMXController_14447_1421",
+            "registryname": "SpotLightDMXController_7230_16474",
             "values": [
                 {
                     "name": "PanNodeName",
                     "type": "string",
-                    "initValue": "Lift_MovingLight_Base.007"
+                    "initValue": "StageRight_MovingLight_Base.004"
                 },
                 {
                     "name": "SpotLightFollowTarget",
                     "type": "string",
-                    "initValue": "MovingLight_Light_Emit.007"
+                    "initValue": "MovingLight_Light_Emit.017"
                 },
                 {
                     "name": "SpotLightNodeName",
                     "type": "string",
-                    "initValue": "Lift_MovingLight_Base.007"
+                    "initValue": "StageRight_MovingLight_Base.004"
                 },
                 {
                     "name": "SpotLightObjName",
@@ -2336,247 +4576,7 @@
                 {
                     "name": "TiltNodeName",
                     "type": "string",
-                    "initValue": "MovingLight_Light.007"
-                }
-            ]
-        },
-        {
-            "registryname": "SpotLightDMXController_4303_22444",
-            "values": [
-                {
-                    "name": "PanNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.000"
-                },
-                {
-                    "name": "SpotLightFollowTarget",
-                    "type": "string",
-                    "initValue": "MovingLight_Light_Emit.008"
-                },
-                {
-                    "name": "SpotLightNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.000"
-                },
-                {
-                    "name": "SpotLightObjName",
-                    "type": "string",
-                    "initValue": "LightList"
-                },
-                {
-                    "name": "TiltNodeName",
-                    "type": "string",
-                    "initValue": "MovingLight_Light.009"
-                }
-            ]
-        },
-        {
-            "registryname": "SpotLightDMXController_166_7030",
-            "values": [
-                {
-                    "name": "PanNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.001"
-                },
-                {
-                    "name": "SpotLightFollowTarget",
-                    "type": "string",
-                    "initValue": "MovingLight_Light_Emit.026"
-                },
-                {
-                    "name": "SpotLightNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.001"
-                },
-                {
-                    "name": "SpotLightObjName",
-                    "type": "string",
-                    "initValue": "LightList"
-                },
-                {
-                    "name": "TiltNodeName",
-                    "type": "string",
-                    "initValue": "MovingLight_Light.026"
-                }
-            ]
-        },
-        {
-            "registryname": "SpotLightDMXController_7804_7412",
-            "values": [
-                {
-                    "name": "PanNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.002"
-                },
-                {
-                    "name": "SpotLightFollowTarget",
-                    "type": "string",
-                    "initValue": "MovingLight_Light_Emit.027"
-                },
-                {
-                    "name": "SpotLightNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.002"
-                },
-                {
-                    "name": "SpotLightObjName",
-                    "type": "string",
-                    "initValue": "LightList"
-                },
-                {
-                    "name": "TiltNodeName",
-                    "type": "string",
-                    "initValue": "MovingLight_Light.027"
-                }
-            ]
-        },
-        {
-            "registryname": "SpotLightDMXController_17699_29507",
-            "values": [
-                {
-                    "name": "PanNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.003"
-                },
-                {
-                    "name": "SpotLightFollowTarget",
-                    "type": "string",
-                    "initValue": "MovingLight_Light_Emit.028"
-                },
-                {
-                    "name": "SpotLightNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.003"
-                },
-                {
-                    "name": "SpotLightObjName",
-                    "type": "string",
-                    "initValue": "LightList"
-                },
-                {
-                    "name": "TiltNodeName",
-                    "type": "string",
-                    "initValue": "MovingLight_Light.028"
-                }
-            ]
-        },
-        {
-            "registryname": "SpotLightDMXController_133_11976",
-            "values": [
-                {
-                    "name": "PanNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.004"
-                },
-                {
-                    "name": "SpotLightFollowTarget",
-                    "type": "string",
-                    "initValue": "MovingLight_Light_Emit.041"
-                },
-                {
-                    "name": "SpotLightNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.004"
-                },
-                {
-                    "name": "SpotLightObjName",
-                    "type": "string",
-                    "initValue": "LightList"
-                },
-                {
-                    "name": "TiltNodeName",
-                    "type": "string",
-                    "initValue": "MovingLight_Light.041"
-                }
-            ]
-        },
-        {
-            "registryname": "SpotLightDMXController_2838_17753",
-            "values": [
-                {
-                    "name": "PanNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.005"
-                },
-                {
-                    "name": "SpotLightFollowTarget",
-                    "type": "string",
-                    "initValue": "MovingLight_Light_Emit.042"
-                },
-                {
-                    "name": "SpotLightNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.005"
-                },
-                {
-                    "name": "SpotLightObjName",
-                    "type": "string",
-                    "initValue": "LightList"
-                },
-                {
-                    "name": "TiltNodeName",
-                    "type": "string",
-                    "initValue": "MovingLight_Light.042"
-                }
-            ]
-        },
-        {
-            "registryname": "SpotLightDMXController_23483_28937",
-            "values": [
-                {
-                    "name": "PanNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.006"
-                },
-                {
-                    "name": "SpotLightFollowTarget",
-                    "type": "string",
-                    "initValue": "MovingLight_Light_Emit.043"
-                },
-                {
-                    "name": "SpotLightNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.006"
-                },
-                {
-                    "name": "SpotLightObjName",
-                    "type": "string",
-                    "initValue": "LightList"
-                },
-                {
-                    "name": "TiltNodeName",
-                    "type": "string",
-                    "initValue": "MovingLight_Light.043"
-                }
-            ]
-        },
-        {
-            "registryname": "SpotLightDMXController_28658_7725",
-            "values": [
-                {
-                    "name": "PanNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.007"
-                },
-                {
-                    "name": "SpotLightFollowTarget",
-                    "type": "string",
-                    "initValue": "MovingLight_Light_Emit.044"
-                },
-                {
-                    "name": "SpotLightNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.007"
-                },
-                {
-                    "name": "SpotLightObjName",
-                    "type": "string",
-                    "initValue": "LightList"
-                },
-                {
-                    "name": "TiltNodeName",
-                    "type": "string",
-                    "initValue": "MovingLight_Light.044"
+                    "initValue": "MovingLight_Light.017"
                 }
             ]
         },
@@ -2611,246 +4611,6 @@
             ]
         },
         {
-            "registryname": "SpotLightDMXController_15701_1716",
-            "values": [
-                {
-                    "name": "PanNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.009"
-                },
-                {
-                    "name": "SpotLightFollowTarget",
-                    "type": "string",
-                    "initValue": "MovingLight_Light_Emit.046"
-                },
-                {
-                    "name": "SpotLightNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.009"
-                },
-                {
-                    "name": "SpotLightObjName",
-                    "type": "string",
-                    "initValue": "LightList"
-                },
-                {
-                    "name": "TiltNodeName",
-                    "type": "string",
-                    "initValue": "MovingLight_Light.046"
-                }
-            ]
-        },
-        {
-            "registryname": "SpotLightDMXController_13795_5221",
-            "values": [
-                {
-                    "name": "PanNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.010"
-                },
-                {
-                    "name": "SpotLightFollowTarget",
-                    "type": "string",
-                    "initValue": "MovingLight_Light_Emit.047"
-                },
-                {
-                    "name": "SpotLightNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.010"
-                },
-                {
-                    "name": "SpotLightObjName",
-                    "type": "string",
-                    "initValue": "LightList"
-                },
-                {
-                    "name": "TiltNodeName",
-                    "type": "string",
-                    "initValue": "MovingLight_Light.047"
-                }
-            ]
-        },
-        {
-            "registryname": "SpotLightDMXController_19168_11997",
-            "values": [
-                {
-                    "name": "PanNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.011"
-                },
-                {
-                    "name": "SpotLightFollowTarget",
-                    "type": "string",
-                    "initValue": "MovingLight_Light_Emit.048"
-                },
-                {
-                    "name": "SpotLightNodeName",
-                    "type": "string",
-                    "initValue": "Ceiling_MovingLight_Base.011"
-                },
-                {
-                    "name": "SpotLightObjName",
-                    "type": "string",
-                    "initValue": "LightList"
-                },
-                {
-                    "name": "TiltNodeName",
-                    "type": "string",
-                    "initValue": "MovingLight_Light.048"
-                }
-            ]
-        },
-        {
-            "registryname": "SpotLightDMXController_24348_17574",
-            "values": [
-                {
-                    "name": "PanNodeName",
-                    "type": "string",
-                    "initValue": "StageLeft_MovingLight_Base.000"
-                },
-                {
-                    "name": "SpotLightFollowTarget",
-                    "type": "string",
-                    "initValue": "MovingLight_Light_Emit.009"
-                },
-                {
-                    "name": "SpotLightNodeName",
-                    "type": "string",
-                    "initValue": "StageLeft_MovingLight_Base.000"
-                },
-                {
-                    "name": "SpotLightObjName",
-                    "type": "string",
-                    "initValue": "LightList"
-                },
-                {
-                    "name": "TiltNodeName",
-                    "type": "string",
-                    "initValue": "MovingLight_Light.008"
-                }
-            ]
-        },
-        {
-            "registryname": "SpotLightDMXController_24215_3470",
-            "values": [
-                {
-                    "name": "PanNodeName",
-                    "type": "string",
-                    "initValue": "StageLeft_MovingLight_Base.001"
-                },
-                {
-                    "name": "SpotLightFollowTarget",
-                    "type": "string",
-                    "initValue": "MovingLight_Light_Emit.010"
-                },
-                {
-                    "name": "SpotLightNodeName",
-                    "type": "string",
-                    "initValue": "StageLeft_MovingLight_Base.001"
-                },
-                {
-                    "name": "SpotLightObjName",
-                    "type": "string",
-                    "initValue": "LightList"
-                },
-                {
-                    "name": "TiltNodeName",
-                    "type": "string",
-                    "initValue": "MovingLight_Light.010"
-                }
-            ]
-        },
-        {
-            "registryname": "SpotLightDMXController_13558_25026",
-            "values": [
-                {
-                    "name": "PanNodeName",
-                    "type": "string",
-                    "initValue": "StageLeft_MovingLight_Base.002"
-                },
-                {
-                    "name": "SpotLightFollowTarget",
-                    "type": "string",
-                    "initValue": "MovingLight_Light_Emit.011"
-                },
-                {
-                    "name": "SpotLightNodeName",
-                    "type": "string",
-                    "initValue": "StageLeft_MovingLight_Base.002"
-                },
-                {
-                    "name": "SpotLightObjName",
-                    "type": "string",
-                    "initValue": "LightList"
-                },
-                {
-                    "name": "TiltNodeName",
-                    "type": "string",
-                    "initValue": "MovingLight_Light.011"
-                }
-            ]
-        },
-        {
-            "registryname": "SpotLightDMXController_29319_14893",
-            "values": [
-                {
-                    "name": "PanNodeName",
-                    "type": "string",
-                    "initValue": "StageLeft_MovingLight_Base.003"
-                },
-                {
-                    "name": "SpotLightFollowTarget",
-                    "type": "string",
-                    "initValue": "MovingLight_Light_Emit.012"
-                },
-                {
-                    "name": "SpotLightNodeName",
-                    "type": "string",
-                    "initValue": "StageLeft_MovingLight_Base.003"
-                },
-                {
-                    "name": "SpotLightObjName",
-                    "type": "string",
-                    "initValue": "LightList"
-                },
-                {
-                    "name": "TiltNodeName",
-                    "type": "string",
-                    "initValue": "MovingLight_Light.012"
-                }
-            ]
-        },
-        {
-            "registryname": "SpotLightDMXController_30476_16362",
-            "values": [
-                {
-                    "name": "PanNodeName",
-                    "type": "string",
-                    "initValue": "StageLeft_MovingLight_Base.004"
-                },
-                {
-                    "name": "SpotLightFollowTarget",
-                    "type": "string",
-                    "initValue": "MovingLight_Light_Emit.013"
-                },
-                {
-                    "name": "SpotLightNodeName",
-                    "type": "string",
-                    "initValue": "StageLeft_MovingLight_Base.004"
-                },
-                {
-                    "name": "SpotLightObjName",
-                    "type": "string",
-                    "initValue": "LightList"
-                },
-                {
-                    "name": "TiltNodeName",
-                    "type": "string",
-                    "initValue": "MovingLight_Light.013"
-                }
-            ]
-        },
-        {
             "registryname": "SpotLightDMXController_7536_13750",
             "values": [
                 {
@@ -2881,22 +4641,22 @@
             ]
         },
         {
-            "registryname": "SpotLightDMXController_31355_23028",
+            "registryname": "SpotLightDMXController_7804_7412",
             "values": [
                 {
                     "name": "PanNodeName",
                     "type": "string",
-                    "initValue": "StageRight_MovingLight_Base.003"
+                    "initValue": "Ceiling_MovingLight_Base.002"
                 },
                 {
                     "name": "SpotLightFollowTarget",
                     "type": "string",
-                    "initValue": "MovingLight_Light_Emit.018"
+                    "initValue": "MovingLight_Light_Emit.027"
                 },
                 {
                     "name": "SpotLightNodeName",
                     "type": "string",
-                    "initValue": "StageRight_MovingLight_Base.003"
+                    "initValue": "Ceiling_MovingLight_Base.002"
                 },
                 {
                     "name": "SpotLightObjName",
@@ -2906,27 +4666,27 @@
                 {
                     "name": "TiltNodeName",
                     "type": "string",
-                    "initValue": "MovingLight_Light.018"
+                    "initValue": "MovingLight_Light.027"
                 }
             ]
         },
         {
-            "registryname": "SpotLightDMXController_10408_15060",
+            "registryname": "SpotLightDMXController_8062_20516",
             "values": [
                 {
                     "name": "PanNodeName",
                     "type": "string",
-                    "initValue": "StageRight_MovingLight_Base.002"
+                    "initValue": "Ceiling_MovingLight_Base.002"
                 },
                 {
                     "name": "SpotLightFollowTarget",
                     "type": "string",
-                    "initValue": "MovingLight_Light_Emit.019"
+                    "initValue": "MovingLight_Light_Emit.027"
                 },
                 {
                     "name": "SpotLightNodeName",
                     "type": "string",
-                    "initValue": "StageRight_MovingLight_Base.002"
+                    "initValue": "Ceiling_MovingLight_Base.002"
                 },
                 {
                     "name": "SpotLightObjName",
@@ -2936,27 +4696,27 @@
                 {
                     "name": "TiltNodeName",
                     "type": "string",
-                    "initValue": "MovingLight_Light.019"
+                    "initValue": "MovingLight_Light.027"
                 }
             ]
         },
         {
-            "registryname": "SpotLightDMXController_25305_17149",
+            "registryname": "SpotLightDMXController_9118_15162",
             "values": [
                 {
                     "name": "PanNodeName",
                     "type": "string",
-                    "initValue": "StageRight_MovingLight_Base.001"
+                    "initValue": "Ceiling_MovingLight_Base.005"
                 },
                 {
                     "name": "SpotLightFollowTarget",
                     "type": "string",
-                    "initValue": "MovingLight_Light_Emit.020"
+                    "initValue": "MovingLight_Light_Emit.042"
                 },
                 {
                     "name": "SpotLightNodeName",
                     "type": "string",
-                    "initValue": "StageRight_MovingLight_Base.001"
+                    "initValue": "Ceiling_MovingLight_Base.005"
                 },
                 {
                     "name": "SpotLightObjName",
@@ -2966,27 +4726,27 @@
                 {
                     "name": "TiltNodeName",
                     "type": "string",
-                    "initValue": "MovingLight_Light.020"
+                    "initValue": "MovingLight_Light.042"
                 }
             ]
         },
         {
-            "registryname": "SpotLightDMXController_30225_13254",
+            "registryname": "SpotLightDMXController_9459_17597",
             "values": [
                 {
                     "name": "PanNodeName",
                     "type": "string",
-                    "initValue": "StageRight_MovingLight_Base.000"
+                    "initValue": "Ceiling_MovingLight_Base.011"
                 },
                 {
                     "name": "SpotLightFollowTarget",
                     "type": "string",
-                    "initValue": "MovingLight_Light_Emit.021"
+                    "initValue": "MovingLight_Light_Emit.048"
                 },
                 {
                     "name": "SpotLightNodeName",
                     "type": "string",
-                    "initValue": "StageRight_MovingLight_Base.000"
+                    "initValue": "Ceiling_MovingLight_Base.011"
                 },
                 {
                     "name": "SpotLightObjName",
@@ -2996,29 +4756,37 @@
                 {
                     "name": "TiltNodeName",
                     "type": "string",
-                    "initValue": "MovingLight_Light.021"
+                    "initValue": "MovingLight_Light.048"
                 }
             ]
         },
         {
-            "registryname": "VATGenerator_7805_16784"
-        },
-        {
-            "registryname": "BloomRegistry",
+            "registryname": "SpotLightDMXController_9903_16951",
             "values": [
                 {
-                    "name": "Intencity",
-                    "type": "float",
-                    "initValue": [
-                        1.5
-                    ]
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.001"
                 },
                 {
-                    "name": "Threshold",
-                    "type": "float",
-                    "initValue": [
-                        1.0
-                    ]
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.010"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.010"
                 }
             ]
         }
@@ -3101,34 +4869,6 @@
                         {
                             "type": "DirectionalLight",
                             "valueregistry": "DirectionalLight_7473_18109"
-                        }
-                    ]
-                },
-                {
-                    "name": "PointLight",
-                    "transform": {
-                        "pos": [
-                            0.0,
-                            1.5,
-                            0.0
-                        ],
-                        "rotate": [
-                            0.0,
-                            -0.0,
-                            0.0
-                        ],
-                        "scale": [
-                            10.0,
-                            10.0,
-                            10.0
-                        ]
-                    },
-                    "enable": false,
-                    "meshindex": -1,
-                    "components": [
-                        {
-                            "type": "PointLight",
-                            "valueregistry": "PointLight_27684_3876"
                         }
                     ]
                 },
