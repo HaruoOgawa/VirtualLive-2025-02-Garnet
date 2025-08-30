@@ -591,7 +591,7 @@ namespace app
 			BaseNameCountMap.emplace("StageLeft_MovingLight_Base.", 5);  // Net4
 			BaseNameCountMap.emplace("StageRight_MovingLight_Base.", 5); // Net4
 
-			const auto& Object = m_SceneController->FindObjectByName("LightList");
+			const auto& Object = m_SceneController->FindObjectByName("IndoorLiveStage");
 			if (Object)
 			{
 				int NodeNum = static_cast<int>(Object->GetNodeList().size());
@@ -614,7 +614,7 @@ namespace app
 
 						for (const auto& Component : SpotLight->GetComponentList())
 						{
-							if (Component->GetComponentName() != "SpotLight") continue;
+							if (Component->GetComponentName() != "SpotLightDMXController") continue;
 
 							std::string DMXFixtureName = std::string();
 
@@ -629,6 +629,7 @@ namespace app
 							else if (BaseName == "StageLeft_MovingLight_Base." || BaseName == "StageRight_MovingLight_Base.")
 							{
 								DMXFixtureName = "Stage_MovingLight_Base";
+								Component->GetValueRegistry()->SetValue("UpsideDown", graphics::EUniformValueType::VALUE_TYPE_INT, &glm::ivec1(1)[0], sizeof(int));
 							}
 							else
 							{
@@ -789,8 +790,13 @@ namespace app
 					auto Component = scriptable::CComponentResolver::Resolve(this, "SpotLightDMXController", "");
 					Component->Initialize(pGraphicsAPI, pLoadWorker);
 
-					Component->GetValueRegistry()->SetValue("PanNodeName", graphics::EUniformValueType::VALUE_TYPE_STRING, Node->GetName().c_str(), sizeof(char) * Node->GetName().size());
-					Component->GetValueRegistry()->SetValue("TiltNodeName", graphics::EUniformValueType::VALUE_TYPE_STRING, ChildNode_2nd->GetName().c_str(), sizeof(char) * ChildNode_2nd->GetName().size());
+					// YŽ²‰ñ“]
+					Component->GetValueRegistry()->SetValue("TiltNodeName", graphics::EUniformValueType::VALUE_TYPE_STRING, Node->GetName().c_str(), sizeof(char) * Node->GetName().size());
+					
+					// XŽ²‰ñ“]
+					Component->GetValueRegistry()->SetValue("PanNodeName", graphics::EUniformValueType::VALUE_TYPE_STRING, ChildNode_2nd->GetName().c_str(), sizeof(char) * ChildNode_2nd->GetName().size());
+					
+					//
 					Component->GetValueRegistry()->SetValue("SpotLightFollowTarget", graphics::EUniformValueType::VALUE_TYPE_STRING, ChildNode_3rd->GetName().c_str(), sizeof(char) * ChildNode_3rd->GetName().size());
 				
 					//
