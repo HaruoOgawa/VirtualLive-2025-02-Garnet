@@ -66,8 +66,8 @@ void main()
         0.0, 0.0, 0.0, 1.0
     );
 
-    pos.yz *= rot(v_ubo.pan);
-    pos.xz *= rot(v_ubo.tilt);
+    pos.yz *= rot(v_ubo.pan); // X軸回転
+    pos.xz *= rot(v_ubo.tilt); // Y軸回転
 
     //
 	vec4 ProjPos = v_ubo.proj * v_ubo.view * v_ubo.model * pos;
