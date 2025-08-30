@@ -232,9 +232,9 @@ LightParam GetLightParam(GBufferResult gResult)
 		// float cH_spotR = sinFactor * prjlen;
 
 		// 減衰
-		float attenuation = max( min(1.0 - pow((l2gR / spotR), 4.0), 1.0), 0.0 ) / pow(l2gR, 2.0);
-		attenuation = clamp(attenuation, 0.0, 1.0);
-		// float attenuation = smoothstep(1.0, 0.5, l2gR / spotR);
+		// float attenuation = max( min(1.0 - pow((l2gR / spotR), 4.0), 1.0), 0.0 ) / pow(l2gR, 2.0);
+		// attenuation = clamp(attenuation, 0.0, 1.0);
+		float attenuation = smoothstep(1.0, 0.5, l2gR / spotR);
 
 		//
 		light.dir = l2g_norm;
