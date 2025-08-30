@@ -650,11 +650,22 @@ namespace app
 					std::string NodeName = BaseName;
 					NodeName += buf;
 
-					const bool Exist = (Object->FindNodeByName(NodeName) != nullptr);
-					if (Exist) continue; // すでに存在している場合はスキップ
-
+					std::shared_ptr<object::CNode> Node = Object->FindNodeByName(NodeName);
+					const bool Exist = (Node != nullptr);
+					
 					// ノード生成
-					std::shared_ptr<object::CNode> Node = std::make_shared<object::CNode>(-1, NodeNum);
+					if(!Node) Node = std::make_shared<object::CNode>(-1, NodeNum);
+					
+					// ステージに置いてるライトなら上を向かせておく
+					if (BaseName == "StageLeft_MovingLight_Base." || BaseName == "StageRight_MovingLight_Base.")
+					{
+						Node->SetRot(glm::angleAxis(glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f)));
+					}
+
+					// 新規生成ではなくすでに存在しているノードだった場合は後の処理はスキップ
+					if (Exist) continue; 
+
+					//
 					Node->SetName(NodeName);
 					Object->AddNode(Node);
 
