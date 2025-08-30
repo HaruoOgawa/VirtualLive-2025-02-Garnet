@@ -24,7 +24,7 @@ layout(binding = 1) uniform LightUniformBuffer{
 
 	int useIBL;
 	int useShadowMap;
-	int iPad1;
+	int ForceLighting;
 	int iPad2;
 
     vec4 dir;
@@ -645,6 +645,13 @@ void main()
     GBufferResult gResult = GetGBuffer(ScreenUV);
     LightParam light = GetLightParam(gResult);
 	
+	// スポットライトでかつForceLightingがtrueならベースカラーを白にする
+	// これが黒になっているといくらライティングしても黒のままなのでライトの影響を受けない
+	if(l_ubo.ForceLighting == 1 && l_ubo.type == 3.0)
+	{
+		gResult.albedo = vec4(1.0);
+	}
+
     // Compute Color
     vec3 col = vec3(0.0);
     if(gResult.materialType == 1.0 && light.enabled)

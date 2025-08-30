@@ -89,6 +89,7 @@ namespace app
 
 	bool CLive1135App::Initialize(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker)
 	{
+		//pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\sample.json", m_SceneController));
 		pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\Live_dotttabata.json", m_SceneController));
 		//pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\Live_1135.json", m_SceneController));
 		//pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\MioMikoSuba_Photo.json", m_SceneController));
@@ -631,7 +632,7 @@ namespace app
 		BaseNameCountMap.emplace("StageRight_MovingLight_Base.", 5);
 
 		// スポットライトノードとコンポーネントをまとめて自動生成
-		if (Object->GetObjectName() == "LightList_NotWorking") // 動作させないので_NotWorkingを付与しておく
+		if (Object->GetObjectName() == "LightList") // 動作させないので_NotWorkingを付与しておく
 		{
 			int NodeNum = static_cast<int>(Object->GetNodeList().size());
 
@@ -648,6 +649,9 @@ namespace app
 
 					std::string NodeName = BaseName;
 					NodeName += buf;
+
+					const bool Exist = (Object->FindNodeByName(NodeName) != nullptr);
+					if (Exist) continue; // すでに存在している場合はスキップ
 
 					// ノード生成
 					std::shared_ptr<object::CNode> Node = std::make_shared<object::CNode>(-1, NodeNum);
@@ -694,7 +698,8 @@ namespace app
 					const auto& Node = Object->FindNodeByName(NodeName);
 					if (!Node) continue;
 
-					if (!Node->GetComponentList().empty()) continue; // すでにコンポーネントが付与されている場合はスキップ
+					// すでにコンポーネントが付与されている場合はスキップ
+					if (!Node->GetComponentList().empty()) continue; 
 
 					int ChildNodeInd_2nd = Node->GetChildrenNodeIndexList()[0];
 					const auto& ChildNode_2nd = Object->FindNodeByIndex(ChildNodeInd_2nd);

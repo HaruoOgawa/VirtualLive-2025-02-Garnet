@@ -692,7 +692,7 @@
                     "name": "angle",
                     "type": "float",
                     "initValue": [
-                        45.0
+                        2.0
                     ]
                 },
                 {
@@ -700,8 +700,8 @@
                     "type": "vec4",
                     "initValue": [
                         1.0,
-                        1.0,
-                        1.0,
+                        0.0,
+                        0.0,
                         1.0
                     ]
                 },
@@ -709,7 +709,7 @@
                     "name": "height",
                     "type": "float",
                     "initValue": [
-                        1.0
+                        30.0
                     ]
                 },
                 {
@@ -2101,6 +2101,906 @@
             ]
         },
         {
+            "registryname": "SpotLightDMXController_31463_12535",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_12869_8544",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.001"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.001"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_12268_9377",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.002"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.002"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_2465_25782",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.003"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.003"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_13386_30917",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.004"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.004"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_6157_11624",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.005"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.005"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.005"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.005"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_6707_26410",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.006"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.006"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.006"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.006"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_14447_1421",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.007"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.007"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Lift_MovingLight_Base.007"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.007"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_4303_22444",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.008"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.009"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_166_7030",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.026"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.026"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_7804_7412",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.027"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.027"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_17699_29507",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.028"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.028"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_133_11976",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.041"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.041"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_2838_17753",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.005"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.042"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.005"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.042"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_23483_28937",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.006"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.043"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.006"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.043"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_28658_7725",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.007"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.044"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.007"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.044"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_7239_10886",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.008"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.045"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.008"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.045"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_15701_1716",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.009"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.046"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.009"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.046"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_13795_5221",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.010"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.047"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.010"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.047"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_19168_11997",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.011"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.048"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "Ceiling_MovingLight_Base.011"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.048"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_24348_17574",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.009"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.008"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_24215_3470",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.010"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.010"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_13558_25026",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.011"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.011"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_29319_14893",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.012"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.012"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_30476_16362",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.013"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageLeft_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.013"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_7536_13750",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.017"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.004"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.017"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_31355_23028",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.018"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.003"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.018"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_10408_15060",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.019"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.002"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.019"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_25305_17149",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.020"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.001"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.020"
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLightDMXController_30225_13254",
+            "values": [
+                {
+                    "name": "PanNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightFollowTarget",
+                    "type": "string",
+                    "initValue": "MovingLight_Light_Emit.021"
+                },
+                {
+                    "name": "SpotLightNodeName",
+                    "type": "string",
+                    "initValue": "StageRight_MovingLight_Base.000"
+                },
+                {
+                    "name": "SpotLightObjName",
+                    "type": "string",
+                    "initValue": "LightList"
+                },
+                {
+                    "name": "TiltNodeName",
+                    "type": "string",
+                    "initValue": "MovingLight_Light.021"
+                }
+            ]
+        },
+        {
             "registryname": "VATGenerator_7805_16784"
         },
         {
@@ -2236,9 +3136,9 @@
                     "name": "Ceiling_MovingLight_Base.000",
                     "transform": {
                         "pos": [
-                            8.910616315915831e-07,
+                            -1.9855947357427794e-06,
                             16.452552795410156,
-                            -6.259998798370361
+                            -6.2600016593933105
                         ],
                         "rotate": [
                             0.0,
@@ -2264,9 +3164,9 @@
                     "name": "Ceiling_MovingLight_Base.001",
                     "transform": {
                         "pos": [
-                            -2.9999990463256836,
+                            -3.000001907348633,
                             16.452552795410156,
-                            -6.259998321533203
+                            -6.260001182556152
                         ],
                         "rotate": [
                             0.0,
@@ -2292,9 +3192,9 @@
                     "name": "Ceiling_MovingLight_Base.002",
                     "transform": {
                         "pos": [
-                            -4.499999046325684,
+                            -4.500001907348633,
                             16.452550888061523,
-                            -3.6799981594085693
+                            -3.6800010204315186
                         ],
                         "rotate": [
                             0.0,
@@ -2320,9 +3220,9 @@
                     "name": "Ceiling_MovingLight_Base.003",
                     "transform": {
                         "pos": [
-                            -5.999998569488525,
+                            -6.000001430511475,
                             16.452552795410156,
-                            -1.099998116493225
+                            -1.1000009775161743
                         ],
                         "rotate": [
                             0.0,
@@ -2348,9 +3248,9 @@
                     "name": "Ceiling_MovingLight_Base.004",
                     "transform": {
                         "pos": [
-                            -4.499998569488525,
+                            -4.500001430511475,
                             16.452552795410156,
-                            1.4800018072128296
+                            1.4799989461898804
                         ],
                         "rotate": [
                             0.0,
@@ -2376,9 +3276,9 @@
                     "name": "Ceiling_MovingLight_Base.005",
                     "transform": {
                         "pos": [
-                            -2.9999983310699463,
+                            -3.0000011920928955,
                             16.452552795410156,
-                            4.060001850128174
+                            4.059998989105225
                         ],
                         "rotate": [
                             0.0,
@@ -2404,9 +3304,9 @@
                     "name": "Ceiling_MovingLight_Base.006",
                     "transform": {
                         "pos": [
-                            1.7932645732798846e-06,
+                            -1.0833916803676402e-06,
                             16.452552795410156,
-                            4.060001373291016
+                            4.059998512268066
                         ],
                         "rotate": [
                             0.0,
@@ -2432,9 +3332,9 @@
                     "name": "Ceiling_MovingLight_Base.007",
                     "transform": {
                         "pos": [
-                            3.0000016689300537,
+                            2.9999988079071045,
                             16.45255470275879,
-                            4.060000896453857
+                            4.059998035430908
                         ],
                         "rotate": [
                             0.0,
@@ -2460,9 +3360,9 @@
                     "name": "Ceiling_MovingLight_Base.008",
                     "transform": {
                         "pos": [
-                            4.500001430511475,
+                            4.499998569488525,
                             16.452550888061523,
-                            1.4800010919570923
+                            1.479998230934143
                         ],
                         "rotate": [
                             0.0,
@@ -2488,9 +3388,9 @@
                     "name": "Ceiling_MovingLight_Base.009",
                     "transform": {
                         "pos": [
-                            6.000001430511475,
+                            5.999998569488525,
                             16.452552795410156,
-                            -1.0999990701675415
+                            -1.1000019311904907
                         ],
                         "rotate": [
                             0.0,
@@ -2516,9 +3416,9 @@
                     "name": "Ceiling_MovingLight_Base.010",
                     "transform": {
                         "pos": [
-                            4.500000953674316,
+                            4.499998092651367,
                             16.452550888061523,
-                            -3.6799991130828857
+                            -3.680001974105835
                         ],
                         "rotate": [
                             0.0,
@@ -2544,9 +3444,9 @@
                     "name": "Ceiling_MovingLight_Base.011",
                     "transform": {
                         "pos": [
-                            3.0000009536743164,
+                            2.999998092651367,
                             16.452552795410156,
-                            -6.2599992752075195
+                            -6.260002136230469
                         ],
                         "rotate": [
                             0.0,
@@ -2572,9 +3472,9 @@
                     "name": "Lift_MovingLight_Base.000",
                     "transform": {
                         "pos": [
-                            6.000001907348633,
-                            10.608734130859375,
-                            11.868947982788086
+                            6.0,
+                            10.60873794555664,
+                            11.868946075439453
                         ],
                         "rotate": [
                             0.0,
@@ -2600,9 +3500,9 @@
                     "name": "Lift_MovingLight_Base.001",
                     "transform": {
                         "pos": [
-                            2.000001907348633,
-                            10.608735084533691,
-                            11.868948936462402
+                            2.0,
+                            10.608736991882324,
+                            11.86894702911377
                         ],
                         "rotate": [
                             0.0,
@@ -2628,9 +3528,9 @@
                     "name": "Lift_MovingLight_Base.002",
                     "transform": {
                         "pos": [
-                            -1.9999979734420776,
-                            10.608735084533691,
-                            11.868948936462402
+                            -1.9999998807907104,
+                            10.608736991882324,
+                            11.86894702911377
                         ],
                         "rotate": [
                             0.0,
@@ -2656,9 +3556,9 @@
                     "name": "Lift_MovingLight_Base.003",
                     "transform": {
                         "pos": [
-                            -5.999998092651367,
+                            -6.0,
                             10.608736038208008,
-                            11.868949890136719
+                            11.868947982788086
                         ],
                         "rotate": [
                             0.0,
@@ -2684,9 +3584,9 @@
                     "name": "Lift_MovingLight_Base.004",
                     "transform": {
                         "pos": [
-                            -9.156529426574707,
+                            -9.15653133392334,
                             10.583393096923828,
-                            13.905482292175293
+                            13.90548038482666
                         ],
                         "rotate": [
                             0.0,
@@ -2712,9 +3612,9 @@
                     "name": "Lift_MovingLight_Base.005",
                     "transform": {
                         "pos": [
-                            -9.15652847290039,
-                            10.583392143249512,
-                            17.90264892578125
+                            -9.156530380249023,
+                            10.583394050598145,
+                            17.902647018432617
                         ],
                         "rotate": [
                             0.0,
@@ -2740,9 +3640,9 @@
                     "name": "Lift_MovingLight_Base.006",
                     "transform": {
                         "pos": [
-                            9.063143730163574,
-                            10.583390235900879,
-                            17.902647018432617
+                            9.063141822814941,
+                            10.583395957946777,
+                            17.902645111083984
                         ],
                         "rotate": [
                             0.0,
@@ -2768,9 +3668,9 @@
                     "name": "Lift_MovingLight_Base.007",
                     "transform": {
                         "pos": [
-                            9.063142776489258,
-                            10.583391189575195,
-                            13.90548038482666
+                            9.063140869140625,
+                            10.583395004272461,
+                            13.905478477478027
                         ],
                         "rotate": [
                             0.0,
@@ -2797,8 +3697,8 @@
                     "transform": {
                         "pos": [
                             24.0,
-                            1.5759941339492798,
-                            -3.000001907348633
+                            1.5759979486465454,
+                            -3.000002145767212
                         ],
                         "rotate": [
                             0.0,
@@ -2825,8 +3725,8 @@
                     "transform": {
                         "pos": [
                             20.0,
-                            1.5759944915771484,
-                            -3.0000016689300537
+                            1.5759975910186768,
+                            -3.000001907348633
                         ],
                         "rotate": [
                             0.0,
@@ -2853,8 +3753,8 @@
                     "transform": {
                         "pos": [
                             16.0,
-                            1.575994849205017,
-                            -3.0000011920928955
+                            1.575997233390808,
+                            -3.0000014305114746
                         ],
                         "rotate": [
                             0.0,
@@ -2881,8 +3781,8 @@
                     "transform": {
                         "pos": [
                             12.0,
-                            1.5759952068328857,
-                            -3.0000009536743164
+                            1.5759968757629395,
+                            -3.0000011920928955
                         ],
                         "rotate": [
                             0.0,
@@ -2909,8 +3809,8 @@
                     "transform": {
                         "pos": [
                             7.999999523162842,
-                            1.5759955644607544,
-                            -3.000000476837158
+                            1.5759965181350708,
+                            -3.0000009536743164
                         ],
                         "rotate": [
                             0.0,
@@ -2937,8 +3837,8 @@
                     "transform": {
                         "pos": [
                             -24.0,
-                            1.5759984254837036,
-                            -2.999997854232788
+                            1.5759936571121216,
+                            -2.999998092651367
                         ],
                         "rotate": [
                             0.0,
@@ -2965,8 +3865,8 @@
                     "transform": {
                         "pos": [
                             -20.0,
-                            1.575998067855835,
-                            -2.999998092651367
+                            1.5759940147399902,
+                            -2.9999983310699463
                         ],
                         "rotate": [
                             0.0,
@@ -2993,8 +3893,8 @@
                     "transform": {
                         "pos": [
                             -16.0,
-                            1.5759977102279663,
-                            -2.9999985694885254
+                            1.5759943723678589,
+                            -2.9999988079071045
                         ],
                         "rotate": [
                             0.0,
@@ -3021,8 +3921,8 @@
                     "transform": {
                         "pos": [
                             -12.0,
-                            1.5759973526000977,
-                            -2.9999988079071045
+                            1.5759947299957275,
+                            -2.9999990463256836
                         ],
                         "rotate": [
                             0.0,
@@ -3049,8 +3949,8 @@
                     "transform": {
                         "pos": [
                             -8.0,
-                            1.575996994972229,
-                            -2.9999990463256836
+                            1.5759950876235962,
+                            -2.999999523162842
                         ],
                         "rotate": [
                             0.0,
@@ -3091,9 +3991,9 @@
                     0.0
                 ],
                 "rotate": [
-                    180.0,
+                    -180.0,
                     -5.008956122765085e-06,
-                    180.0
+                    -180.0
                 ],
                 "scale": [
                     2.0,

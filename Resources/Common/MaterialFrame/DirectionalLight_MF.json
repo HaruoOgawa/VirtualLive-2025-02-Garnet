@@ -136,11 +136,10 @@
               }
             },
             {
-              "name": "iPad1",
+              "name": "ForceLighting",
               "type": "int",
               "initValue": [ 0 ],
               "input": {
-                "hide": true
               }
             },
             {
