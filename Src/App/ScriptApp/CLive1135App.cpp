@@ -103,10 +103,16 @@ namespace app
 		{
 			// ƒ‰ƒCƒg
 			network::SDMXFixture Fixture{};
-			Fixture.DeviceName = "DefaultSpotLight";
 			Fixture.ChannelNameList = { "R", "G", "B", "Dimmer", "Pan", "Tilt", "Angle", "Height" };
 
+			Fixture.DeviceName = "Lift_MovingLight_Base";
 			m_DMXHandler->RegistDeviceFixture(1, 0, 0, Fixture);
+
+			Fixture.DeviceName = "Ceiling_MovingLight_Base";
+			m_DMXHandler->RegistDeviceFixture(3, 0, 0, Fixture);
+
+			Fixture.DeviceName = "Stage_MovingLight_Base";
+			m_DMXHandler->RegistDeviceFixture(4, 0, 0, Fixture);
 		}
 
 		{
@@ -577,21 +583,63 @@ namespace app
 		}
 #endif
 
-		/*// DMX‚ÉÆ–¾“”‘Ì‚ğ“n‚·
+		// DMX‚ÉÆ–¾“”‘Ì‚ğ“n‚·
 		{
+			std::map<std::string, int> BaseNameCountMap;
+			BaseNameCountMap.emplace("Lift_MovingLight_Base.", 8);       // Net1
+			BaseNameCountMap.emplace("Ceiling_MovingLight_Base.", 12);   // Net3
+			BaseNameCountMap.emplace("StageLeft_MovingLight_Base.", 5);  // Net4
+			BaseNameCountMap.emplace("StageRight_MovingLight_Base.", 5); // Net4
+
 			const auto& Object = m_SceneController->FindObjectByName("LightList");
 			if (Object)
 			{
-				for (int i = 0; i < 6; i++)
+				int NodeNum = static_cast<int>(Object->GetNodeList().size());
+
+				for (const auto& pair : BaseNameCountMap)
 				{
-					std::string Name = "SpotLight_" + std::to_string(i);
-					const auto& SpotLight = Object->FindNodeByName(Name);
+					const auto& BaseName = pair.first;
+					int Count = pair.second;
 
-					for (const auto& Component : SpotLight->GetComponentList())
+					for (int i = 0; i < Count; i++)
 					{
-						if (Component->GetComponentName() != "SpotLight") continue;
+						// ”’l‚ğ"003"‚Ì‚æ‚¤‚Èƒ[ƒ–„‚ß3Œ…•¶š—ñ‚É•ÏŠ·‚·‚é
+						char buf[4];
+						snprintf(buf, sizeof(buf), "%03d", i);
 
-						m_DMXHandler->AddDevice("DefaultSpotLight", Component);
+						std::string NodeName = BaseName;
+						NodeName += buf;
+
+						const auto& SpotLight = Object->FindNodeByName(NodeName);
+
+						for (const auto& Component : SpotLight->GetComponentList())
+						{
+							if (Component->GetComponentName() != "SpotLight") continue;
+
+							std::string DMXFixtureName = std::string();
+
+							if (BaseName == "Lift_MovingLight_Base.")
+							{
+								DMXFixtureName = "Lift_MovingLight_Base";
+							}
+							else if (BaseName == "Ceiling_MovingLight_Base.")
+							{
+								DMXFixtureName = "Ceiling_MovingLight_Base";
+							}
+							else if (BaseName == "StageLeft_MovingLight_Base." || BaseName == "StageRight_MovingLight_Base.")
+							{
+								DMXFixtureName = "Stage_MovingLight_Base";
+							}
+							else
+							{
+								Console::Log("[Error] Unknown BaseName(%s)\n", BaseName.c_str());
+								continue;
+							}
+
+							Component->GetValueRegistry()->SetValue("DMXFixtureName", graphics::EUniformValueType::VALUE_TYPE_STRING, DMXFixtureName.data(), DMXFixtureName.size() * sizeof(char));
+
+							m_DMXHandler->AddDevice(DMXFixtureName, Component);
+						}
 					}
 				}
 			}
@@ -610,7 +658,7 @@ namespace app
 					m_DMXHandler->AddDevice("CameraSwitcher", Component);
 				}
 			}
-		}*/
+		}
 
 		const auto& Sound = m_SceneController->GetSound();
 		const auto& SoundClip = std::get<0>(Sound);

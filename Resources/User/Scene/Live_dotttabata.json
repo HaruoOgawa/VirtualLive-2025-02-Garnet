@@ -4813,6 +4813,36 @@
     },
     "objects": [
         {
+            "name": "CameraSwitcher",
+            "filename": "",
+            "renderpasslist": [
+                ""
+            ],
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "enable": true,
+            "components": [
+                {
+                    "type": "CameraSwitcher"
+                }
+            ]
+        },
+        {
             "name": "LightList",
             "filename": "",
             "renderpasslist": [
