@@ -66,6 +66,14 @@ namespace app
 		m_MainCamera = m_ViewCamera;
 		m_CurrentLookUpCamera = m_LookUpCameraA;
 
+#ifdef _DEBUG
+		m_MainCamera = m_ViewCamera;
+#else
+		//m_MainCamera = m_ViewCamera;
+		m_MainCamera = m_CurrentLookUpCamera;
+#endif // _DEBUG
+
+
 		auto LightCamera = std::make_shared<camera::CCamera>();
 		LightCamera->SetCenter(glm::vec3(0.0f, 0.0f, 0.0f));
 		LightCamera->SetPos(glm::vec3(0.0f, 1.0f, -1.0f) * 5.0f); // Live
@@ -84,6 +92,8 @@ namespace app
 
 	bool CLive1135App::Release(api::IGraphicsAPI* pGraphicsAPI)
 	{
+		m_UDPSocket->Close();
+
 		return true;
 	}
 
@@ -97,7 +107,7 @@ namespace app
 		//pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\FubuMio.json", m_SceneController));
 
 #ifdef USE_NETWORK
-		if (!m_UDPSocket->Initialize()) return false;
+		if (!m_UDPSocket->Initialize(shared_from_this(), true)) return false;
 
 		// DMX€”õ
 		{
@@ -269,7 +279,6 @@ namespace app
 #ifdef USE_NETWORK
 		if (pLoadWorker->IsLoaded())
 		{
-			if (!m_UDPSocket->Update(this)) return false;
 			if (!m_NDIReceiver->Update(this)) return false;
 		}
 #endif
