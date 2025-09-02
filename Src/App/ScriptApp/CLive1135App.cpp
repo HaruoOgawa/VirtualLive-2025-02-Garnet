@@ -69,8 +69,8 @@ namespace app
 #ifdef _DEBUG
 		m_MainCamera = m_ViewCamera;
 #else
-		//m_MainCamera = m_ViewCamera;
-		m_MainCamera = m_CurrentLookUpCamera;
+		m_MainCamera = m_ViewCamera;
+		//m_MainCamera = m_CurrentLookUpCamera;
 #endif // _DEBUG
 
 
@@ -113,7 +113,7 @@ namespace app
 		{
 			// ƒ‰ƒCƒg
 			network::SDMXFixture Fixture{};
-			Fixture.ChannelNameList = { "R", "G", "B", "Dimmer", "Pan", "Tilt", "Angle", "Height" };
+			Fixture.ChannelNameList = { "R", "G", "B", "A", "Dimmer", "Pan", "Tilt", "Angle", "Height"};
 
 			Fixture.DeviceName = "Lift_MovingLight_Base";
 			m_DMXHandler->RegistDeviceFixture(1, 0, 0, Fixture);
