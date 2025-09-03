@@ -123,6 +123,9 @@ namespace app
 
 			Fixture.DeviceName = "Stage_MovingLight_Base";
 			m_DMXHandler->RegistDeviceFixture(4, 0, 0, Fixture);
+			
+			Fixture.DeviceName = "UpperStage_MovingLight_Base";
+			m_DMXHandler->RegistDeviceFixture(5, 0, 0, Fixture);
 		}
 
 		{
@@ -595,10 +598,12 @@ namespace app
 		// DMXに照明灯体を渡す
 		{
 			std::map<std::string, int> BaseNameCountMap;
-			BaseNameCountMap.emplace("Lift_MovingLight_Base.", 8);       // Net1
+			BaseNameCountMap.emplace("Lift_MovingLight_Base.", 4);       // Net1
 			BaseNameCountMap.emplace("Ceiling_MovingLight_Base.", 12);   // Net3
 			BaseNameCountMap.emplace("StageLeft_MovingLight_Base.", 5);  // Net4
 			BaseNameCountMap.emplace("StageRight_MovingLight_Base.", 5); // Net4
+			BaseNameCountMap.emplace("UpperStageLeft_MovingLight_Base.", 5);   // Net5
+			BaseNameCountMap.emplace("UpperStageRight_MovingLight_Base.", 5);  // Net5
 
 			const auto& Object = m_SceneController->FindObjectByName("IndoorLiveStage");
 			if (Object)
@@ -697,10 +702,12 @@ namespace app
 	bool CLive1135App::OnObjectLoaded(const std::shared_ptr<object::C3DObject>& Object, api::IGraphicsAPI* pGraphicsAPI, resource::CLoadWorker* pLoadWorker)
 	{
 		std::map<std::string, int> BaseNameCountMap;
-		BaseNameCountMap.emplace("Lift_MovingLight_Base.", 8);
+		BaseNameCountMap.emplace("Lift_MovingLight_Base.", 4);
 		BaseNameCountMap.emplace("Ceiling_MovingLight_Base.", 12);
 		BaseNameCountMap.emplace("StageLeft_MovingLight_Base.", 5);
 		BaseNameCountMap.emplace("StageRight_MovingLight_Base.", 5);
+		BaseNameCountMap.emplace("UpperStageLeft_MovingLight_Base.", 5);
+		BaseNameCountMap.emplace("UpperStageRight_MovingLight_Base.", 5);
 
 		// スポットライトノードとコンポーネントをまとめて自動生成
 		if (Object->GetObjectName() == "LightList") // 動作させないので_NotWorkingを付与しておく
@@ -728,7 +735,10 @@ namespace app
 					if(!Node) Node = std::make_shared<object::CNode>(-1, NodeNum);
 					
 					// ステージに置いてるライトなら上を向かせておく
-					if (BaseName == "StageLeft_MovingLight_Base." || BaseName == "StageRight_MovingLight_Base.")
+					if (BaseName == "StageLeft_MovingLight_Base." || 
+						BaseName == "StageRight_MovingLight_Base." ||
+						BaseName == "UpperStageLeft_MovingLight_Base." ||
+						BaseName == "UpperStageRight_MovingLight_Base.")
 					{
 						Node->SetRot(glm::angleAxis(glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f)));
 					}
