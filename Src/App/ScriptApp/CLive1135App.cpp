@@ -645,6 +645,11 @@ namespace app
 								DMXFixtureName = "Stage_MovingLight_Base";
 								Component->GetValueRegistry()->SetValue("UpsideDown", graphics::EUniformValueType::VALUE_TYPE_INT, &glm::ivec1(1)[0], sizeof(int));
 							}
+							else if (BaseName == "UpperStageLeft_MovingLight_Base." || BaseName == "UpperStageRight_MovingLight_Base.")
+							{
+								DMXFixtureName = "UpperStage_MovingLight_Base";
+								Component->GetValueRegistry()->SetValue("UpsideDown", graphics::EUniformValueType::VALUE_TYPE_INT, &glm::ivec1(1)[0], sizeof(int));
+							}
 							else
 							{
 								Console::Log("[Error] Unknown BaseName(%s)\n", BaseName.c_str());
