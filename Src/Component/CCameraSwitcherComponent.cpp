@@ -19,7 +19,7 @@ namespace scriptable
 	{
 		if (Fixture.DeviceName == "CameraSwitcher")
 		{
-			if (Fixture.ChannelNameList.size() != 33) return;
+			if (Fixture.ChannelNameList.size() != 57) return;
 
 			if (m_CameraList.size() != 2) return;
 
@@ -46,8 +46,18 @@ namespace scriptable
 				float ZAngle = 0.0f;
 				if (!Analyzer.GetFloat(ZAngle)) return;
 
+				float CenterX = 0.0f;
+				if (!Analyzer.GetFloat(CenterX)) return;
+
+				float CenterY = 0.0f;
+				if (!Analyzer.GetFloat(CenterY)) return;
+
+				float CenterZ = 0.0f;
+				if (!Analyzer.GetFloat(CenterZ)) return;
+
 				Camera->SetPos(glm::vec3(PosX, PosY, PosZ));
  				Camera->SetZAngle(ZAngle);
+				Camera->SetCenter(glm::vec3(CenterX, CenterY, CenterZ));
 			}
 
 			// ƒJƒƒ‰Ø‚è‘Ö‚¦
