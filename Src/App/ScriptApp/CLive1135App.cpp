@@ -69,10 +69,8 @@ namespace app
 #ifdef _DEBUG
 		m_MainCamera = m_ViewCamera;
 #else
-		m_MainCamera = m_ViewCamera;
-		//m_MainCamera = m_CurrentLookUpCamera;
+		m_MainCamera = m_CurrentLookUpCamera;
 #endif // _DEBUG
-
 
 		auto LightCamera = std::make_shared<camera::CCamera>();
 		LightCamera->SetCenter(glm::vec3(0.0f, 0.0f, 0.0f));
@@ -140,12 +138,18 @@ namespace app
 				"CameraA_PosY_Byte_0", "CameraA_PosY_Byte_1", "CameraA_PosY_Byte_2", "CameraA_PosY_Byte_3",
 				"CameraA_PosZ_Byte_0", "CameraA_PosZ_Byte_1", "CameraA_PosZ_Byte_2", "CameraA_PosZ_Byte_3",
 				"CameraA_ZAngle_Byte_0", "CameraA_ZAngle_Byte_1", "CameraA_ZAngle_Byte_2", "CameraA_ZAngle_Byte_3",
+				"CameraA_CenterX_Byte_0", "CameraA_CenterX_Byte_1", "CameraA_CenterX_Byte_2", "CameraA_CenterX_Byte_3",
+				"CameraA_CenterY_Byte_0", "CameraA_CenterY_Byte_1", "CameraA_CenterY_Byte_2", "CameraA_CenterY_Byte_3",
+				"CameraA_CenterZ_Byte_0", "CameraA_CenterZ_Byte_1", "CameraA_CenterZ_Byte_2", "CameraA_CenterZ_Byte_3",
 
 				// CameraB
 				"CameraB_PosX_Byte_0", "CameraB_PosX_Byte_1", "CameraB_PosX_Byte_2", "CameraB_PosX_Byte_3",
 				"CameraB_PosY_Byte_0", "CameraB_PosY_Byte_1", "CameraB_PosY_Byte_2", "CameraB_PosY_Byte_3",
 				"CameraB_PosZ_Byte_0", "CameraB_PosZ_Byte_1", "CameraB_PosZ_Byte_2", "CameraB_PosZ_Byte_3",
 				"CameraB_ZAngle_Byte_0", "CameraB_ZAngle_Byte_1", "CameraB_ZAngle_Byte_2", "CameraB_ZAngle_Byte_3",
+				"CameraB_CenterX_Byte_0", "CameraB_CenterX_Byte_1", "CameraB_CenterX_Byte_2", "CameraB_CenterX_Byte_3",
+				"CameraB_CenterY_Byte_0", "CameraB_CenterY_Byte_1", "CameraB_CenterY_Byte_2", "CameraB_CenterY_Byte_3",
+				"CameraB_CenterZ_Byte_0", "CameraB_CenterZ_Byte_1", "CameraB_CenterZ_Byte_2", "CameraB_CenterZ_Byte_3",
 			};
 
 			m_DMXHandler->RegistDeviceFixture(2, 0, 0, Fixture);
