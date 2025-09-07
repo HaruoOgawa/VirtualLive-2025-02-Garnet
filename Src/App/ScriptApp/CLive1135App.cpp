@@ -752,29 +752,40 @@ namespace app
 						Node->SetRot(glm::angleAxis(glm::radians(180.0f), glm::vec3(1.0f, 0.0f, 0.0f)));
 					}
 
-					// 新規生成ではなくすでに存在しているノードだった場合は後の処理はスキップ
-					if (Exist) continue; 
+					// 新規生成なのでコンポーネントを付与
+					if (!Exist)
+					{
+						//
+						Node->SetName(NodeName);
+						Object->AddNode(Node);
 
-					//
-					Node->SetName(NodeName);
-					Object->AddNode(Node);
+						// コンポーネント追加
+						auto Component = scriptable::CComponentResolver::Resolve(this, "SpotLight", "");
+						Component->Initialize(pGraphicsAPI, pLoadWorker);
 
-					// コンポーネント追加
-					auto Component = scriptable::CComponentResolver::Resolve(this, "SpotLight", "");
-					Component->Initialize(pGraphicsAPI, pLoadWorker);
+						// 描画パスを指定
+						std::string DefferdPassName = "GBufferGenPass";
+						std::string LightingPassName = "GBufferLightPass";
+						std::string ForegroundPassName = "MainGeometryPass";
 
-					// 描画パスを指定
-					std::string DefferdPassName = "GBufferGenPass";
-					std::string LightingPassName = "GBufferLightPass";
-					std::string ForegroundPassName = "MainGeometryPass";
+						Component->GetValueRegistry()->SetValue("DefferdPassName", graphics::EUniformValueType::VALUE_TYPE_STRING, DefferdPassName.c_str(), sizeof(char) * DefferdPassName.size());
+						Component->GetValueRegistry()->SetValue("LightingPassName", graphics::EUniformValueType::VALUE_TYPE_STRING, LightingPassName.c_str(), sizeof(char) * LightingPassName.size());
+						Component->GetValueRegistry()->SetValue("ForegroundPassName", graphics::EUniformValueType::VALUE_TYPE_STRING, ForegroundPassName.c_str(), sizeof(char) * ForegroundPassName.size());
 
-					Component->GetValueRegistry()->SetValue("DefferdPassName", graphics::EUniformValueType::VALUE_TYPE_STRING, DefferdPassName.c_str(), sizeof(char) * DefferdPassName.size());
-					Component->GetValueRegistry()->SetValue("LightingPassName", graphics::EUniformValueType::VALUE_TYPE_STRING, LightingPassName.c_str(), sizeof(char) * LightingPassName.size());
-					Component->GetValueRegistry()->SetValue("ForegroundPassName", graphics::EUniformValueType::VALUE_TYPE_STRING, ForegroundPassName.c_str(), sizeof(char) * ForegroundPassName.size());
+						Node->AddComponent(Component);
 
-					Node->AddComponent(Component);
+						NodeNum++;
+					}
 
-					NodeNum++;
+					// 天井ライトの場合はジオメトリを描画しない
+					if (BaseName == "Ceiling_MovingLight_Base.")
+					{
+						const auto& ComponentList = Node->GetComponentList();
+						for (const auto& Component : ComponentList)
+						{
+							Component->GetValueRegistry()->SetValue("showGeom", graphics::EUniformValueType::VALUE_TYPE_INT, &glm::ivec1(0)[0], sizeof(int));
+						}
+					}
 				}
 			}
 		}

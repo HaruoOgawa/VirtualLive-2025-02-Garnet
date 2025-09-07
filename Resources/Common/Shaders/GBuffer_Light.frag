@@ -207,7 +207,7 @@ LightParam GetLightParam(GBufferResult gResult)
 
 		// スポットライトの範囲内であれば描画可能
 		// 角度チェック
-		float coneAngle = radians(l_ubo.angle) * 1.25; // スポットライトのライティング範囲とジオメトリの範囲が異なるので少し広めに取る
+		float coneAngle = radians(l_ubo.angle);
 		float l2g_angle = acos(dot(baseDir, l2g_norm));
 		bool ValidAngle = (l2g_angle >= 0.0 && l2g_angle <= coneAngle);
 
@@ -235,8 +235,8 @@ LightParam GetLightParam(GBufferResult gResult)
 		// float attenuation = max( min(1.0 - pow((l2gR / spotR), 4.0), 1.0), 0.0 ) / pow(l2gR, 2.0);
 		// attenuation = clamp(attenuation, 0.0, 1.0);
 		// float attenuation = smoothstep(1.0, 0.5, l2gR / spotR);
-		float attenuation = smoothstep(1.0, 0.0, l2gR / spotR);
-		// float attenuation = 1.0;
+		// float attenuation = smoothstep(1.0, 0.0, l2gR / spotR);
+		float attenuation = 1.0;
 
 		//
 		light.dir = l2g_norm;
