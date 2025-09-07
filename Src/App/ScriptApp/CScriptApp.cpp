@@ -27,7 +27,7 @@ namespace app
 		m_CameraSwitchToggle(true),
 		m_MainCamera(nullptr),
 #ifdef USE_VIEWER_CAMERA
-		m_ViewCamera(std::make_shared<camera::CViewerCamera>()),
+		m_ViewCamera(std::make_shared<camera::CViewerCamera>(glm::vec3(0.0f, 2.0f, 45.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f))),
 #else
 		m_ViewCamera(std::make_shared<camera::CCamera>()),
 #endif // USE_VIEWER_CAMERA
@@ -41,7 +41,6 @@ namespace app
 		m_TimelineController(std::make_shared<timeline::CTimelineController>()),
 		m_PostProcess(std::make_shared<graphics::CPostProcess>("MainResultPass"))
 	{
-		m_ViewCamera->SetPos(glm::vec3(-7.0f, 1.0f, 0.0f));
 		m_MainCamera = m_ViewCamera;
 
 		m_DrawInfo->GetLightCamera()->SetPos(glm::vec3(-2.358f, 15.6f, -0.59f));
@@ -62,13 +61,14 @@ namespace app
 
 	bool CScriptApp::Initialize(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker)
 	{
-		pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\Sample.json", m_SceneController));
+		//pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\Sample.json", m_SceneController));
+		pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\Live_1135.json", m_SceneController));
 
 		// オフスクリーンレンダリング
 		// GBufferを組み込んだレンダリングパイプラインではフレームバッファコピー周りがややこしく非効率なことになるのでMSAAは使わない
 		// 代わりにFXAAのポストプロセスでアンチエイリアシングを行う
 		{
-			graphics::SRenderPassState State = graphics::SRenderPassState(5);
+			graphics::SRenderPassState State = graphics::SRenderPassState(6);
 			State.InitColorList[3] = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 			if (!pGraphicsAPI->CreateRenderPass("GBufferGenPass", api::ERenderPassFormat::COLOR_FLOAT_RENDERPASS, -1, -1, State)) return false;
 		}
@@ -216,28 +216,32 @@ namespace app
 			if (!m_MainFrameRenderer->Draw(pGraphicsAPI, m_MainCamera, m_Projection, m_DrawInfo)) return false;
 
 			// GUIEngine
+			std::function<bool(void)> DrawGUIEngine = [this, pLoadWorker, GUIEngine, pGraphicsAPI, pPhysicsEngine, InputState]() {
 #ifdef USE_GUIENGINE
-			if (pLoadWorker->IsLoaded())
-			{
-				gui::SGUIParams GUIParams = gui::SGUIParams(shared_from_this(), GetObjectList(), m_SceneController, m_FileModifier, m_TimelineController, pLoadWorker, {}, pPhysicsEngine);
-				GUIParams.CameraMode = (m_CameraSwitchToggle) ? "ViewCamera" : "TraceCamera";
-				GUIParams.Camera = m_MainCamera;
-				GUIParams.InputState = InputState;
-				GUIParams.ValueRegistryList.emplace(m_PostProcess->GetBloomFilter()->GetRegistryName(), m_PostProcess->GetBloomFilter());
-
-				if (!GUIEngine->BeginFrame(pGraphicsAPI)) return false;
-				if (!m_GraphicsEditingWindow->Draw(pGraphicsAPI, GUIParams, GUIEngine))
+				if (pLoadWorker->IsLoaded())
 				{
-					Console::Log("[Error] InValid GUI\n");
-					return false;
+					gui::SGUIParams GUIParams = gui::SGUIParams(shared_from_this(), GetObjectList(), m_SceneController, m_FileModifier, m_TimelineController, pLoadWorker, {}, pPhysicsEngine);
+					GUIParams.CameraMode = (m_CameraSwitchToggle) ? "ViewCamera" : "TraceCamera";
+					GUIParams.Camera = m_MainCamera;
+					GUIParams.InputState = InputState;
+					GUIParams.ValueRegistryList.emplace(m_PostProcess->GetBloomFilter()->GetRegistryName(), m_PostProcess->GetBloomFilter());
+
+					if (!GUIEngine->BeginFrame(pGraphicsAPI)) return false;
+					if (!m_GraphicsEditingWindow->Draw(pGraphicsAPI, GUIParams, GUIEngine))
+					{
+						Console::Log("[Error] InValid GUI\n");
+						return false;
+					}
+					if (!GUIEngine->EndFrame(pGraphicsAPI)) return false;
 				}
-				if (!GUIEngine->EndFrame(pGraphicsAPI)) return false;
-			}
 #endif // USE_GUIENGINE
+
+				return true;
+			};
 
 			if (!pLoadWorker->Draw(pGraphicsAPI, m_MainCamera, m_Projection, m_DrawInfo)) return false;
 
-			if (!pGraphicsAPI->EndRender()) return false;
+			if (!pGraphicsAPI->EndRender(DrawGUIEngine)) return false;
 		}
 
 		return true;
