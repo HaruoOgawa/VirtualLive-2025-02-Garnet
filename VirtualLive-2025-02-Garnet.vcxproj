@@ -78,7 +78,7 @@
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{f591028c-9d82-408c-998f-a52973597c46}</ProjectGuid>
-    <RootNamespace>HoloShort</RootNamespace>
+    <RootNamespace>VirtualLive-2025-02-Garnet</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -542,8 +542,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\App\ScriptApp\CLive1135App.cpp" />
-    <ClCompile Include="Src\App\ScriptApp\CScriptApp.cpp" />
+    <ClCompile Include="Src\App\ScriptApp\CLiveApp.cpp" />
     <ClCompile Include="Src\Component\CCameraSwitcherComponent.cpp" />
     <ClCompile Include="Src\Component\CVATGenerator.cpp" />
     <ClCompile Include="Src\GUIApp\GUI\C3DView.cpp" />
@@ -564,8 +563,7 @@
     <ClCompile Include="Src\Main\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\App\ScriptApp\CLive1135App.h" />
-    <ClInclude Include="Src\App\ScriptApp\CScriptApp.h" />
+    <ClInclude Include="Src\App\ScriptApp\CLiveApp.h" />
     <ClInclude Include="Src\Component\CCameraSwitcherComponent.h" />
     <ClInclude Include="Src\Component\CVATGenerator.h" />
     <ClInclude Include="Src\GUIApp\GUI\C3DView.h" />

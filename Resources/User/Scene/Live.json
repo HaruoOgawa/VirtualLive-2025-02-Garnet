@@ -1,0 +1,4750 @@
+{
+    "materialframes": [
+        {
+            "name": "GBuffer_Gen",
+            "filename": "Resources\\Common\\MaterialFrame\\GBuffer_Gen_MF.json"
+        },
+        {
+            "name": "GBuffer_Gen_Stencil",
+            "filename": "Resources\\User\\MaterialFrame\\GBuffer_Gen_MF_Stencil.json"
+        },
+        {
+            "name": "PlanerReflection_Mat",
+            "filename": "Resources\\User\\MaterialFrame\\PlanerReflection_MF.json"
+        },
+        {
+            "name": "basic_toon_mat",
+            "filename": "Resources\\Common\\MaterialFrame\\basic_toon_mf.json"
+        },
+        {
+            "name": "basic_toon_outline_mat",
+            "filename": "Resources\\Common\\MaterialFrame\\basic_toon_outline_mf.json"
+        },
+        {
+            "name": "pbr_instance_mat",
+            "filename": "Resources\\User\\MaterialFrame\\PBR_Instance_MF.json"
+        },
+        {
+            "name": "pbr_mat",
+            "filename": "Resources\\Common\\MaterialFrame\\PBR_MF.json"
+        },
+        {
+            "name": "simple_texture_mat",
+            "filename": "Resources\\Common\\MaterialFrame\\SimpleTexture_MF.json"
+        }
+    ],
+    "valueregistries": [
+        {
+            "registryname": "DirectionalLight_5521_3068",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "dir",
+                    "type": "vec4",
+                    "initValue": [
+                        0.0,
+                        -1.0,
+                        1.0,
+                        0.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "DirectionalLight_7473_18109",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "PlanerReflection_GBufferGenPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "PlanerReflection_GBufferLightPass"
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "dir",
+                    "type": "vec4",
+                    "initValue": [
+                        0.0,
+                        -1.0,
+                        1.0,
+                        0.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_11507_19060",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        10.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        5.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_153_2334",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_10719_10010",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_9634_18769",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_15003_25388",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_32732_917",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_21568_21290",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_13909_5385",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_10370_18124",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        2.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        30.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_27514_8637",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_26944_3652",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_15682_25623",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_27224_25795",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_5545_2934",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_5568_25662",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_24416_28182",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_26067_26226",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_29379_4660",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_23016_30502",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_20235_21106",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_6441_15280",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        10.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        15.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        -45.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_29637_8572",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_14243_29626",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_28291_12524",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_20889_30534",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_28881_32619",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_28958_22000",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_618_4633",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_29155_31603",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        },
+        {
+            "registryname": "SpotLight_9132_23856",
+            "values": [
+                {
+                    "name": "DefferdPassName",
+                    "type": "string",
+                    "initValue": "GBufferGenPass"
+                },
+                {
+                    "name": "ForegroundPassName",
+                    "type": "string",
+                    "initValue": "MainGeometryPass"
+                },
+                {
+                    "name": "LightingPassName",
+                    "type": "string",
+                    "initValue": "GBufferLightPass"
+                },
+                {
+                    "name": "angle",
+                    "type": "float",
+                    "initValue": [
+                        45.0
+                    ]
+                },
+                {
+                    "name": "color",
+                    "type": "vec4",
+                    "initValue": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ]
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "intensity",
+                    "type": "float",
+                    "initValue": [
+                        1.0
+                    ]
+                },
+                {
+                    "name": "pan",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                },
+                {
+                    "name": "tilt",
+                    "type": "float",
+                    "initValue": [
+                        0.0
+                    ]
+                }
+            ]
+        }
+    ],
+    "scenetextureset": {
+        "frametextures": null,
+        "ibl": {
+            "diffuse": "Resources/User/IBL/output_iem.hdr",
+            "specular": "Resources/User/IBL/output_pmrem.hdr",
+            "ggx": "Resources/User/IBL/ggx_lut.jpg"
+        }
+    },
+    "animations": [
+        {
+            "filename": "Resources/User/Untracked/Hibana/Hibana.vmd",
+            "name": "DanceMotion"
+        }
+    ],
+    "physics": {
+        "enabled": true
+    },
+    "sound": {
+        "bgm": {
+            "filename": "Resources/User/Untracked/hibana.wav",
+            "autoplay": false,
+            "loop": false
+        }
+    },
+    "objects": [
+        {
+            "name": "CameraSwitcher",
+            "filename": "",
+            "renderpasslist": [
+                ""
+            ],
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "enable": true,
+            "components": [
+                {
+                    "type": "CameraSwitcher"
+                }
+            ]
+        },
+        {
+            "name": "LightList",
+            "filename": "",
+            "renderpasslist": [
+                "GBufferLightPass",
+                "MainGeometryPass",
+                "PlanerReflection_GBufferLightPass",
+                "PlanerReflection_GeometryPass"
+            ],
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    5.0,
+                    1.0
+                ]
+            },
+            "enable": true,
+            "nodes": [
+                {
+                    "name": "DirectionalLight",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "rotate": [
+                            -5.008956122765085e-06,
+                            -5.008956122765085e-06,
+                            -5.008956122765085e-06
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "DirectionalLight",
+                            "valueregistry": "DirectionalLight_5521_3068"
+                        },
+                        {
+                            "type": "DirectionalLight",
+                            "valueregistry": "DirectionalLight_7473_18109"
+                        }
+                    ]
+                },
+                {
+                    "name": "Ceiling_MovingLight_Base.000",
+                    "transform": {
+                        "pos": [
+                            -1.9855947357427794e-06,
+                            16.452552795410156,
+                            -6.2600016593933105
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_11507_19060"
+                        }
+                    ]
+                },
+                {
+                    "name": "Ceiling_MovingLight_Base.001",
+                    "transform": {
+                        "pos": [
+                            -3.000001907348633,
+                            16.452552795410156,
+                            -6.260001182556152
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_153_2334"
+                        }
+                    ]
+                },
+                {
+                    "name": "Ceiling_MovingLight_Base.002",
+                    "transform": {
+                        "pos": [
+                            -4.500001907348633,
+                            16.452550888061523,
+                            -3.6800010204315186
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_10719_10010"
+                        }
+                    ]
+                },
+                {
+                    "name": "Ceiling_MovingLight_Base.003",
+                    "transform": {
+                        "pos": [
+                            -6.000001430511475,
+                            16.452552795410156,
+                            -1.1000009775161743
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_9634_18769"
+                        }
+                    ]
+                },
+                {
+                    "name": "Ceiling_MovingLight_Base.004",
+                    "transform": {
+                        "pos": [
+                            -4.500001430511475,
+                            16.452552795410156,
+                            1.4799989461898804
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_15003_25388"
+                        }
+                    ]
+                },
+                {
+                    "name": "Ceiling_MovingLight_Base.005",
+                    "transform": {
+                        "pos": [
+                            -3.0000011920928955,
+                            16.452552795410156,
+                            4.059998989105225
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_32732_917"
+                        }
+                    ]
+                },
+                {
+                    "name": "Ceiling_MovingLight_Base.006",
+                    "transform": {
+                        "pos": [
+                            -1.0833916803676402e-06,
+                            16.452552795410156,
+                            4.059998512268066
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_21568_21290"
+                        }
+                    ]
+                },
+                {
+                    "name": "Ceiling_MovingLight_Base.007",
+                    "transform": {
+                        "pos": [
+                            2.9999988079071045,
+                            16.45255470275879,
+                            4.059998035430908
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_13909_5385"
+                        }
+                    ]
+                },
+                {
+                    "name": "Ceiling_MovingLight_Base.008",
+                    "transform": {
+                        "pos": [
+                            4.499998569488525,
+                            16.452550888061523,
+                            1.479998230934143
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_10370_18124"
+                        }
+                    ]
+                },
+                {
+                    "name": "Ceiling_MovingLight_Base.009",
+                    "transform": {
+                        "pos": [
+                            5.999998569488525,
+                            16.452552795410156,
+                            -1.1000019311904907
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_27514_8637"
+                        }
+                    ]
+                },
+                {
+                    "name": "Ceiling_MovingLight_Base.010",
+                    "transform": {
+                        "pos": [
+                            4.499998092651367,
+                            16.452550888061523,
+                            -3.680001974105835
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_26944_3652"
+                        }
+                    ]
+                },
+                {
+                    "name": "Ceiling_MovingLight_Base.011",
+                    "transform": {
+                        "pos": [
+                            2.999998092651367,
+                            16.452552795410156,
+                            -6.260002136230469
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_15682_25623"
+                        }
+                    ]
+                },
+                {
+                    "name": "Lift_MovingLight_Base.000",
+                    "transform": {
+                        "pos": [
+                            6.0,
+                            10.60873794555664,
+                            11.868946075439453
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_27224_25795"
+                        }
+                    ]
+                },
+                {
+                    "name": "Lift_MovingLight_Base.001",
+                    "transform": {
+                        "pos": [
+                            2.0,
+                            10.608736991882324,
+                            11.86894702911377
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_5545_2934"
+                        }
+                    ]
+                },
+                {
+                    "name": "Lift_MovingLight_Base.002",
+                    "transform": {
+                        "pos": [
+                            -1.9999998807907104,
+                            10.608736991882324,
+                            11.86894702911377
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_5568_25662"
+                        }
+                    ]
+                },
+                {
+                    "name": "Lift_MovingLight_Base.003",
+                    "transform": {
+                        "pos": [
+                            -6.0,
+                            10.608736038208008,
+                            11.868947982788086
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_24416_28182"
+                        }
+                    ]
+                },
+                {
+                    "name": "StageLeft_MovingLight_Base.000",
+                    "transform": {
+                        "pos": [
+                            24.0,
+                            1.5759979486465454,
+                            -3.000002145767212
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_6441_15280"
+                        }
+                    ]
+                },
+                {
+                    "name": "StageLeft_MovingLight_Base.001",
+                    "transform": {
+                        "pos": [
+                            20.0,
+                            1.5759975910186768,
+                            -3.000001907348633
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_29637_8572"
+                        }
+                    ]
+                },
+                {
+                    "name": "StageLeft_MovingLight_Base.002",
+                    "transform": {
+                        "pos": [
+                            16.0,
+                            1.575997233390808,
+                            -3.0000014305114746
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_14243_29626"
+                        }
+                    ]
+                },
+                {
+                    "name": "StageLeft_MovingLight_Base.003",
+                    "transform": {
+                        "pos": [
+                            12.0,
+                            1.5759968757629395,
+                            -3.0000011920928955
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_28291_12524"
+                        }
+                    ]
+                },
+                {
+                    "name": "StageLeft_MovingLight_Base.004",
+                    "transform": {
+                        "pos": [
+                            7.999999523162842,
+                            1.5759965181350708,
+                            -3.0000009536743164
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_20889_30534"
+                        }
+                    ]
+                },
+                {
+                    "name": "StageRight_MovingLight_Base.000",
+                    "transform": {
+                        "pos": [
+                            -24.0,
+                            1.5759936571121216,
+                            -2.999998092651367
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_28881_32619"
+                        }
+                    ]
+                },
+                {
+                    "name": "StageRight_MovingLight_Base.001",
+                    "transform": {
+                        "pos": [
+                            -20.0,
+                            1.5759940147399902,
+                            -2.9999983310699463
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_28958_22000"
+                        }
+                    ]
+                },
+                {
+                    "name": "StageRight_MovingLight_Base.002",
+                    "transform": {
+                        "pos": [
+                            -16.0,
+                            1.5759943723678589,
+                            -2.9999988079071045
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_618_4633"
+                        }
+                    ]
+                },
+                {
+                    "name": "StageRight_MovingLight_Base.003",
+                    "transform": {
+                        "pos": [
+                            -12.0,
+                            1.5759947299957275,
+                            -2.9999990463256836
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_29155_31603"
+                        }
+                    ]
+                },
+                {
+                    "name": "StageRight_MovingLight_Base.004",
+                    "transform": {
+                        "pos": [
+                            -8.0,
+                            1.5759950876235962,
+                            -2.999999523162842
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": -1,
+                    "components": [
+                        {
+                            "type": "SpotLight",
+                            "valueregistry": "SpotLight_9132_23856"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "IndoorLiveStage",
+            "filename": "Resources\\User\\Stage\\IndoorLiveStage\\glb\\LiveStage_Edit.glb",
+            "defaultmaterialframes": [
+                "GBuffer_Gen"
+            ],
+            "renderpasslist": [
+                "GBufferGenPass",
+                "PlanerReflection_GBufferGenPass"
+            ],
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotate": [
+                    -180.0,
+                    -5.008956122765085e-06,
+                    -180.0
+                ],
+                "scale": [
+                    2.0,
+                    2.0,
+                    2.0
+                ]
+            },
+            "enable": true,
+            "materials": [
+                {
+                    "meshindex": 0,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 1,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 2,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 2,
+                    "primitiveindex": 1,
+                    "materialframe": "GBuffer_Gen_Stencil",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.10000000149011612
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 2,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 3,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 4,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 7,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 5,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 6,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 7,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 8,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorTexture_ST",
+                            "type": "vec4",
+                            "value": [
+                                0.5,
+                                1.0,
+                                0.25,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 7,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 9,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 7,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 10,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 11,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 12,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 13,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 14,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.8468679785728455,
+                                0.6583752036094666,
+                                1.0,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                2.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 15,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.8468679785728455,
+                                0.6583752036094666,
+                                1.0,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                2.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 16,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.8468679785728455,
+                                0.6583752036094666,
+                                1.0,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                2.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 17,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.8468679785728455,
+                                0.6583752036094666,
+                                1.0,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                2.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 18,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.8468679785728455,
+                                0.6583752036094666,
+                                1.0,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                2.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 19,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.8468679785728455,
+                                0.6583752036094666,
+                                1.0,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                2.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 20,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 21,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 4,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 3,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 22,
+                    "primitiveindex": 0,
+                    "materialframe": "GBuffer_Gen",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.49999991059303284,
+                                0.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.25
+                            ]
+                        },
+                        {
+                            "name": "useBaseColorTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useEmissiveTexture",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "baseColorTexture",
+                            "textureindex": 6,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "emissiveTexture",
+                            "textureindex": 5,
+                            "texturename": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Len",
+            "filename": "Resources/User/Untracked/sour_len/Black.pmx",
+            "defaultmaterialframes": [
+                "basic_toon_outline_mat",
+                "basic_toon_mat"
+            ],
+            "renderpasslist": [
+                "MainGeometryPass",
+                "PlanerReflection_GeometryPass",
+                "ShadowPass"
+            ],
+            "animation": {
+                "humanoidclips": [
+                    {
+                        "ik": true,
+                        "index": 0,
+                        "key": "Dance",
+                        "loop": true,
+                        "motionname": "DanceMotion"
+                    }
+                ],
+                "playmotion": "Dance",
+                "playmotionindex": -1
+            },
+            "transform": {
+                "pos": [
+                    -0.5,
+                    0.0,
+                    0.0
+                ],
+                "rotate": [
+                    -5.008956122765085e-06,
+                    -5.008956122765085e-06,
+                    -5.008956122765085e-06
+                ],
+                "scale": [
+                    0.10000000149011612,
+                    0.10000000149011612,
+                    0.10000000149011612
+                ]
+            }
+        },
+        {
+            "name": "Rin",
+            "filename": "Resources/User/Untracked/sour_rin/Black.pmx",
+            "defaultmaterialframes": [
+                "basic_toon_outline_mat",
+                "basic_toon_mat"
+            ],
+            "renderpasslist": [
+                "MainGeometryPass",
+                "PlanerReflection_GeometryPass",
+                "ShadowPass"
+            ],
+            "animation": {
+                "humanoidclips": [
+                    {
+                        "ik": true,
+                        "index": 0,
+                        "key": "Dance",
+                        "loop": true,
+                        "motionname": "DanceMotion"
+                    }
+                ],
+                "playmotion": "Dance",
+                "playmotionindex": -1
+            },
+            "transform": {
+                "pos": [
+                    0.5,
+                    0.0,
+                    0.0
+                ],
+                "rotate": [
+                    -5.008956122765085e-06,
+                    -5.008956122765085e-06,
+                    -5.008956122765085e-06
+                ],
+                "scale": [
+                    0.10000000149011612,
+                    0.10000000149011612,
+                    0.10000000149011612
+                ]
+            }
+        },
+        {
+            "name": "Crowd",
+            "filename": "Resources\\User\\Stage\\Crowd\\Crowd_Hard.glb",
+            "defaultmaterialframes": [
+                "pbr_instance_mat"
+            ],
+            "instancecount": 4096,
+            "renderpasslist": [
+                "MainGeometryPass"
+            ],
+            "animation": {
+                "playmotion": "",
+                "playmotionindex": 0
+            },
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "enable": true,
+            "materials": [
+                {
+                    "meshindex": 0,
+                    "primitiveindex": 0,
+                    "materialframe": "pbr_instance_mat",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "ShadowMapX",
+                            "type": "float",
+                            "value": [
+                                1920.0
+                            ]
+                        },
+                        {
+                            "name": "ShadowMapY",
+                            "type": "float",
+                            "value": [
+                                1080.0
+                            ]
+                        },
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "metallicFactor",
+                            "type": "float",
+                            "value": [
+                                0.5
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5527864098548889
+                            ]
+                        },
+                        {
+                            "name": "useIBL",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useShadowMap",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "vertexAnimationTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "cubemapTexture",
+                            "textureindex": -1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "shadowmapTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "IBL_Diffuse_Texture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "IBL_Specular_Texture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "IBL_GGXLUT_Texture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 1,
+                    "primitiveindex": 0,
+                    "materialframe": "pbr_instance_mat",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "ShadowMapX",
+                            "type": "float",
+                            "value": [
+                                1920.0
+                            ]
+                        },
+                        {
+                            "name": "ShadowMapY",
+                            "type": "float",
+                            "value": [
+                                1080.0
+                            ]
+                        },
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5527864098548889
+                            ]
+                        },
+                        {
+                            "name": "useIBL",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useShadowMap",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "vertexAnimationTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "cubemapTexture",
+                            "textureindex": -1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "shadowmapTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "IBL_Diffuse_Texture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "IBL_Specular_Texture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "IBL_GGXLUT_Texture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                },
+                {
+                    "meshindex": 1,
+                    "primitiveindex": 1,
+                    "materialframe": "pbr_instance_mat",
+                    "cull": "back",
+                    "uniformvalues": [
+                        {
+                            "name": "ShadowMapX",
+                            "type": "float",
+                            "value": [
+                                1920.0
+                            ]
+                        },
+                        {
+                            "name": "ShadowMapY",
+                            "type": "float",
+                            "value": [
+                                1080.0
+                            ]
+                        },
+                        {
+                            "name": "baseColorFactor",
+                            "type": "vec4",
+                            "value": [
+                                1.0,
+                                0.11764705181121826,
+                                0.8858439326286316,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveFactor",
+                            "type": "vec4",
+                            "value": [
+                                0.6190000176429749,
+                                0.335999995470047,
+                                1.0,
+                                1.0
+                            ]
+                        },
+                        {
+                            "name": "emissiveStrength",
+                            "type": "float",
+                            "value": [
+                                10.0
+                            ]
+                        },
+                        {
+                            "name": "roughnessFactor",
+                            "type": "float",
+                            "value": [
+                                0.5527864098548889
+                            ]
+                        },
+                        {
+                            "name": "useIBL",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        },
+                        {
+                            "name": "useShadowMap",
+                            "type": "int",
+                            "value": [
+                                1
+                            ]
+                        }
+                    ],
+                    "textures": [
+                        {
+                            "texturebuffername": "vertexAnimationTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "cubemapTexture",
+                            "textureindex": -1,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "shadowmapTexture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "IBL_Diffuse_Texture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "IBL_Specular_Texture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        },
+                        {
+                            "texturebuffername": "IBL_GGXLUT_Texture",
+                            "textureindex": 0,
+                            "texturename": ""
+                        }
+                    ]
+                }
+            ],
+            "components": [
+                {
+                    "type": "VATGenerator",
+                    "valueregistry": "VATGenerator_7805_16784"
+                }
+            ]
+        },
+        {
+            "name": "PlanerReflection",
+            "filename": "",
+            "renderpasslist": [
+                "MainGeometryPass"
+            ],
+            "transform": {
+                "pos": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotate": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            },
+            "enable": true,
+            "rootnodes": [
+                0
+            ],
+            "nodes": [
+                {
+                    "name": "FloorMesh",
+                    "transform": {
+                        "pos": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "rotate": [
+                            0.0,
+                            -0.0,
+                            0.0
+                        ],
+                        "scale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    },
+                    "enable": true,
+                    "meshindex": 0
+                }
+            ],
+            "meshs": [
+                {
+                    "primitives": [
+                        {
+                            "type": "board"
+                        }
+                    ]
+                }
+            ],
+            "materials": [
+                {
+                    "meshindex": 0,
+                    "primitiveindex": 0,
+                    "materialframe": "PlanerReflection_Mat",
+                    "cull": "none",
+                    "textures": [
+                        {
+                            "texturebuffername": "frameTexture",
+                            "textureindex": 1,
+                            "texturename": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

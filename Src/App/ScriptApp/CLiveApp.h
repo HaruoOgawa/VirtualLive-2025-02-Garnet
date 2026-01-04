@@ -9,19 +9,30 @@ namespace graphics {
 namespace gui { class CGraphicsEditingWindow; }
 namespace timeline { class CTimelineController; }
 namespace scene { class CSceneController; }
-namespace camera { class CTraceCamera; }
+namespace camera { class CLookUpTraceCamera; }
+
+namespace network {
+	class CUDPSocket;
+	class CDMXDataHandler;
+	class CNDIReceiver;
+}
 
 namespace app
 {
 	class CFileModifier;
 
-	class CScriptApp : public CApp
+	class CLiveApp : public CApp
 	{
 		std::shared_ptr<scene::CSceneController> m_SceneController;
 
 		std::shared_ptr<camera::CCamera> m_MainCamera;
 		std::shared_ptr<camera::CCamera> m_ViewCamera;
-		std::shared_ptr<camera::CTraceCamera> m_TraceCamera;
+
+		std::shared_ptr<camera::CLookUpTraceCamera> m_CurrentLookUpCamera;
+		std::shared_ptr<camera::CLookUpTraceCamera> m_LookUpCameraA;
+		std::shared_ptr<camera::CLookUpTraceCamera> m_LookUpCameraB;
+		bool m_LookUpSwitchToggle;
+
 		std::shared_ptr<projection::CProjection> m_Projection;
 		std::shared_ptr<graphics::CDrawInfo> m_DrawInfo;
 
@@ -38,9 +49,23 @@ namespace app
 
 		bool m_CameraSwitchToggle;
 
+		// 平面反射(Planer Reflection)
+		std::shared_ptr<camera::CCamera>		 m_PRCamera;
+		std::shared_ptr<projection::CProjection> m_PRProjection;
+		glm::mat4								 m_PRPlaneWorldMatrix;
+		glm::vec3								 m_PRPlanePos;
+
+#ifdef USE_NETWORK
+		std::shared_ptr<network::CUDPSocket> m_UDPSocket;
+		std::shared_ptr<network::CDMXDataHandler> m_DMXHandler;
+
+		std::shared_ptr<network::CNDIReceiver> m_NDIReceiver;
+#endif
+		int m_NDITexIndex = -1;
+
 	public:
-		CScriptApp();
-		virtual ~CScriptApp() = default;
+		CLiveApp();
+		virtual ~CLiveApp() = default;
 
 		virtual bool Release(api::IGraphicsAPI* pGraphicsAPI) override;
 
@@ -56,11 +81,17 @@ namespace app
 
 		virtual std::shared_ptr<graphics::CDrawInfo> GetDrawInfo() const override;
 
+		// コンポーネント作成
+		virtual std::shared_ptr<scriptable::CComponent> CreateComponent(const std::string& ComponentType, const std::string& ValueRegistry) override;
+
 		// 起動準備完了
 		virtual bool OnStartup(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker, const std::shared_ptr<gui::IGUIEngine>& GUIEngine) override;
 
 		// ロード完了イベント
 		virtual bool OnLoaded(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker, const std::shared_ptr<gui::IGUIEngine>& GUIEngine) override;
+
+		// オブジェクト個別のロード完了イベント
+		virtual bool OnObjectLoaded(const std::shared_ptr<object::C3DObject>& Object, api::IGraphicsAPI* pGraphicsAPI, resource::CLoadWorker* pLoadWorker) override;
 
 		// フォーカスイベント
 		virtual void OnFocus(bool Focused, api::IGraphicsAPI* pGraphicsAPI, resource::CLoadWorker* pLoadWorker) override;
@@ -71,5 +102,14 @@ namespace app
 		// Getter
 		virtual std::vector<std::shared_ptr<object::C3DObject>> GetObjectList() const override;
 		virtual std::shared_ptr<scene::CSceneController> GetSceneController() const override;
+
+		// DMXデータ受信イベント
+		virtual void OnReceiveArtNetDMX(unsigned short Net, unsigned short SubNet, unsigned short Universe, const std::vector<unsigned char>& DataBuffer) override;
+
+		// NDIデータ受信イベント
+		virtual void OnReceiveNDIImage(const std::vector<unsigned char>& pixelData, int Width, int Height, api::ERenderPassFormat RenderPassFormat) override;
+
+		// カスタムイベント発火
+		virtual void OnRaisedEvent(const std::string& Type, const std::string& Params) override;
 	};
 }

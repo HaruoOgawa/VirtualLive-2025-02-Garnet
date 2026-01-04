@@ -17,6 +17,8 @@ GarnetLauncher_Python/GarnetLauncher/GarnetLauncher/GarnetLauncher.spec
 GarnetLauncher_Python/GarnetLauncher/GarnetLauncher/build/
 imgui.ini
 
+Resources/User/Untracked/
+
 # User-specific files
 *.rsuser
 *.suo
