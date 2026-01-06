@@ -679,19 +679,31 @@ namespace app
 			}
 		}
 
+		const float PlayTime = 36.0f;
+
 		const auto& Sound = m_SceneController->GetSound();
 		const auto& SoundClip = std::get<0>(Sound);
 		if (SoundClip)
 		{
-			SoundClip->SetPlayPos(48.5f);
+			SoundClip->SetPlayPos(PlayTime);
 			SoundClip->PlayOneShot();
 		}
 
 		const auto& Len = m_SceneController->FindObjectByName("Len");
-		if (Len) Len->GetAnimationController()->ChangeMotion("Dance");
+		if (Len)
+		{
+			const auto& AnimationController = Len->GetAnimationController();
+			AnimationController->ChangeMotion("Dance");
+			AnimationController->SetPlayTime(PlayTime);
+		}
 		
 		const auto& Rin = m_SceneController->FindObjectByName("Rin");
-		if (Rin) Rin->GetAnimationController()->ChangeMotion("Dance");
+		if (Rin)
+		{
+			const auto& AnimationController = Rin->GetAnimationController();
+			AnimationController->ChangeMotion("Dance");
+			AnimationController->SetPlayTime(PlayTime);
+		}
 
 		return true;
 	}
