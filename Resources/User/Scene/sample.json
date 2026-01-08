@@ -1,0 +1,74 @@
+{
+    "materialframes": [
+        {
+            "name": "basic_toon_mat",
+            "filename": "Resources\\Common\\MaterialFrame\\basic_toon_mf.json"
+        },
+        {
+            "name": "basic_toon_outline_mat",
+            "filename": "Resources\\Common\\MaterialFrame\\basic_toon_outline_mf.json"
+        }
+    ],
+    "animations": [
+        {
+            "filename": "Resources/User/Untracked/IA.vmd",
+            "name": "DanceMotion"
+        }
+    ],
+    "sound": {
+        "bgm": {
+            "filename": "Resources/User/Untracked/Rokuchonen.wav",
+            "autoplay": false,
+            "loop": false
+        }
+    },
+    "physics": {
+        "enabled": true
+    },
+    
+    "objects": [
+        {
+            "name": "Len",
+            "filename": "Resources/User/Untracked/sour_len/Black.pmx",
+            "defaultmaterialframes": [
+                "basic_toon_outline_mat",
+                "basic_toon_mat"
+            ],
+            "renderpasslist": [
+                "MainGeometryPass",
+                "PlanerReflection_GeometryPass",
+                "ShadowPass"
+            ],
+            "animation": {
+                "humanoidclips": [
+                    {
+                        "ik": true,
+                        "index": 0,
+                        "key": "Dance",
+                        "loop": true,
+                        "motionname": "DanceMotion"
+                    }
+                ],
+                "playmotion": "Dance",
+                "playmotionindex": -1
+            },
+            "transform": {
+                "pos": [
+                    -0.5,
+                    0.0,
+                    0.0
+                ],
+                "rotate": [
+                    -5.008956122765085e-06,
+                    -5.008956122765085e-06,
+                    -5.008956122765085e-06
+                ],
+                "scale": [
+                    0.10000000149011612,
+                    0.10000000149011612,
+                    0.10000000149011612
+                ]
+            }
+        }
+    ]
+}

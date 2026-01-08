@@ -1,4 +1,4 @@
-#include "CLive1135App.h"
+#include "CLiveApp.h"
 
 #include <Graphics/CDrawInfo.h>
 #include <Graphics/CFrameRenderer.h>
@@ -31,7 +31,7 @@
 
 namespace app
 {
-	CLive1135App::CLive1135App() :
+	CLiveApp::CLiveApp() :
 		m_SceneController(std::make_shared<scene::CSceneController>()),
 		m_CameraSwitchToggle(true),
 		m_MainCamera(nullptr),
@@ -88,21 +88,16 @@ namespace app
 #endif
 	}
 
-	bool CLive1135App::Release(api::IGraphicsAPI* pGraphicsAPI)
+	bool CLiveApp::Release(api::IGraphicsAPI* pGraphicsAPI)
 	{
 		m_UDPSocket->Close();
 
 		return true;
 	}
 
-	bool CLive1135App::Initialize(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker)
+	bool CLiveApp::Initialize(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker)
 	{
-		//pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\sample.json", m_SceneController));
-		pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\Live_dotttabata.json", m_SceneController));
-		//pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\Live_1135.json", m_SceneController));
-		//pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\MioMikoSuba_Photo.json", m_SceneController));
-		//pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\FubuMio.json", m_SceneController));
-		//pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\FubuMio.json", m_SceneController));
+		pLoadWorker->AddScene(std::make_shared<resource::CSceneLoader>("Resources\\User\\Scene\\Live.json", m_SceneController));
 
 #ifdef USE_NETWORK
 		if (!m_UDPSocket->Initialize(shared_from_this(), true)) return false;
@@ -264,12 +259,12 @@ namespace app
 		return true;
 	}
 
-	bool CLive1135App::ProcessInput(api::IGraphicsAPI* pGraphicsAPI)
+	bool CLiveApp::ProcessInput(api::IGraphicsAPI* pGraphicsAPI)
 	{
 		return true;
 	}
 
-	bool CLive1135App::Resize(int Width, int Height)
+	bool CLiveApp::Resize(int Width, int Height)
 	{
 		m_Projection->SetScreenResolution(Width, Height);
 		m_PRProjection->SetScreenResolution(Width, Height);
@@ -279,7 +274,7 @@ namespace app
 		return true;
 	}
 
-	bool CLive1135App::Update(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker, const std::shared_ptr<input::CInputState>& InputState)
+	bool CLiveApp::Update(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker, const std::shared_ptr<input::CInputState>& InputState)
 	{
 		if (!m_FileModifier->Update(pLoadWorker)) return false;
 
@@ -353,21 +348,21 @@ namespace app
 		return true;
 	}
 
-	bool CLive1135App::LateUpdate(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker)
+	bool CLiveApp::LateUpdate(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker)
 	{
 		if (!m_SceneController->LateUpdate(pGraphicsAPI, pPhysicsEngine, pLoadWorker, m_DrawInfo)) return false;
 
 		return true;
 	}
 
-	bool CLive1135App::FixedUpdate(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker)
+	bool CLiveApp::FixedUpdate(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker)
 	{
 		if (!m_SceneController->FixedUpdate(pGraphicsAPI, pPhysicsEngine, pLoadWorker, m_DrawInfo)) return false;
 
 		return true;
 	}
 
-	bool CLive1135App::Draw(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker, const std::shared_ptr<input::CInputState>& InputState,
+	bool CLiveApp::Draw(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker, const std::shared_ptr<input::CInputState>& InputState,
 		const std::shared_ptr<gui::IGUIEngine>& GUIEngine)
 	{
 		// ShadowPass
@@ -490,13 +485,13 @@ namespace app
 		return true;
 	}
 
-	std::shared_ptr<graphics::CDrawInfo> CLive1135App::GetDrawInfo() const
+	std::shared_ptr<graphics::CDrawInfo> CLiveApp::GetDrawInfo() const
 	{
 		return m_DrawInfo;
 	}
 
 	// コンポーネント作成
-	std::shared_ptr<scriptable::CComponent> CLive1135App::CreateComponent(const std::string& ComponentType, const std::string& ValueRegistry)
+	std::shared_ptr<scriptable::CComponent> CLiveApp::CreateComponent(const std::string& ComponentType, const std::string& ValueRegistry)
 	{
 		if (ComponentType == "VATGenerator")
 		{
@@ -515,7 +510,7 @@ namespace app
 	}
 
 	// 起動準備完了
-	bool CLive1135App::OnStartup(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker, const std::shared_ptr<gui::IGUIEngine>& GUIEngine)
+	bool CLiveApp::OnStartup(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker, const std::shared_ptr<gui::IGUIEngine>& GUIEngine)
 	{
 		const auto& TimelineFileName = m_SceneController->GetTimelineFileName();
 		if (!TimelineFileName.empty()) pLoadWorker->AddLoadResource(std::make_shared<resource::CTimelineClipLoader>(TimelineFileName, m_TimelineController->GetClip()));
@@ -524,7 +519,7 @@ namespace app
 	}
 
 	// ロード完了イベント
-	bool CLive1135App::OnLoaded(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker, const std::shared_ptr<gui::IGUIEngine>& GUIEngine)
+	bool CLiveApp::OnLoaded(api::IGraphicsAPI* pGraphicsAPI, physics::IPhysicsEngine* pPhysicsEngine, resource::CLoadWorker* pLoadWorker, const std::shared_ptr<gui::IGUIEngine>& GUIEngine)
 	{
 		if (!m_SceneController->Create(pGraphicsAPI, pPhysicsEngine)) return false;
 
@@ -684,31 +679,39 @@ namespace app
 			}
 		}
 
+		const float PlayTime = 43.5f;
+
 		const auto& Sound = m_SceneController->GetSound();
 		const auto& SoundClip = std::get<0>(Sound);
 		if (SoundClip)
 		{
-			SoundClip->SetPlayPos(48.5f);
+			SoundClip->SetPlayPos(PlayTime);
 			SoundClip->PlayOneShot();
 		}
 
-		const auto& ookamimio = m_SceneController->FindObjectByName("ookamimio");
-		if (ookamimio) ookamimio->GetAnimationController()->ChangeMotion("Dance");
+		const float Delay = 2.9f;
+
+		const auto& Len = m_SceneController->FindObjectByName("Len");
+		if (Len)
+		{
+			const auto& AnimationController = Len->GetAnimationController();
+			AnimationController->ChangeMotion("Dance");
+			AnimationController->SetPlayTime(PlayTime + Delay);
+		}
 		
-		const auto& oozorasubaru = m_SceneController->FindObjectByName("oozorasubaru");
-		if (oozorasubaru) oozorasubaru->GetAnimationController()->ChangeMotion("Dance");
-
-		const auto& sakuramiko = m_SceneController->FindObjectByName("sakuramiko");
-		if (sakuramiko) sakuramiko->GetAnimationController()->ChangeMotion("Dance");
-
-		const auto& fubuki = m_SceneController->FindObjectByName("fubuki");
-		if (fubuki) fubuki->GetAnimationController()->ChangeMotion("Dance");
+		const auto& Rin = m_SceneController->FindObjectByName("Rin");
+		if (Rin)
+		{
+			const auto& AnimationController = Rin->GetAnimationController();
+			AnimationController->ChangeMotion("Dance");
+			AnimationController->SetPlayTime(PlayTime + Delay);
+		}
 
 		return true;
 	}
 
 	// オブジェクト個別のロード完了イベント
-	bool CLive1135App::OnObjectLoaded(const std::shared_ptr<object::C3DObject>& Object, api::IGraphicsAPI* pGraphicsAPI, resource::CLoadWorker* pLoadWorker)
+	bool CLiveApp::OnObjectLoaded(const std::shared_ptr<object::C3DObject>& Object, api::IGraphicsAPI* pGraphicsAPI, resource::CLoadWorker* pLoadWorker)
 	{
 		std::map<std::string, int> BaseNameCountMap;
 		BaseNameCountMap.emplace("Lift_MovingLight_Base.", 4);
@@ -900,7 +903,7 @@ namespace app
 	}
 
 	// フォーカスイベント
-	void CLive1135App::OnFocus(bool Focused, api::IGraphicsAPI* pGraphicsAPI, resource::CLoadWorker* pLoadWorker)
+	void CLiveApp::OnFocus(bool Focused, api::IGraphicsAPI* pGraphicsAPI, resource::CLoadWorker* pLoadWorker)
 	{
 		if (Focused && pLoadWorker)
 		{
@@ -909,7 +912,7 @@ namespace app
 	}
 
 	// エラー通知イベント
-	void CLive1135App::OnAssertError(const std::string& Message)
+	void CLiveApp::OnAssertError(const std::string& Message)
 	{
 #ifdef USE_GUIENGINE
 		m_GraphicsEditingWindow->AddLog(gui::EGUILogType::Error, Message);
@@ -917,7 +920,7 @@ namespace app
 	}
 
 	// Getter
-	std::vector<std::shared_ptr<object::C3DObject>> CLive1135App::GetObjectList() const
+	std::vector<std::shared_ptr<object::C3DObject>> CLiveApp::GetObjectList() const
 	{
 		std::vector<std::shared_ptr<object::C3DObject>> ObjectList;
 
@@ -929,13 +932,13 @@ namespace app
 		return ObjectList;
 	}
 
-	std::shared_ptr<scene::CSceneController> CLive1135App::GetSceneController() const
+	std::shared_ptr<scene::CSceneController> CLiveApp::GetSceneController() const
 	{
 		return m_SceneController;
 	}
 
 	// DMXデータ受信イベント
-	void CLive1135App::OnReceiveArtNetDMX(unsigned short Net, unsigned short SubNet, unsigned short Universe, const std::vector<unsigned char>& DataBuffer)
+	void CLiveApp::OnReceiveArtNetDMX(unsigned short Net, unsigned short SubNet, unsigned short Universe, const std::vector<unsigned char>& DataBuffer)
 	{
 #ifdef USE_NETWORK
 
@@ -946,7 +949,7 @@ namespace app
 	}
 
 	// NDIデータ受信イベント
-	void CLive1135App::OnReceiveNDIImage(const std::vector<unsigned char>& pixelData, int Width, int Height, api::ERenderPassFormat RenderPassFormat)
+	void CLiveApp::OnReceiveNDIImage(const std::vector<unsigned char>& pixelData, int Width, int Height, api::ERenderPassFormat RenderPassFormat)
 	{
 		if (!m_SceneController->IsLoaded()) return;
 
@@ -963,7 +966,7 @@ namespace app
 	}
 
 	// カスタムイベント発火
-	void CLive1135App::OnRaisedEvent(const std::string& Type, const std::string& Params)
+	void CLiveApp::OnRaisedEvent(const std::string& Type, const std::string& Params)
 	{
 		if (Type == "CameraSwitch")
 		{
