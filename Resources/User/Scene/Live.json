@@ -2079,7 +2079,7 @@
     },
     "animations": [
         {
-            "filename": "Resources/User/Untracked/Hibana/Hibana.vmd",
+            "filename": "Resources/User/Untracked/IA.vmd",
             "name": "DanceMotion"
         }
     ],
@@ -2088,7 +2088,7 @@
     },
     "sound": {
         "bgm": {
-            "filename": "Resources/User/Untracked/hibana.wav",
+            "filename": "Resources/User/Untracked/Rokuchonen.wav",
             "autoplay": false,
             "loop": false
         }

@@ -679,7 +679,7 @@ namespace app
 			}
 		}
 
-		const float PlayTime = 36.0f;
+		const float PlayTime = 43.5f;
 
 		const auto& Sound = m_SceneController->GetSound();
 		const auto& SoundClip = std::get<0>(Sound);
@@ -689,12 +689,14 @@ namespace app
 			SoundClip->PlayOneShot();
 		}
 
+		const float Delay = 2.9f;
+
 		const auto& Len = m_SceneController->FindObjectByName("Len");
 		if (Len)
 		{
 			const auto& AnimationController = Len->GetAnimationController();
 			AnimationController->ChangeMotion("Dance");
-			AnimationController->SetPlayTime(PlayTime);
+			AnimationController->SetPlayTime(PlayTime + Delay);
 		}
 		
 		const auto& Rin = m_SceneController->FindObjectByName("Rin");
@@ -702,7 +704,7 @@ namespace app
 		{
 			const auto& AnimationController = Rin->GetAnimationController();
 			AnimationController->ChangeMotion("Dance");
-			AnimationController->SetPlayTime(PlayTime);
+			AnimationController->SetPlayTime(PlayTime + Delay);
 		}
 
 		return true;
