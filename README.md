@@ -3,7 +3,7 @@
 ## はじめに
 権利関係の3Dモデル、音声、モーションは一切gitで管理していないので、もし鑑賞される際は公式配布元より購入・ダウンロードをお願いします。
 ## 導入手順
-1. [Garnet ver 0.20](https://github.com/HaruoOgawa/Garnet/releases/tag/0.20)をクローンもしくはダウンロード
+1. [Garnet ver 0.20](https://github.com/HaruoOgawa/Garnet/releases/tag/0.2.0)をクローンもしくはダウンロード
 2. このリポジトリをGarnetと同じディレクトリにクローンもしくはダウンロード
 3. https://bowlroll.net/file/155105 のPMXをダウンロード
 4. zipファイルを解凍しフォルダ名を「Sour式鏡音リンVer.2.01 → sour_rin」「Sour式鏡音レンVer.2.01 → sour_len」に変更
