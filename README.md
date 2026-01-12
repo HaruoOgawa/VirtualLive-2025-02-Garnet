@@ -5,8 +5,8 @@
 ## 導入手順
 1. 以下のコマンドを実行
 ```
-mkdir LiveApp
-cd LiveApp
+mkdir LiveApp2
+cd LiveApp2
 git clone https://github.com/HaruoOgawa/Garnet.git
 cd Garnet
 git checkout 0.2.0
