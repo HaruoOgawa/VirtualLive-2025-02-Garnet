@@ -12,6 +12,7 @@ cd Garnet
 git checkout 0.2.0
 cd ../
 git clone https://github.com/HaruoOgawa/VirtualLive-2025-02-Garnet.git
+
 ```
 2. https://aps.autodesk.com/developer/overview/fbx-sdk からWindows VS2022用のFBX SDKのインストーラーを取得しインストール
 3. [Garnet/Src/Library/FBXSDK](https://github.com/HaruoOgawa/Garnet/tree/0.2.0/Garnet/Src/Library/FBXSDK) に2020.3.7フォルダの中身をコピー
